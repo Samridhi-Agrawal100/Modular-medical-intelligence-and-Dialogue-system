@@ -1,0 +1,1894 @@
+[
+  {
+    "id": "m2_0001",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had stomach pain since yesterday."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0002",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had stomach pain since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly around my upper abdomen."
+      }
+    ],
+    "target": "pain_quality",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0003",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had stomach pain since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly around my upper abdomen."
+      },
+      {
+        "role": "assistant",
+        "content": "How would you describe the pain?"
+      },
+      {
+        "role": "user",
+        "content": "It's a dull ache."
+      }
+    ],
+    "target": "pain_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0004",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had stomach pain since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly around my upper abdomen."
+      },
+      {
+        "role": "assistant",
+        "content": "How severe is it from 0 to 10?"
+      },
+      {
+        "role": "user",
+        "content": "About 5."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0005",
+    "context": [
+      {
+        "role": "user",
+        "content": "My stomach hurts after meals."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly in the upper abdomen."
+      }
+    ],
+    "target": "pain_quality",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0006",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had abdominal pain for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Where is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "On the lower right side."
+      }
+    ],
+    "target": "pain_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0007",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had abdominal pain for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Where is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "On the lower right side."
+      },
+      {
+        "role": "assistant",
+        "content": "Is it getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "It is getting worse."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0008",
+    "context": [
+      {
+        "role": "user",
+        "content": "I have stomach cramps that come and go."
+      },
+      {
+        "role": "assistant",
+        "content": "How often does the pain happen?"
+      },
+      {
+        "role": "user",
+        "content": "Several times a day."
+      }
+    ],
+    "target": "pain_triggers",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0009",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a headache since this morning."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0010",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a headache since this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "Where does it hurt?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly behind my eyes."
+      }
+    ],
+    "target": "pain_quality",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0011",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a headache since this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "Where does it hurt?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly behind my eyes."
+      },
+      {
+        "role": "assistant",
+        "content": "What does the pain feel like?"
+      },
+      {
+        "role": "user",
+        "content": "It is throbbing."
+      }
+    ],
+    "target": "pain_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0012",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a headache since this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "How severe is the headache?"
+      },
+      {
+        "role": "user",
+        "content": "About 6 out of 10."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0013",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had headaches for a week."
+      },
+      {
+        "role": "assistant",
+        "content": "How often are they happening?"
+      },
+      {
+        "role": "user",
+        "content": "Almost every day."
+      }
+    ],
+    "target": "pain_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0014",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a headache since this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you notice anything that makes it worse?"
+      },
+      {
+        "role": "user",
+        "content": "Bright light does."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0015",
+    "context": [
+      {
+        "role": "user",
+        "content": "The headache sometimes moves from my forehead to the back of my head."
+      },
+      {
+        "role": "assistant",
+        "content": "Where does it usually start?"
+      },
+      {
+        "role": "user",
+        "content": "Around my forehead."
+      }
+    ],
+    "target": "pain_quality",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0016",
+    "context": [
+      {
+        "role": "user",
+        "content": "My lower back has been hurting for four days."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0017",
+    "context": [
+      {
+        "role": "user",
+        "content": "My lower back has been hurting for four days."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly on the right side."
+      }
+    ],
+    "target": "pain_quality",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0018",
+    "context": [
+      {
+        "role": "user",
+        "content": "My lower back has been hurting for four days."
+      },
+      {
+        "role": "assistant",
+        "content": "Does the pain travel anywhere?"
+      },
+      {
+        "role": "user",
+        "content": "Down my right leg."
+      }
+    ],
+    "target": "pain_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0019",
+    "context": [
+      {
+        "role": "user",
+        "content": "My lower back has been hurting for four days."
+      },
+      {
+        "role": "assistant",
+        "content": "What makes it worse?"
+      },
+      {
+        "role": "user",
+        "content": "Bending forward."
+      }
+    ],
+    "target": "pain_relieving_factors",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0020",
+    "context": [
+      {
+        "role": "user",
+        "content": "My lower back has been hurting for four days."
+      },
+      {
+        "role": "assistant",
+        "content": "What makes it better?"
+      },
+      {
+        "role": "user",
+        "content": "Resting helps."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0021",
+    "context": [
+      {
+        "role": "user",
+        "content": "My lower back started hurting after lifting a box."
+      },
+      {
+        "role": "assistant",
+        "content": "Did anything trigger it?"
+      },
+      {
+        "role": "user",
+        "content": "I lifted a heavy box."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0022",
+    "context": [
+      {
+        "role": "user",
+        "content": "My back pain has been getting worse."
+      },
+      {
+        "role": "assistant",
+        "content": "How long has this been happening?"
+      },
+      {
+        "role": "user",
+        "content": "About a week."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0023",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been coughing for two weeks."
+      }
+    ],
+    "target": "cough_character",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0024",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been coughing for two weeks."
+      },
+      {
+        "role": "assistant",
+        "content": "Is the cough dry or are you bringing up mucus?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly mucus."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0025",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been coughing for two weeks."
+      },
+      {
+        "role": "assistant",
+        "content": "Is the cough dry or productive?"
+      },
+      {
+        "role": "user",
+        "content": "It's dry."
+      }
+    ],
+    "target": "cough_frequency",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0026",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been coughing for two weeks."
+      },
+      {
+        "role": "assistant",
+        "content": "How often are you coughing?"
+      },
+      {
+        "role": "user",
+        "content": "Several times an hour."
+      }
+    ],
+    "target": "cough_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0027",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been coughing for two weeks."
+      },
+      {
+        "role": "assistant",
+        "content": "Has it been getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "Worse over the last three days."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0028",
+    "context": [
+      {
+        "role": "user",
+        "content": "I cough mostly at night."
+      },
+      {
+        "role": "assistant",
+        "content": "When did this cough start?"
+      },
+      {
+        "role": "user",
+        "content": "About five days ago."
+      }
+    ],
+    "target": "cough_character",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0029",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a cough with mucus for a week."
+      },
+      {
+        "role": "assistant",
+        "content": "What color is the mucus?"
+      },
+      {
+        "role": "user",
+        "content": "It's yellow."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0030",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling dizzy lately."
+      }
+    ],
+    "target": "dizziness_onset",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0031",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling dizzy for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "What does the dizziness feel like?"
+      },
+      {
+        "role": "user",
+        "content": "It feels like the room is spinning."
+      }
+    ],
+    "target": "dizziness_frequency",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0032",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling dizzy for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "When does it happen?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly when I stand up."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0033",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling dizzy for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you having any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "I feel nauseated."
+      }
+    ],
+    "target": "dizziness_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0034",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling dizzy for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Has it been getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "More frequent today."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0035",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling dizzy for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Does it affect what you can do?"
+      },
+      {
+        "role": "user",
+        "content": "I need to sit down when it happens."
+      }
+    ],
+    "target": "dizziness_triggers",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0036",
+    "context": [
+      {
+        "role": "user",
+        "content": "I feel lightheaded sometimes."
+      },
+      {
+        "role": "assistant",
+        "content": "When did this begin?"
+      },
+      {
+        "role": "user",
+        "content": "About a week ago."
+      }
+    ],
+    "target": "dizziness_type",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0037",
+    "context": [
+      {
+        "role": "user",
+        "content": "My throat has been sore since yesterday."
+      }
+    ],
+    "target": "throat_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0038",
+    "context": [
+      {
+        "role": "user",
+        "content": "My throat has been sore since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "How would you describe the discomfort?"
+      },
+      {
+        "role": "user",
+        "content": "Scratchy and painful."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0039",
+    "context": [
+      {
+        "role": "user",
+        "content": "My throat has been sore for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "Does anything make it worse?"
+      },
+      {
+        "role": "user",
+        "content": "Swallowing."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0040",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a fever since last night."
+      }
+    ],
+    "target": "fever_temperature",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0041",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a fever since last night."
+      },
+      {
+        "role": "assistant",
+        "content": "What was the highest temperature you measured?"
+      },
+      {
+        "role": "user",
+        "content": "38.7 degrees Celsius."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0042",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a fever for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "Has it been getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "It keeps coming back."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0043",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had a fever and chills since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "I also have a sore throat."
+      }
+    ],
+    "target": "fever_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0044",
+    "context": [
+      {
+        "role": "user",
+        "content": "My ankle has been swollen since yesterday."
+      }
+    ],
+    "target": "injury_or_trigger",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0045",
+    "context": [
+      {
+        "role": "user",
+        "content": "My ankle has been swollen since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you injure it recently?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I twisted it playing football."
+      }
+    ],
+    "target": "pain_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0046",
+    "context": [
+      {
+        "role": "user",
+        "content": "My ankle has been swollen since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you injure it recently?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I twisted it playing football."
+      },
+      {
+        "role": "assistant",
+        "content": "How bad is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "About 7 out of 10."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0047",
+    "context": [
+      {
+        "role": "user",
+        "content": "My ankle has been swollen since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Can you put weight on it?"
+      },
+      {
+        "role": "user",
+        "content": "Only with difficulty."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0048",
+    "context": [
+      {
+        "role": "user",
+        "content": "My ankle has been swollen for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "Is the swelling getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "It is more swollen today."
+      }
+    ],
+    "target": "injury_or_trigger",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0049",
+    "context": [
+      {
+        "role": "user",
+        "content": "I hurt my ankle yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "What happened?"
+      },
+      {
+        "role": "user",
+        "content": "I stepped awkwardly off a curb."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0050",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling nauseated since this morning."
+      }
+    ],
+    "target": "nausea_onset",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0051",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling nauseated since this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "How often does it happen?"
+      },
+      {
+        "role": "user",
+        "content": "Several times a day."
+      }
+    ],
+    "target": "vomiting",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0052",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been feeling nauseated since this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you vomited?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0053",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been vomiting since last night."
+      }
+    ],
+    "target": "vomiting_frequency",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0054",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been vomiting since last night."
+      },
+      {
+        "role": "assistant",
+        "content": "How many times have you vomited?"
+      },
+      {
+        "role": "user",
+        "content": "Four times."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0055",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been vomiting since last night."
+      },
+      {
+        "role": "assistant",
+        "content": "Any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "I have abdominal cramps."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0056",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been nauseated after meals for a week."
+      },
+      {
+        "role": "assistant",
+        "content": "What seems to bring it on?"
+      },
+      {
+        "role": "user",
+        "content": "Heavy meals."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0057",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had diarrhea since yesterday."
+      }
+    ],
+    "target": "diarrhea_frequency",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0058",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had diarrhea since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "How many bowel movements have you had today?"
+      },
+      {
+        "role": "user",
+        "content": "About six."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0059",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had diarrhea since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "Mild abdominal cramps."
+      }
+    ],
+    "target": "severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0060",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had diarrhea for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "Has it been getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "About the same."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0061",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had diarrhea since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Anything that seems to make it worse?"
+      },
+      {
+        "role": "user",
+        "content": "Meals."
+      }
+    ],
+    "target": "duration",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0062",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had diarrhea since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "How long does each episode last?"
+      },
+      {
+        "role": "user",
+        "content": "Usually a few minutes."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0063",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been short of breath for two days."
+      }
+    ],
+    "target": "breath_onset",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0064",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been short of breath for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "When does it happen?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly when I climb stairs."
+      }
+    ],
+    "target": "breath_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0065",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been short of breath for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "How severe is it when it happens?"
+      },
+      {
+        "role": "user",
+        "content": "Moderate."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0066",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been short of breath for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "Any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "A mild cough."
+      }
+    ],
+    "target": "breath_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0067",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've been short of breath for two days."
+      },
+      {
+        "role": "assistant",
+        "content": "Has it changed since it started?"
+      },
+      {
+        "role": "user",
+        "content": "It is slightly worse today."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0068",
+    "context": [
+      {
+        "role": "user",
+        "content": "I get breathless during exercise."
+      },
+      {
+        "role": "assistant",
+        "content": "How long has that been happening?"
+      },
+      {
+        "role": "user",
+        "content": "For about a month."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0069",
+    "context": [
+      {
+        "role": "user",
+        "content": "It burns when I urinate."
+      }
+    ],
+    "target": "urinary_onset",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0070",
+    "context": [
+      {
+        "role": "user",
+        "content": "It burns when I urinate."
+      },
+      {
+        "role": "assistant",
+        "content": "When did this start?"
+      },
+      {
+        "role": "user",
+        "content": "Two days ago."
+      }
+    ],
+    "target": "urinary_frequency",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0071",
+    "context": [
+      {
+        "role": "user",
+        "content": "It burns when I urinate."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you urinating more often than usual?"
+      },
+      {
+        "role": "user",
+        "content": "Yes."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0072",
+    "context": [
+      {
+        "role": "user",
+        "content": "It burns when I urinate and I need to go often."
+      },
+      {
+        "role": "assistant",
+        "content": "Any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "Some lower abdominal discomfort."
+      }
+    ],
+    "target": "urinary_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0073",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had burning urination for three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Is it getting better or worse?"
+      },
+      {
+        "role": "user",
+        "content": "Worse today."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0074",
+    "context": [
+      {
+        "role": "user",
+        "content": "I developed a rash yesterday."
+      }
+    ],
+    "target": "rash_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0075",
+    "context": [
+      {
+        "role": "user",
+        "content": "I developed a rash yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Where is the rash?"
+      },
+      {
+        "role": "user",
+        "content": "Mostly on my arms."
+      }
+    ],
+    "target": "rash_character",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0076",
+    "context": [
+      {
+        "role": "user",
+        "content": "I developed an itchy rash yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "What does it look like?"
+      },
+      {
+        "role": "user",
+        "content": "Small red spots."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0077",
+    "context": [
+      {
+        "role": "user",
+        "content": "I developed a rash yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "It is itchy but I otherwise feel fine."
+      }
+    ],
+    "target": "rash_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0078",
+    "context": [
+      {
+        "role": "user",
+        "content": "My knee has been aching for a week."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0079",
+    "context": [
+      {
+        "role": "user",
+        "content": "My knee has been aching for a week."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the pain?"
+      },
+      {
+        "role": "user",
+        "content": "Around the front of the knee."
+      }
+    ],
+    "target": "pain_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0080",
+    "context": [
+      {
+        "role": "user",
+        "content": "My knee has been aching for a week."
+      },
+      {
+        "role": "assistant",
+        "content": "Does it affect your activities?"
+      },
+      {
+        "role": "user",
+        "content": "Stairs are difficult."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0081",
+    "context": [
+      {
+        "role": "user",
+        "content": "My knee has been aching for a week."
+      },
+      {
+        "role": "assistant",
+        "content": "What makes it worse?"
+      },
+      {
+        "role": "user",
+        "content": "Going downstairs."
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0082",
+    "context": [
+      {
+        "role": "user",
+        "content": "I've had crushing chest pressure for 20 minutes and I'm sweating."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0083",
+    "context": [
+      {
+        "role": "user",
+        "content": "I suddenly cannot catch my breath and my lips look blue."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0084",
+    "context": [
+      {
+        "role": "user",
+        "content": "I have sudden weakness on one side and my speech is slurred."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0085",
+    "context": [
+      {
+        "role": "user",
+        "content": "I fainted and now I have severe chest pain."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0086",
+    "context": [
+      {
+        "role": "user",
+        "content": "I am vomiting blood and feel very weak."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0087",
+    "context": [
+      {
+        "role": "user",
+        "content": "My stool is black and tarry and I feel faint."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0088",
+    "context": [
+      {
+        "role": "user",
+        "content": "I have a sudden severe headache unlike my usual headaches."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0089",
+    "context": [
+      {
+        "role": "user",
+        "content": "I am having a seizure right now."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0090",
+    "context": [
+      {
+        "role": "user",
+        "content": "My face is swelling and I am having trouble breathing."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0091",
+    "context": [
+      {
+        "role": "user",
+        "content": "I have severe abdominal pain with repeated vomiting and feel faint."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0092",
+    "context": [
+      {
+        "role": "user",
+        "content": "I cannot stay awake and my breathing is very slow."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0093",
+    "context": [
+      {
+        "role": "user",
+        "content": "I have sudden severe chest pain spreading to my jaw."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0094",
+    "context": [
+      {
+        "role": "user",
+        "content": "I suddenly lost vision in one eye."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0095",
+    "context": [
+      {
+        "role": "user",
+        "content": "I am coughing up a large amount of blood."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0096",
+    "context": [
+      {
+        "role": "user",
+        "content": "My injured limb looks deformed and I cannot move it."
+      }
+    ],
+    "target": null,
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "m2_0097",
+    "context": [
+      {
+        "role": "user",
+        "content": "My shoulder has been sore since yesterday."
+      }
+    ],
+    "target": "pain_location",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0098",
+    "context": [
+      {
+        "role": "user",
+        "content": "My shoulder has been sore since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Where exactly is the soreness?"
+      },
+      {
+        "role": "user",
+        "content": "Around the back of my shoulder."
+      }
+    ],
+    "target": "injury_or_trigger",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0099",
+    "context": [
+      {
+        "role": "user",
+        "content": "My shoulder has been sore since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Did anything trigger it?"
+      },
+      {
+        "role": "user",
+        "content": "I lifted a heavy box."
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "m2_0100",
+    "context": [
+      {
+        "role": "user",
+        "content": "My shoulder has been sore since yesterday."
+      },
+      {
+        "role": "assistant",
+        "content": "Does it affect movement?"
+      },
+      {
+        "role": "user",
+        "content": "It hurts when I raise my arm."
+      }
+    ],
+    "target": "pain_severity",
+    "safety": {
+      "red_flag": false
+    }
+  }
+]
