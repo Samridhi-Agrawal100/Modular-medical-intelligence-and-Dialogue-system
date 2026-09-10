@@ -1,0 +1,101 @@
+id,text,target,red_flag,label,label_id
+m2_0001,User: I've had stomach pain since yesterday.,pain_location,False,pain_location,20
+m2_0002,User: I've had stomach pain since yesterday. | Assistant: Where exactly is the pain? | User: Mostly around my upper abdomen.,pain_quality,False,pain_quality,22
+m2_0003,User: I've had stomach pain since yesterday. | Assistant: Where exactly is the pain? | User: Mostly around my upper abdomen. | Assistant: How would you describe the pain? | User: It's a dull ache.,pain_severity,False,pain_severity,24
+m2_0004,User: I've had stomach pain since yesterday. | Assistant: Where exactly is the pain? | User: Mostly around my upper abdomen. | Assistant: How severe is it from 0 to 10? | User: About 5.,associated_symptoms,False,associated_symptoms,1
+m2_0005,User: My stomach hurts after meals. | Assistant: Where exactly is the pain? | User: Mostly in the upper abdomen.,pain_quality,False,pain_quality,22
+m2_0006,User: I've had abdominal pain for three days. | Assistant: Where is the pain? | User: On the lower right side.,pain_progression,False,pain_progression,21
+m2_0007,User: I've had abdominal pain for three days. | Assistant: Where is the pain? | User: On the lower right side. | Assistant: Is it getting better or worse? | User: It is getting worse.,associated_symptoms,False,associated_symptoms,1
+m2_0008,User: I have stomach cramps that come and go. | Assistant: How often does the pain happen? | User: Several times a day.,pain_triggers,False,pain_triggers,25
+m2_0009,User: I've had a headache since this morning.,pain_location,False,pain_location,20
+m2_0010,User: I've had a headache since this morning. | Assistant: Where does it hurt? | User: Mostly behind my eyes.,pain_quality,False,pain_quality,22
+m2_0011,User: I've had a headache since this morning. | Assistant: Where does it hurt? | User: Mostly behind my eyes. | Assistant: What does the pain feel like? | User: It is throbbing.,pain_severity,False,pain_severity,24
+m2_0012,User: I've had a headache since this morning. | Assistant: How severe is the headache? | User: About 6 out of 10.,associated_symptoms,False,associated_symptoms,1
+m2_0013,User: I've had headaches for a week. | Assistant: How often are they happening? | User: Almost every day.,pain_progression,False,pain_progression,21
+m2_0014,User: I've had a headache since this morning. | Assistant: Do you notice anything that makes it worse? | User: Bright light does.,associated_symptoms,False,associated_symptoms,1
+m2_0015,User: The headache sometimes moves from my forehead to the back of my head. | Assistant: Where does it usually start? | User: Around my forehead.,pain_quality,False,pain_quality,22
+m2_0016,User: My lower back has been hurting for four days.,pain_location,False,pain_location,20
+m2_0017,User: My lower back has been hurting for four days. | Assistant: Where exactly is the pain? | User: Mostly on the right side.,pain_quality,False,pain_quality,22
+m2_0018,User: My lower back has been hurting for four days. | Assistant: Does the pain travel anywhere? | User: Down my right leg.,pain_severity,False,pain_severity,24
+m2_0019,User: My lower back has been hurting for four days. | Assistant: What makes it worse? | User: Bending forward.,pain_relieving_factors,False,pain_relieving_factors,23
+m2_0020,User: My lower back has been hurting for four days. | Assistant: What makes it better? | User: Resting helps.,associated_symptoms,False,associated_symptoms,1
+m2_0021,User: My lower back started hurting after lifting a box. | Assistant: Did anything trigger it? | User: I lifted a heavy box.,functional_impact,False,functional_impact,17
+m2_0022,User: My back pain has been getting worse. | Assistant: How long has this been happening? | User: About a week.,pain_location,False,pain_location,20
+m2_0023,User: I've been coughing for two weeks.,cough_character,False,cough_character,5
+m2_0024,User: I've been coughing for two weeks. | Assistant: Is the cough dry or are you bringing up mucus? | User: Mostly mucus.,associated_symptoms,False,associated_symptoms,1
+m2_0025,User: I've been coughing for two weeks. | Assistant: Is the cough dry or productive? | User: It's dry.,cough_frequency,False,cough_frequency,6
+m2_0026,User: I've been coughing for two weeks. | Assistant: How often are you coughing? | User: Several times an hour.,cough_progression,False,cough_progression,7
+m2_0027,User: I've been coughing for two weeks. | Assistant: Has it been getting better or worse? | User: Worse over the last three days.,associated_symptoms,False,associated_symptoms,1
+m2_0028,User: I cough mostly at night. | Assistant: When did this cough start? | User: About five days ago.,cough_character,False,cough_character,5
+m2_0029,User: I've had a cough with mucus for a week. | Assistant: What color is the mucus? | User: It's yellow.,associated_symptoms,False,associated_symptoms,1
+m2_0030,User: I've been feeling dizzy lately.,dizziness_onset,False,dizziness_onset,10
+m2_0031,User: I've been feeling dizzy for three days. | Assistant: What does the dizziness feel like? | User: It feels like the room is spinning.,dizziness_frequency,False,dizziness_frequency,9
+m2_0032,User: I've been feeling dizzy for three days. | Assistant: When does it happen? | User: Mostly when I stand up.,associated_symptoms,False,associated_symptoms,1
+m2_0033,User: I've been feeling dizzy for three days. | Assistant: Are you having any other symptoms? | User: I feel nauseated.,dizziness_progression,False,dizziness_progression,11
+m2_0034,User: I've been feeling dizzy for three days. | Assistant: Has it been getting better or worse? | User: More frequent today.,functional_impact,False,functional_impact,17
+m2_0035,User: I've been feeling dizzy for three days. | Assistant: Does it affect what you can do? | User: I need to sit down when it happens.,dizziness_triggers,False,dizziness_triggers,12
+m2_0036,User: I feel lightheaded sometimes. | Assistant: When did this begin? | User: About a week ago.,dizziness_type,False,dizziness_type,13
+m2_0037,User: My throat has been sore since yesterday.,throat_severity,False,throat_severity,30
+m2_0038,User: My throat has been sore since yesterday. | Assistant: How would you describe the discomfort? | User: Scratchy and painful.,associated_symptoms,False,associated_symptoms,1
+m2_0039,User: My throat has been sore for two days. | Assistant: Does anything make it worse? | User: Swallowing.,associated_symptoms,False,associated_symptoms,1
+m2_0040,User: I've had a fever since last night.,fever_temperature,False,fever_temperature,16
+m2_0041,User: I've had a fever since last night. | Assistant: What was the highest temperature you measured? | User: 38.7 degrees Celsius.,associated_symptoms,False,associated_symptoms,1
+m2_0042,User: I've had a fever for two days. | Assistant: Has it been getting better or worse? | User: It keeps coming back.,associated_symptoms,False,associated_symptoms,1
+m2_0043,User: I've had a fever and chills since yesterday. | Assistant: Do you have any other symptoms? | User: I also have a sore throat.,fever_progression,False,fever_progression,15
+m2_0044,User: My ankle has been swollen since yesterday.,injury_or_trigger,False,injury_or_trigger,18
+m2_0045,"User: My ankle has been swollen since yesterday. | Assistant: Did you injure it recently? | User: Yes, I twisted it playing football.",pain_severity,False,pain_severity,24
+m2_0046,"User: My ankle has been swollen since yesterday. | Assistant: Did you injure it recently? | User: Yes, I twisted it playing football. | Assistant: How bad is the pain? | User: About 7 out of 10.",functional_impact,False,functional_impact,17
+m2_0047,User: My ankle has been swollen since yesterday. | Assistant: Can you put weight on it? | User: Only with difficulty.,associated_symptoms,False,associated_symptoms,1
+m2_0048,User: My ankle has been swollen for two days. | Assistant: Is the swelling getting better or worse? | User: It is more swollen today.,injury_or_trigger,False,injury_or_trigger,18
+m2_0049,User: I hurt my ankle yesterday. | Assistant: What happened? | User: I stepped awkwardly off a curb.,pain_location,False,pain_location,20
+m2_0050,User: I've been feeling nauseated since this morning.,nausea_onset,False,nausea_onset,19
+m2_0051,User: I've been feeling nauseated since this morning. | Assistant: How often does it happen? | User: Several times a day.,vomiting,False,vomiting,34
+m2_0052,User: I've been feeling nauseated since this morning. | Assistant: Have you vomited? | User: No.,associated_symptoms,False,associated_symptoms,1
+m2_0053,User: I've been vomiting since last night.,vomiting_frequency,False,vomiting_frequency,35
+m2_0054,User: I've been vomiting since last night. | Assistant: How many times have you vomited? | User: Four times.,associated_symptoms,False,associated_symptoms,1
+m2_0055,User: I've been vomiting since last night. | Assistant: Any other symptoms? | User: I have abdominal cramps.,functional_impact,False,functional_impact,17
+m2_0056,User: I've been nauseated after meals for a week. | Assistant: What seems to bring it on? | User: Heavy meals.,associated_symptoms,False,associated_symptoms,1
+m2_0057,User: I've had diarrhea since yesterday.,diarrhea_frequency,False,diarrhea_frequency,8
+m2_0058,User: I've had diarrhea since yesterday. | Assistant: How many bowel movements have you had today? | User: About six.,associated_symptoms,False,associated_symptoms,1
+m2_0059,User: I've had diarrhea since yesterday. | Assistant: Any other symptoms? | User: Mild abdominal cramps.,severity,False,severity,29
+m2_0060,User: I've had diarrhea for two days. | Assistant: Has it been getting better or worse? | User: About the same.,associated_symptoms,False,associated_symptoms,1
+m2_0061,User: I've had diarrhea since yesterday. | Assistant: Anything that seems to make it worse? | User: Meals.,duration,False,duration,14
+m2_0062,User: I've had diarrhea since yesterday. | Assistant: How long does each episode last? | User: Usually a few minutes.,functional_impact,False,functional_impact,17
+m2_0063,User: I've been short of breath for two days.,breath_onset,False,breath_onset,2
+m2_0064,User: I've been short of breath for two days. | Assistant: When does it happen? | User: Mostly when I climb stairs.,breath_severity,False,breath_severity,4
+m2_0065,User: I've been short of breath for two days. | Assistant: How severe is it when it happens? | User: Moderate.,associated_symptoms,False,associated_symptoms,1
+m2_0066,User: I've been short of breath for two days. | Assistant: Any other symptoms? | User: A mild cough.,breath_progression,False,breath_progression,3
+m2_0067,User: I've been short of breath for two days. | Assistant: Has it changed since it started? | User: It is slightly worse today.,functional_impact,False,functional_impact,17
+m2_0068,User: I get breathless during exercise. | Assistant: How long has that been happening? | User: For about a month.,associated_symptoms,False,associated_symptoms,1
+m2_0069,User: It burns when I urinate.,urinary_onset,False,urinary_onset,32
+m2_0070,User: It burns when I urinate. | Assistant: When did this start? | User: Two days ago.,urinary_frequency,False,urinary_frequency,31
+m2_0071,User: It burns when I urinate. | Assistant: Are you urinating more often than usual? | User: Yes.,associated_symptoms,False,associated_symptoms,1
+m2_0072,User: It burns when I urinate and I need to go often. | Assistant: Any other symptoms? | User: Some lower abdominal discomfort.,urinary_progression,False,urinary_progression,33
+m2_0073,User: I've had burning urination for three days. | Assistant: Is it getting better or worse? | User: Worse today.,associated_symptoms,False,associated_symptoms,1
+m2_0074,User: I developed a rash yesterday.,rash_location,False,rash_location,27
+m2_0075,User: I developed a rash yesterday. | Assistant: Where is the rash? | User: Mostly on my arms.,rash_character,False,rash_character,26
+m2_0076,User: I developed an itchy rash yesterday. | Assistant: What does it look like? | User: Small red spots.,associated_symptoms,False,associated_symptoms,1
+m2_0077,User: I developed a rash yesterday. | Assistant: Any other symptoms? | User: It is itchy but I otherwise feel fine.,rash_progression,False,rash_progression,28
+m2_0078,User: My knee has been aching for a week.,pain_location,False,pain_location,20
+m2_0079,User: My knee has been aching for a week. | Assistant: Where exactly is the pain? | User: Around the front of the knee.,pain_severity,False,pain_severity,24
+m2_0080,User: My knee has been aching for a week. | Assistant: Does it affect your activities? | User: Stairs are difficult.,functional_impact,False,functional_impact,17
+m2_0081,User: My knee has been aching for a week. | Assistant: What makes it worse? | User: Going downstairs.,associated_symptoms,False,associated_symptoms,1
+m2_0082,User: I've had crushing chest pressure for 20 minutes and I'm sweating.,,True,RED_FLAG,0
+m2_0083,User: I suddenly cannot catch my breath and my lips look blue.,,True,RED_FLAG,0
+m2_0084,User: I have sudden weakness on one side and my speech is slurred.,,True,RED_FLAG,0
+m2_0085,User: I fainted and now I have severe chest pain.,,True,RED_FLAG,0
+m2_0086,User: I am vomiting blood and feel very weak.,,True,RED_FLAG,0
+m2_0087,User: My stool is black and tarry and I feel faint.,,True,RED_FLAG,0
+m2_0088,User: I have a sudden severe headache unlike my usual headaches.,,True,RED_FLAG,0
+m2_0089,User: I am having a seizure right now.,,True,RED_FLAG,0
+m2_0090,User: My face is swelling and I am having trouble breathing.,,True,RED_FLAG,0
+m2_0091,User: I have severe abdominal pain with repeated vomiting and feel faint.,,True,RED_FLAG,0
+m2_0092,User: I cannot stay awake and my breathing is very slow.,,True,RED_FLAG,0
+m2_0093,User: I have sudden severe chest pain spreading to my jaw.,,True,RED_FLAG,0
+m2_0094,User: I suddenly lost vision in one eye.,,True,RED_FLAG,0
+m2_0095,User: I am coughing up a large amount of blood.,,True,RED_FLAG,0
+m2_0096,User: My injured limb looks deformed and I cannot move it.,,True,RED_FLAG,0
+m2_0097,User: My shoulder has been sore since yesterday.,pain_location,False,pain_location,20
+m2_0098,User: My shoulder has been sore since yesterday. | Assistant: Where exactly is the soreness? | User: Around the back of my shoulder.,injury_or_trigger,False,injury_or_trigger,18
+m2_0099,User: My shoulder has been sore since yesterday. | Assistant: Did anything trigger it? | User: I lifted a heavy box.,functional_impact,False,functional_impact,17
+m2_0100,User: My shoulder has been sore since yesterday. | Assistant: Does it affect movement? | User: It hurts when I raise my arm.,pain_severity,False,pain_severity,24

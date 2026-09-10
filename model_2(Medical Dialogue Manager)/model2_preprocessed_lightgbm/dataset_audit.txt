@@ -1,0 +1,692 @@
+MODEL 2 — DATASET FORENSIC AUDIT
+================================================================================
+
+Total records: 100
+Total labels: 36
+
+LABEL DISTRIBUTION
+--------------------------------------------------------------------------------
+associated_symptoms            |  25 |  25.00%
+RED_FLAG                       |  15 |  15.00%
+functional_impact              |   8 |   8.00%
+pain_location                  |   7 |   7.00%
+pain_severity                  |   6 |   6.00%
+pain_quality                   |   5 |   5.00%
+injury_or_trigger              |   3 |   3.00%
+pain_progression               |   2 |   2.00%
+cough_character                |   2 |   2.00%
+pain_triggers                  |   1 |   1.00%
+pain_relieving_factors         |   1 |   1.00%
+cough_frequency                |   1 |   1.00%
+cough_progression              |   1 |   1.00%
+dizziness_onset                |   1 |   1.00%
+dizziness_frequency            |   1 |   1.00%
+dizziness_progression          |   1 |   1.00%
+dizziness_triggers             |   1 |   1.00%
+dizziness_type                 |   1 |   1.00%
+throat_severity                |   1 |   1.00%
+fever_temperature              |   1 |   1.00%
+fever_progression              |   1 |   1.00%
+nausea_onset                   |   1 |   1.00%
+vomiting                       |   1 |   1.00%
+vomiting_frequency             |   1 |   1.00%
+diarrhea_frequency             |   1 |   1.00%
+severity                       |   1 |   1.00%
+duration                       |   1 |   1.00%
+breath_onset                   |   1 |   1.00%
+breath_severity                |   1 |   1.00%
+breath_progression             |   1 |   1.00%
+urinary_onset                  |   1 |   1.00%
+urinary_frequency              |   1 |   1.00%
+urinary_progression            |   1 |   1.00%
+rash_location                  |   1 |   1.00%
+rash_character                 |   1 |   1.00%
+rash_progression               |   1 |   1.00%
+
+
+ALL EXAMPLES
+================================================================================
+
+
+LABEL: RED_FLAG
+--------------------------------------------------------------------------------
+
+ID: m2_0082
+Text: User: I've had crushing chest pressure for 20 minutes and I'm sweating.
+Target: nan
+Red Flag: True
+
+ID: m2_0083
+Text: User: I suddenly cannot catch my breath and my lips look blue.
+Target: nan
+Red Flag: True
+
+ID: m2_0084
+Text: User: I have sudden weakness on one side and my speech is slurred.
+Target: nan
+Red Flag: True
+
+ID: m2_0085
+Text: User: I fainted and now I have severe chest pain.
+Target: nan
+Red Flag: True
+
+ID: m2_0086
+Text: User: I am vomiting blood and feel very weak.
+Target: nan
+Red Flag: True
+
+ID: m2_0087
+Text: User: My stool is black and tarry and I feel faint.
+Target: nan
+Red Flag: True
+
+ID: m2_0088
+Text: User: I have a sudden severe headache unlike my usual headaches.
+Target: nan
+Red Flag: True
+
+ID: m2_0089
+Text: User: I am having a seizure right now.
+Target: nan
+Red Flag: True
+
+ID: m2_0090
+Text: User: My face is swelling and I am having trouble breathing.
+Target: nan
+Red Flag: True
+
+ID: m2_0091
+Text: User: I have severe abdominal pain with repeated vomiting and feel faint.
+Target: nan
+Red Flag: True
+
+ID: m2_0092
+Text: User: I cannot stay awake and my breathing is very slow.
+Target: nan
+Red Flag: True
+
+ID: m2_0093
+Text: User: I have sudden severe chest pain spreading to my jaw.
+Target: nan
+Red Flag: True
+
+ID: m2_0094
+Text: User: I suddenly lost vision in one eye.
+Target: nan
+Red Flag: True
+
+ID: m2_0095
+Text: User: I am coughing up a large amount of blood.
+Target: nan
+Red Flag: True
+
+ID: m2_0096
+Text: User: My injured limb looks deformed and I cannot move it.
+Target: nan
+Red Flag: True
+
+
+LABEL: associated_symptoms
+--------------------------------------------------------------------------------
+
+ID: m2_0004
+Text: User: I've had stomach pain since yesterday. | Assistant: Where exactly is the pain? | User: Mostly around my upper abdomen. | Assistant: How severe is it from 0 to 10? | User: About 5.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0007
+Text: User: I've had abdominal pain for three days. | Assistant: Where is the pain? | User: On the lower right side. | Assistant: Is it getting better or worse? | User: It is getting worse.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0012
+Text: User: I've had a headache since this morning. | Assistant: How severe is the headache? | User: About 6 out of 10.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0014
+Text: User: I've had a headache since this morning. | Assistant: Do you notice anything that makes it worse? | User: Bright light does.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0020
+Text: User: My lower back has been hurting for four days. | Assistant: What makes it better? | User: Resting helps.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0024
+Text: User: I've been coughing for two weeks. | Assistant: Is the cough dry or are you bringing up mucus? | User: Mostly mucus.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0027
+Text: User: I've been coughing for two weeks. | Assistant: Has it been getting better or worse? | User: Worse over the last three days.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0029
+Text: User: I've had a cough with mucus for a week. | Assistant: What color is the mucus? | User: It's yellow.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0032
+Text: User: I've been feeling dizzy for three days. | Assistant: When does it happen? | User: Mostly when I stand up.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0038
+Text: User: My throat has been sore since yesterday. | Assistant: How would you describe the discomfort? | User: Scratchy and painful.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0039
+Text: User: My throat has been sore for two days. | Assistant: Does anything make it worse? | User: Swallowing.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0041
+Text: User: I've had a fever since last night. | Assistant: What was the highest temperature you measured? | User: 38.7 degrees Celsius.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0042
+Text: User: I've had a fever for two days. | Assistant: Has it been getting better or worse? | User: It keeps coming back.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0047
+Text: User: My ankle has been swollen since yesterday. | Assistant: Can you put weight on it? | User: Only with difficulty.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0052
+Text: User: I've been feeling nauseated since this morning. | Assistant: Have you vomited? | User: No.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0054
+Text: User: I've been vomiting since last night. | Assistant: How many times have you vomited? | User: Four times.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0056
+Text: User: I've been nauseated after meals for a week. | Assistant: What seems to bring it on? | User: Heavy meals.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0058
+Text: User: I've had diarrhea since yesterday. | Assistant: How many bowel movements have you had today? | User: About six.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0060
+Text: User: I've had diarrhea for two days. | Assistant: Has it been getting better or worse? | User: About the same.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0065
+Text: User: I've been short of breath for two days. | Assistant: How severe is it when it happens? | User: Moderate.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0068
+Text: User: I get breathless during exercise. | Assistant: How long has that been happening? | User: For about a month.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0071
+Text: User: It burns when I urinate. | Assistant: Are you urinating more often than usual? | User: Yes.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0073
+Text: User: I've had burning urination for three days. | Assistant: Is it getting better or worse? | User: Worse today.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0076
+Text: User: I developed an itchy rash yesterday. | Assistant: What does it look like? | User: Small red spots.
+Target: associated_symptoms
+Red Flag: False
+
+ID: m2_0081
+Text: User: My knee has been aching for a week. | Assistant: What makes it worse? | User: Going downstairs.
+Target: associated_symptoms
+Red Flag: False
+
+
+LABEL: breath_onset
+--------------------------------------------------------------------------------
+
+ID: m2_0063
+Text: User: I've been short of breath for two days.
+Target: breath_onset
+Red Flag: False
+
+
+LABEL: breath_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0066
+Text: User: I've been short of breath for two days. | Assistant: Any other symptoms? | User: A mild cough.
+Target: breath_progression
+Red Flag: False
+
+
+LABEL: breath_severity
+--------------------------------------------------------------------------------
+
+ID: m2_0064
+Text: User: I've been short of breath for two days. | Assistant: When does it happen? | User: Mostly when I climb stairs.
+Target: breath_severity
+Red Flag: False
+
+
+LABEL: cough_character
+--------------------------------------------------------------------------------
+
+ID: m2_0023
+Text: User: I've been coughing for two weeks.
+Target: cough_character
+Red Flag: False
+
+ID: m2_0028
+Text: User: I cough mostly at night. | Assistant: When did this cough start? | User: About five days ago.
+Target: cough_character
+Red Flag: False
+
+
+LABEL: cough_frequency
+--------------------------------------------------------------------------------
+
+ID: m2_0025
+Text: User: I've been coughing for two weeks. | Assistant: Is the cough dry or productive? | User: It's dry.
+Target: cough_frequency
+Red Flag: False
+
+
+LABEL: cough_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0026
+Text: User: I've been coughing for two weeks. | Assistant: How often are you coughing? | User: Several times an hour.
+Target: cough_progression
+Red Flag: False
+
+
+LABEL: diarrhea_frequency
+--------------------------------------------------------------------------------
+
+ID: m2_0057
+Text: User: I've had diarrhea since yesterday.
+Target: diarrhea_frequency
+Red Flag: False
+
+
+LABEL: dizziness_frequency
+--------------------------------------------------------------------------------
+
+ID: m2_0031
+Text: User: I've been feeling dizzy for three days. | Assistant: What does the dizziness feel like? | User: It feels like the room is spinning.
+Target: dizziness_frequency
+Red Flag: False
+
+
+LABEL: dizziness_onset
+--------------------------------------------------------------------------------
+
+ID: m2_0030
+Text: User: I've been feeling dizzy lately.
+Target: dizziness_onset
+Red Flag: False
+
+
+LABEL: dizziness_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0033
+Text: User: I've been feeling dizzy for three days. | Assistant: Are you having any other symptoms? | User: I feel nauseated.
+Target: dizziness_progression
+Red Flag: False
+
+
+LABEL: dizziness_triggers
+--------------------------------------------------------------------------------
+
+ID: m2_0035
+Text: User: I've been feeling dizzy for three days. | Assistant: Does it affect what you can do? | User: I need to sit down when it happens.
+Target: dizziness_triggers
+Red Flag: False
+
+
+LABEL: dizziness_type
+--------------------------------------------------------------------------------
+
+ID: m2_0036
+Text: User: I feel lightheaded sometimes. | Assistant: When did this begin? | User: About a week ago.
+Target: dizziness_type
+Red Flag: False
+
+
+LABEL: duration
+--------------------------------------------------------------------------------
+
+ID: m2_0061
+Text: User: I've had diarrhea since yesterday. | Assistant: Anything that seems to make it worse? | User: Meals.
+Target: duration
+Red Flag: False
+
+
+LABEL: fever_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0043
+Text: User: I've had a fever and chills since yesterday. | Assistant: Do you have any other symptoms? | User: I also have a sore throat.
+Target: fever_progression
+Red Flag: False
+
+
+LABEL: fever_temperature
+--------------------------------------------------------------------------------
+
+ID: m2_0040
+Text: User: I've had a fever since last night.
+Target: fever_temperature
+Red Flag: False
+
+
+LABEL: functional_impact
+--------------------------------------------------------------------------------
+
+ID: m2_0021
+Text: User: My lower back started hurting after lifting a box. | Assistant: Did anything trigger it? | User: I lifted a heavy box.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0034
+Text: User: I've been feeling dizzy for three days. | Assistant: Has it been getting better or worse? | User: More frequent today.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0046
+Text: User: My ankle has been swollen since yesterday. | Assistant: Did you injure it recently? | User: Yes, I twisted it playing football. | Assistant: How bad is the pain? | User: About 7 out of 10.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0055
+Text: User: I've been vomiting since last night. | Assistant: Any other symptoms? | User: I have abdominal cramps.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0062
+Text: User: I've had diarrhea since yesterday. | Assistant: How long does each episode last? | User: Usually a few minutes.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0067
+Text: User: I've been short of breath for two days. | Assistant: Has it changed since it started? | User: It is slightly worse today.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0080
+Text: User: My knee has been aching for a week. | Assistant: Does it affect your activities? | User: Stairs are difficult.
+Target: functional_impact
+Red Flag: False
+
+ID: m2_0099
+Text: User: My shoulder has been sore since yesterday. | Assistant: Did anything trigger it? | User: I lifted a heavy box.
+Target: functional_impact
+Red Flag: False
+
+
+LABEL: injury_or_trigger
+--------------------------------------------------------------------------------
+
+ID: m2_0044
+Text: User: My ankle has been swollen since yesterday.
+Target: injury_or_trigger
+Red Flag: False
+
+ID: m2_0048
+Text: User: My ankle has been swollen for two days. | Assistant: Is the swelling getting better or worse? | User: It is more swollen today.
+Target: injury_or_trigger
+Red Flag: False
+
+ID: m2_0098
+Text: User: My shoulder has been sore since yesterday. | Assistant: Where exactly is the soreness? | User: Around the back of my shoulder.
+Target: injury_or_trigger
+Red Flag: False
+
+
+LABEL: nausea_onset
+--------------------------------------------------------------------------------
+
+ID: m2_0050
+Text: User: I've been feeling nauseated since this morning.
+Target: nausea_onset
+Red Flag: False
+
+
+LABEL: pain_location
+--------------------------------------------------------------------------------
+
+ID: m2_0001
+Text: User: I've had stomach pain since yesterday.
+Target: pain_location
+Red Flag: False
+
+ID: m2_0009
+Text: User: I've had a headache since this morning.
+Target: pain_location
+Red Flag: False
+
+ID: m2_0016
+Text: User: My lower back has been hurting for four days.
+Target: pain_location
+Red Flag: False
+
+ID: m2_0022
+Text: User: My back pain has been getting worse. | Assistant: How long has this been happening? | User: About a week.
+Target: pain_location
+Red Flag: False
+
+ID: m2_0049
+Text: User: I hurt my ankle yesterday. | Assistant: What happened? | User: I stepped awkwardly off a curb.
+Target: pain_location
+Red Flag: False
+
+ID: m2_0078
+Text: User: My knee has been aching for a week.
+Target: pain_location
+Red Flag: False
+
+ID: m2_0097
+Text: User: My shoulder has been sore since yesterday.
+Target: pain_location
+Red Flag: False
+
+
+LABEL: pain_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0006
+Text: User: I've had abdominal pain for three days. | Assistant: Where is the pain? | User: On the lower right side.
+Target: pain_progression
+Red Flag: False
+
+ID: m2_0013
+Text: User: I've had headaches for a week. | Assistant: How often are they happening? | User: Almost every day.
+Target: pain_progression
+Red Flag: False
+
+
+LABEL: pain_quality
+--------------------------------------------------------------------------------
+
+ID: m2_0002
+Text: User: I've had stomach pain since yesterday. | Assistant: Where exactly is the pain? | User: Mostly around my upper abdomen.
+Target: pain_quality
+Red Flag: False
+
+ID: m2_0005
+Text: User: My stomach hurts after meals. | Assistant: Where exactly is the pain? | User: Mostly in the upper abdomen.
+Target: pain_quality
+Red Flag: False
+
+ID: m2_0010
+Text: User: I've had a headache since this morning. | Assistant: Where does it hurt? | User: Mostly behind my eyes.
+Target: pain_quality
+Red Flag: False
+
+ID: m2_0015
+Text: User: The headache sometimes moves from my forehead to the back of my head. | Assistant: Where does it usually start? | User: Around my forehead.
+Target: pain_quality
+Red Flag: False
+
+ID: m2_0017
+Text: User: My lower back has been hurting for four days. | Assistant: Where exactly is the pain? | User: Mostly on the right side.
+Target: pain_quality
+Red Flag: False
+
+
+LABEL: pain_relieving_factors
+--------------------------------------------------------------------------------
+
+ID: m2_0019
+Text: User: My lower back has been hurting for four days. | Assistant: What makes it worse? | User: Bending forward.
+Target: pain_relieving_factors
+Red Flag: False
+
+
+LABEL: pain_severity
+--------------------------------------------------------------------------------
+
+ID: m2_0003
+Text: User: I've had stomach pain since yesterday. | Assistant: Where exactly is the pain? | User: Mostly around my upper abdomen. | Assistant: How would you describe the pain? | User: It's a dull ache.
+Target: pain_severity
+Red Flag: False
+
+ID: m2_0011
+Text: User: I've had a headache since this morning. | Assistant: Where does it hurt? | User: Mostly behind my eyes. | Assistant: What does the pain feel like? | User: It is throbbing.
+Target: pain_severity
+Red Flag: False
+
+ID: m2_0018
+Text: User: My lower back has been hurting for four days. | Assistant: Does the pain travel anywhere? | User: Down my right leg.
+Target: pain_severity
+Red Flag: False
+
+ID: m2_0045
+Text: User: My ankle has been swollen since yesterday. | Assistant: Did you injure it recently? | User: Yes, I twisted it playing football.
+Target: pain_severity
+Red Flag: False
+
+ID: m2_0079
+Text: User: My knee has been aching for a week. | Assistant: Where exactly is the pain? | User: Around the front of the knee.
+Target: pain_severity
+Red Flag: False
+
+ID: m2_0100
+Text: User: My shoulder has been sore since yesterday. | Assistant: Does it affect movement? | User: It hurts when I raise my arm.
+Target: pain_severity
+Red Flag: False
+
+
+LABEL: pain_triggers
+--------------------------------------------------------------------------------
+
+ID: m2_0008
+Text: User: I have stomach cramps that come and go. | Assistant: How often does the pain happen? | User: Several times a day.
+Target: pain_triggers
+Red Flag: False
+
+
+LABEL: rash_character
+--------------------------------------------------------------------------------
+
+ID: m2_0075
+Text: User: I developed a rash yesterday. | Assistant: Where is the rash? | User: Mostly on my arms.
+Target: rash_character
+Red Flag: False
+
+
+LABEL: rash_location
+--------------------------------------------------------------------------------
+
+ID: m2_0074
+Text: User: I developed a rash yesterday.
+Target: rash_location
+Red Flag: False
+
+
+LABEL: rash_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0077
+Text: User: I developed a rash yesterday. | Assistant: Any other symptoms? | User: It is itchy but I otherwise feel fine.
+Target: rash_progression
+Red Flag: False
+
+
+LABEL: severity
+--------------------------------------------------------------------------------
+
+ID: m2_0059
+Text: User: I've had diarrhea since yesterday. | Assistant: Any other symptoms? | User: Mild abdominal cramps.
+Target: severity
+Red Flag: False
+
+
+LABEL: throat_severity
+--------------------------------------------------------------------------------
+
+ID: m2_0037
+Text: User: My throat has been sore since yesterday.
+Target: throat_severity
+Red Flag: False
+
+
+LABEL: urinary_frequency
+--------------------------------------------------------------------------------
+
+ID: m2_0070
+Text: User: It burns when I urinate. | Assistant: When did this start? | User: Two days ago.
+Target: urinary_frequency
+Red Flag: False
+
+
+LABEL: urinary_onset
+--------------------------------------------------------------------------------
+
+ID: m2_0069
+Text: User: It burns when I urinate.
+Target: urinary_onset
+Red Flag: False
+
+
+LABEL: urinary_progression
+--------------------------------------------------------------------------------
+
+ID: m2_0072
+Text: User: It burns when I urinate and I need to go often. | Assistant: Any other symptoms? | User: Some lower abdominal discomfort.
+Target: urinary_progression
+Red Flag: False
+
+
+LABEL: vomiting
+--------------------------------------------------------------------------------
+
+ID: m2_0051
+Text: User: I've been feeling nauseated since this morning. | Assistant: How often does it happen? | User: Several times a day.
+Target: vomiting
+Red Flag: False
+
+
+LABEL: vomiting_frequency
+--------------------------------------------------------------------------------
+
+ID: m2_0053
+Text: User: I've been vomiting since last night.
+Target: vomiting_frequency
+Red Flag: False
