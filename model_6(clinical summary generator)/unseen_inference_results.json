@@ -1,0 +1,468 @@
+{
+  "model": "C:\\Users\\astha\\Desktop\\sih2026\\Modular-medical-intelligence-and-Dialogue-system\\model_6(clinical summary generator)\\csg_model_structured",
+  "num_examples": 5,
+  "overall": {
+    "EXACT": 18,
+    "PARTIAL": 5,
+    "WRONG": 42
+  },
+  "results": [
+    {
+      "id": "UNSEEN_001",
+      "generated_summary": "CLINICAL SUMMARY Chief Complaint: Pain Onset: About 6 out of 10 Severity: Not reported Symptoms: - burning pain in the upper part of the stomach Associated Psychiatrist: No vomiting, fever, or black stools Allergies: Similar to stools appear normal after eating. Recommendation: Not recommended for patients with a burning or burning condition.",
+      "expected_fields": {
+        "Chief Complaint": [
+          "Burning upper abdominal pain"
+        ],
+        "Onset": [
+          "Yesterday"
+        ],
+        "Duration": [
+          "1 day"
+        ],
+        "Location": [
+          "Upper abdomen"
+        ],
+        "Severity": [
+          "6/10"
+        ],
+        "Symptoms": [
+          "Burning abdominal pain"
+        ],
+        "Associated Symptoms": [
+          "Pain worsens after eating"
+        ],
+        "Negative Findings": [
+          "No vomiting",
+          "No fever",
+          "No black stools"
+        ],
+        "Medical History": [
+          "Not reported"
+        ],
+        "Medications": [
+          "Not reported"
+        ],
+        "Allergies": [
+          "Not reported"
+        ],
+        "Red Flags": [
+          "Not assessed"
+        ],
+        "Relevant Context": [
+          "Pain becomes worse after eating."
+        ]
+      },
+      "predicted_fields": {
+        "Chief Complaint": [
+          "Pain"
+        ],
+        "Onset": [
+          "About 6 out of 10"
+        ],
+        "Duration": [],
+        "Location": [],
+        "Severity": [
+          "Not reported"
+        ],
+        "Symptoms": [
+          "burning pain in the upper part of the stomach Associated Psychiatrist: No vomiting, fever, or black stools"
+        ],
+        "Associated Symptoms": [],
+        "Negative Findings": [],
+        "Medical History": [],
+        "Medications": [],
+        "Allergies": [
+          "Similar to stools appear normal after eating."
+        ],
+        "Red Flags": [],
+        "Relevant Context": []
+      },
+      "field_evaluation": {
+        "Chief Complaint": "PARTIAL",
+        "Onset": "WRONG",
+        "Duration": "WRONG",
+        "Location": "WRONG",
+        "Severity": "WRONG",
+        "Symptoms": "WRONG",
+        "Associated Symptoms": "WRONG",
+        "Negative Findings": "WRONG",
+        "Medical History": "EXACT",
+        "Medications": "EXACT",
+        "Allergies": "WRONG",
+        "Red Flags": "WRONG",
+        "Relevant Context": "WRONG"
+      }
+    },
+    {
+      "id": "UNSEEN_002",
+      "generated_summary": "CLINICAL SUMMARY Chief Complaint: The left ankle has been swollen and painful for three days. Assistant cautions that twisted it while walking down the stairs. Not reported Allergies: Not reported Red Flags: - Not assessed Relevant Context: Walking hurts.",
+      "expected_fields": {
+        "Chief Complaint": [
+          "Left ankle pain and swelling"
+        ],
+        "Onset": [
+          "After twisting ankle on stairs"
+        ],
+        "Duration": [
+          "3 days"
+        ],
+        "Location": [
+          "Left ankle"
+        ],
+        "Severity": [
+          "Not reported"
+        ],
+        "Symptoms": [
+          "Ankle pain",
+          "Ankle swelling"
+        ],
+        "Associated Symptoms": [
+          "Pain with walking"
+        ],
+        "Negative Findings": [
+          "No numbness"
+        ],
+        "Medical History": [
+          "Not reported"
+        ],
+        "Medications": [
+          "Not reported"
+        ],
+        "Allergies": [
+          "Not reported"
+        ],
+        "Red Flags": [
+          "Not assessed"
+        ],
+        "Relevant Context": [
+          "Injury occurred after twisting the ankle while walking downstairs."
+        ]
+      },
+      "predicted_fields": {
+        "Chief Complaint": [
+          "The left ankle has been swollen and painful for three days. Assistant cautions that twisted it while walking down the stairs. Not reported"
+        ],
+        "Onset": [],
+        "Duration": [],
+        "Location": [],
+        "Severity": [],
+        "Symptoms": [],
+        "Associated Symptoms": [],
+        "Negative Findings": [],
+        "Medical History": [],
+        "Medications": [],
+        "Allergies": [
+          "Not reported"
+        ],
+        "Red Flags": [
+          "Not assessed"
+        ],
+        "Relevant Context": [
+          "Walking hurts."
+        ]
+      },
+      "field_evaluation": {
+        "Chief Complaint": "WRONG",
+        "Onset": "WRONG",
+        "Duration": "WRONG",
+        "Location": "WRONG",
+        "Severity": "EXACT",
+        "Symptoms": "WRONG",
+        "Associated Symptoms": "WRONG",
+        "Negative Findings": "WRONG",
+        "Medical History": "EXACT",
+        "Medications": "EXACT",
+        "Allergies": "EXACT",
+        "Red Flags": "EXACT",
+        "Relevant Context": "WRONG"
+      }
+    },
+    {
+      "id": "UNSEEN_003",
+      "generated_summary": "CLINICAL SUMMARY Chief Complaint: Difficulty breathing Onset: Not reported Duration: about two weeks Location: Not identified Severity: unusually tired Associated Symptoms: - dizziness - chest pain - difficulty breathing Negative Findings: None identified from available information Relevant Context: No chest pain and no trouble breathing",
+      "expected_fields": {
+        "Chief Complaint": [
+          "Unusual fatigue"
+        ],
+        "Onset": [
+          "Approximately two weeks ago"
+        ],
+        "Duration": [
+          "2 weeks"
+        ],
+        "Location": [
+          "Not applicable"
+        ],
+        "Severity": [
+          "Not reported"
+        ],
+        "Symptoms": [
+          "Fatigue"
+        ],
+        "Associated Symptoms": [
+          "Dizziness on standing",
+          "Pale appearance"
+        ],
+        "Negative Findings": [
+          "No chest pain",
+          "No difficulty breathing"
+        ],
+        "Medical History": [
+          "Not reported"
+        ],
+        "Medications": [
+          "Not reported"
+        ],
+        "Allergies": [
+          "Not reported"
+        ],
+        "Red Flags": [
+          "Not assessed"
+        ],
+        "Relevant Context": [
+          "Patient reports dizziness when standing and appearing paler than usual."
+        ]
+      },
+      "predicted_fields": {
+        "Chief Complaint": [
+          "Difficulty breathing"
+        ],
+        "Onset": [
+          "Not reported"
+        ],
+        "Duration": [
+          "about two weeks"
+        ],
+        "Location": [
+          "Not identified"
+        ],
+        "Severity": [
+          "unusually tired"
+        ],
+        "Symptoms": [],
+        "Associated Symptoms": [
+          "dizziness",
+          "chest pain",
+          "difficulty breathing"
+        ],
+        "Negative Findings": [
+          "None identified from available information"
+        ],
+        "Medical History": [],
+        "Medications": [],
+        "Allergies": [],
+        "Red Flags": [],
+        "Relevant Context": [
+          "No chest pain and no trouble breathing"
+        ]
+      },
+      "field_evaluation": {
+        "Chief Complaint": "WRONG",
+        "Onset": "WRONG",
+        "Duration": "WRONG",
+        "Location": "WRONG",
+        "Severity": "WRONG",
+        "Symptoms": "WRONG",
+        "Associated Symptoms": "PARTIAL",
+        "Negative Findings": "WRONG",
+        "Medical History": "EXACT",
+        "Medications": "EXACT",
+        "Allergies": "EXACT",
+        "Red Flags": "WRONG",
+        "Relevant Context": "WRONG"
+      }
+    },
+    {
+      "id": "UNSEEN_004",
+      "generated_summary": "CLINICAL SUMMARY Chief Complaint: Sore throat Onset: 4 days Duration: four days Location: Not reported Severity: low fever Symptoms: - sore throat Associated Psychiatrist: Not diagnosed with a fever - dry cough Negative Findings: No difficulty swallowing - breathing Medical History: Not assessed Relevant Context: Swallowing is uncomfortable, but breathing is normal. Recommendation: Further clinical evaluation recommended.",
+      "expected_fields": {
+        "Chief Complaint": [
+          "Sore throat"
+        ],
+        "Onset": [
+          "Four days ago"
+        ],
+        "Duration": [
+          "4 days"
+        ],
+        "Location": [
+          "Throat"
+        ],
+        "Severity": [
+          "Not reported"
+        ],
+        "Symptoms": [
+          "Sore throat"
+        ],
+        "Associated Symptoms": [
+          "Low fever",
+          "Dry cough",
+          "Discomfort when swallowing"
+        ],
+        "Negative Findings": [
+          "No difficulty breathing",
+          "Able to swallow"
+        ],
+        "Medical History": [
+          "Not reported"
+        ],
+        "Medications": [
+          "Not reported"
+        ],
+        "Allergies": [
+          "Not reported"
+        ],
+        "Red Flags": [
+          "Not assessed"
+        ],
+        "Relevant Context": [
+          "Patient reports a low fever and dry cough."
+        ]
+      },
+      "predicted_fields": {
+        "Chief Complaint": [
+          "Sore throat"
+        ],
+        "Onset": [
+          "4 days"
+        ],
+        "Duration": [
+          "four days"
+        ],
+        "Location": [
+          "Not reported"
+        ],
+        "Severity": [
+          "low fever"
+        ],
+        "Symptoms": [
+          "sore throat Associated Psychiatrist: Not diagnosed with a fever",
+          "dry cough"
+        ],
+        "Associated Symptoms": [],
+        "Negative Findings": [
+          "No difficulty swallowing",
+          "breathing"
+        ],
+        "Medical History": [
+          "Not assessed"
+        ],
+        "Medications": [],
+        "Allergies": [],
+        "Red Flags": [],
+        "Relevant Context": [
+          "Swallowing is uncomfortable, but breathing is normal."
+        ]
+      },
+      "field_evaluation": {
+        "Chief Complaint": "EXACT",
+        "Onset": "WRONG",
+        "Duration": "WRONG",
+        "Location": "WRONG",
+        "Severity": "WRONG",
+        "Symptoms": "PARTIAL",
+        "Associated Symptoms": "WRONG",
+        "Negative Findings": "PARTIAL",
+        "Medical History": "WRONG",
+        "Medications": "EXACT",
+        "Allergies": "EXACT",
+        "Red Flags": "WRONG",
+        "Relevant Context": "WRONG"
+      }
+    },
+    {
+      "id": "UNSEEN_005",
+      "generated_summary": "CLINICAL SUMMARY Chief Complaint: Headache Onset: Not reported Duration: a week Location: back of the head Severity: Usually around 4 out of 10 Symptoms: - headaches mostly in the back of my head Negative Findings: None identified from available information Relevant Context: Headaches usually get worse after working at my computer. Recommendation: No vomiting or weakness Medical History: Not diagnosed with severe symptoms.",
+      "expected_fields": {
+        "Chief Complaint": [
+          "Headache"
+        ],
+        "Onset": [
+          "One week ago"
+        ],
+        "Duration": [
+          "1 week"
+        ],
+        "Location": [
+          "Back of the head"
+        ],
+        "Severity": [
+          "4/10"
+        ],
+        "Symptoms": [
+          "Headache"
+        ],
+        "Associated Symptoms": [
+          "Headache worsens after computer work"
+        ],
+        "Negative Findings": [
+          "No vomiting",
+          "No weakness",
+          "No vision changes"
+        ],
+        "Medical History": [
+          "Not reported"
+        ],
+        "Medications": [
+          "Not reported"
+        ],
+        "Allergies": [
+          "Not reported"
+        ],
+        "Red Flags": [
+          "Not assessed"
+        ],
+        "Relevant Context": [
+          "Headaches worsen after working at a computer."
+        ]
+      },
+      "predicted_fields": {
+        "Chief Complaint": [
+          "Headache"
+        ],
+        "Onset": [
+          "Not reported"
+        ],
+        "Duration": [
+          "a week"
+        ],
+        "Location": [
+          "back of the head"
+        ],
+        "Severity": [
+          "Usually around 4 out of 10"
+        ],
+        "Symptoms": [
+          "headaches mostly in the back of my head"
+        ],
+        "Associated Symptoms": [],
+        "Negative Findings": [
+          "None identified from available information"
+        ],
+        "Medical History": [],
+        "Medications": [],
+        "Allergies": [],
+        "Red Flags": [],
+        "Relevant Context": [
+          "Headaches usually get worse after working at my computer."
+        ]
+      },
+      "field_evaluation": {
+        "Chief Complaint": "EXACT",
+        "Onset": "WRONG",
+        "Duration": "WRONG",
+        "Location": "EXACT",
+        "Severity": "WRONG",
+        "Symptoms": "PARTIAL",
+        "Associated Symptoms": "WRONG",
+        "Negative Findings": "WRONG",
+        "Medical History": "EXACT",
+        "Medications": "EXACT",
+        "Allergies": "EXACT",
+        "Red Flags": "WRONG",
+        "Relevant Context": "WRONG"
+      }
+    }
+  ]
+}

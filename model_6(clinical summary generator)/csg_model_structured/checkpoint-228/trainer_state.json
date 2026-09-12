@@ -1,0 +1,110 @@
+{
+  "best_global_step": 228,
+  "best_metric": 0.031495820730924606,
+  "best_model_checkpoint": "C:\\Users\\astha\\Desktop\\sih2026\\Modular-medical-intelligence-and-Dialogue-system\\model_6(clinical summary generator)\\csg_model_structured\\checkpoint-228",
+  "epoch": 4.0,
+  "eval_steps": 500,
+  "global_step": 228,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 0.017543859649122806,
+      "grad_norm": 4.868524551391602,
+      "learning_rate": 0.0001,
+      "loss": 3.710657835006714,
+      "step": 1
+    },
+    {
+      "epoch": 1.0,
+      "grad_norm": 3.760678768157959,
+      "learning_rate": 8.035087719298246e-05,
+      "loss": 1.3496028355189733,
+      "step": 57
+    },
+    {
+      "epoch": 1.0,
+      "eval_loss": 0.20320095121860504,
+      "eval_runtime": 0.2126,
+      "eval_samples_per_second": 235.142,
+      "eval_steps_per_second": 32.92,
+      "step": 57
+    },
+    {
+      "epoch": 2.0,
+      "grad_norm": 2.050222158432007,
+      "learning_rate": 6.035087719298246e-05,
+      "loss": 0.2754355648107696,
+      "step": 114
+    },
+    {
+      "epoch": 2.0,
+      "eval_loss": 0.06621856242418289,
+      "eval_runtime": 0.2154,
+      "eval_samples_per_second": 232.14,
+      "eval_steps_per_second": 32.5,
+      "step": 114
+    },
+    {
+      "epoch": 3.0,
+      "grad_norm": 2.3164777755737305,
+      "learning_rate": 4.0350877192982455e-05,
+      "loss": 0.13767994495860317,
+      "step": 171
+    },
+    {
+      "epoch": 3.0,
+      "eval_loss": 0.03683479502797127,
+      "eval_runtime": 0.2117,
+      "eval_samples_per_second": 236.182,
+      "eval_steps_per_second": 33.065,
+      "step": 171
+    },
+    {
+      "epoch": 4.0,
+      "grad_norm": 1.230115294456482,
+      "learning_rate": 2.0350877192982456e-05,
+      "loss": 0.09808633202000668,
+      "step": 228
+    },
+    {
+      "epoch": 4.0,
+      "eval_loss": 0.031495820730924606,
+      "eval_runtime": 0.2121,
+      "eval_samples_per_second": 235.724,
+      "eval_steps_per_second": 33.001,
+      "step": 228
+    }
+  ],
+  "logging_steps": 500,
+  "max_steps": 285,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 5,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "EarlyStoppingCallback": {
+      "args": {
+        "early_stopping_patience": 2,
+        "early_stopping_threshold": 0.0
+      },
+      "attributes": {
+        "early_stopping_patience_counter": 0
+      }
+    },
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": false
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 200753031462912.0,
+  "train_batch_size": 8,
+  "trial_name": null,
+  "trial_params": null
+}

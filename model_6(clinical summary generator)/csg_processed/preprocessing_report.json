@@ -1,0 +1,14 @@
+{
+  "dataset_name": "clinical_summary_dummy_dataset",
+  "raw_examples": 500,
+  "valid_examples": 500,
+  "invalid_examples": 0,
+  "duplicate_ids": 0,
+  "duplicate_conversations": 0,
+  "training_examples": 450,
+  "validation_examples": 50,
+  "random_seed": 42,
+  "target_type": "structured_clinical_summary",
+  "uses_summary_text": false,
+  "invalid_records": []
+}

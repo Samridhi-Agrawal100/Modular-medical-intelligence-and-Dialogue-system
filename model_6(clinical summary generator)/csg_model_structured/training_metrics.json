@@ -1,0 +1,32 @@
+{
+    "model_name": "google/flan-t5-small",
+    "training_examples": 450,
+    "validation_examples": 50,
+    "max_input_length": 384,
+    "max_target_length": 192,
+    "learning_rate": 0.0001,
+    "epochs_requested": 5,
+    "train_batch_size": 8,
+    "eval_batch_size": 8,
+    "weight_decay": 0.01,
+    "early_stopping_patience": 2,
+    "fp16": false,
+    "bf16": false,
+    "predict_with_generate": false,
+    "seed": 42,
+    "train_metrics": {
+        "train_runtime": 34.102,
+        "train_samples_per_second": 65.978,
+        "train_steps_per_second": 8.357,
+        "total_flos": 251550516412416.0,
+        "train_loss": 0.39749721309594943,
+        "epoch": 5.0
+    },
+    "final_validation_metrics": {
+        "eval_loss": 0.027846094220876694,
+        "eval_runtime": 0.2284,
+        "eval_samples_per_second": 218.96,
+        "eval_steps_per_second": 30.654,
+        "epoch": 5.0
+    }
+}
