@@ -1,0 +1,5785 @@
+{
+  "metadata": {
+    "format": "model-independent master annotations",
+    "purpose": "dummy validation dataset",
+    "split": "validation",
+    "num_conversations": 100,
+    "offset_scope": "each speaker turn",
+    "assertion_values": [
+      "PRESENT",
+      "NEGATED"
+    ],
+    "bio_conversion": "during preprocessing",
+    "note": "Standalone validation data; do not mix with training data."
+  },
+  "conversations": [
+    {
+      "conversation_id": "VAL_001",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_002",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_003",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 7,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 31,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 53,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_004",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_005",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_006",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_007",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_008",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 22,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 32,
+              "end": 42,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 43,
+              "end": 52,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 64,
+              "end": 73,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_009",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 3,
+              "end": 9,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 16,
+              "end": 22,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 40,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 51,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_010",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_011",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_012",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 3,
+              "end": 13,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 29,
+              "end": 36,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 37,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_013",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_014",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 9,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 42,
+              "end": 54,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_015",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_016",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_017",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 7,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 31,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 53,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_018",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_019",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_020",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_021",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_022",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 21,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 31,
+              "end": 41,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 42,
+              "end": 51,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 63,
+              "end": 72,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_023",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 4,
+              "end": 10,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 52,
+              "end": 64,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_024",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_025",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_026",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 18,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 30,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 38,
+              "end": 64,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_027",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_028",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've been having a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 19,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 35,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 52,
+              "end": 64,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_029",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_030",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_031",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've been having cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 41,
+              "end": 56,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 63,
+              "end": 73,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_032",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_033",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_034",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_035",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_036",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 21,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 31,
+              "end": 41,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 42,
+              "end": 51,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 63,
+              "end": 72,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_037",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 3,
+              "end": 9,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 16,
+              "end": 22,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 40,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 51,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_038",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_039",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_040",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 3,
+              "end": 13,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 29,
+              "end": 36,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 37,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_041",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_042",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 9,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 42,
+              "end": 54,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_043",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_044",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_045",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 7,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 31,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 53,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_046",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_047",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_048",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_049",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_050",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 22,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 32,
+              "end": 42,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 43,
+              "end": 52,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 64,
+              "end": 73,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_051",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 3,
+              "end": 9,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 16,
+              "end": 22,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 40,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 51,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_052",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_053",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_054",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 3,
+              "end": 13,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 29,
+              "end": 36,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 37,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_055",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_056",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 9,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 42,
+              "end": 54,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_057",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_058",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_059",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 7,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 31,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 53,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_060",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_061",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_062",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_063",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_064",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 21,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 31,
+              "end": 41,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 42,
+              "end": 51,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 63,
+              "end": 72,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_065",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 4,
+              "end": 10,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 52,
+              "end": 64,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_066",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_067",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_068",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 18,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 30,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 38,
+              "end": 64,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_069",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_070",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've been having a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 19,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 35,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 52,
+              "end": 64,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_071",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_072",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_073",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've been having cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 41,
+              "end": 56,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 63,
+              "end": 73,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_074",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_075",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_076",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_077",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_078",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 21,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 31,
+              "end": 41,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 42,
+              "end": 51,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 63,
+              "end": 72,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_079",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 3,
+              "end": 9,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 16,
+              "end": 22,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 40,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 51,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_080",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_081",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_082",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 3,
+              "end": 13,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 29,
+              "end": 36,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 37,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_083",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_084",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 9,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 42,
+              "end": 54,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_085",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_086",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_087",
+      "domain": "gastrointestinal",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have cramping abdominal pain since yesterday after spicy food.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cramping abdominal pain",
+              "label": "SYMPTOM",
+              "start": 7,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "since yesterday",
+              "label": "DURATION",
+              "start": 31,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "spicy food",
+              "label": "TRIGGER",
+              "start": 53,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Lying down seems to relieve it.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Lying down",
+              "label": "RELIEVING_FACTOR",
+              "start": 0,
+              "end": 10,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_088",
+      "domain": "medication",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I take metformin 500 mg twice a day for diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "metformin",
+              "label": "MEDICATION",
+              "start": 7,
+              "end": 16,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "500 mg",
+              "label": "DOSAGE",
+              "start": 17,
+              "end": 23,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "twice a day",
+              "label": "FREQUENCY",
+              "start": 24,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 40,
+              "end": 48,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not changed the dose recently.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dose",
+              "label": "DOSAGE",
+              "start": 23,
+              "end": 27,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_089",
+      "domain": "allergy",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I developed an itchy rash after taking amoxicillin last week.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "itchy rash",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "amoxicillin",
+              "label": "MEDICATION",
+              "start": 39,
+              "end": 50,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "last week",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 51,
+              "end": 60,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have a penicillin allergy.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "penicillin allergy",
+              "label": "ALLERGY",
+              "start": 9,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_090",
+      "domain": "mental_health",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've felt anxious and unable to sleep for nearly two weeks.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "anxious",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 10,
+              "end": 17,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "unable to sleep",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 22,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "nearly two weeks",
+              "label": "DURATION",
+              "start": 42,
+              "end": 58,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have not had thoughts of harming myself.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "thoughts of harming myself",
+              "label": "MENTAL_HEALTH_SYMPTOM",
+              "start": 15,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_091",
+      "domain": "cardiac",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I get chest pressure when I climb stairs, and it improves when I stop.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "chest pressure",
+              "label": "SYMPTOM",
+              "start": 6,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "when I climb stairs",
+              "label": "TRIGGER",
+              "start": 21,
+              "end": 40,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "when I stop",
+              "label": "RELIEVING_FACTOR",
+              "start": 58,
+              "end": 69,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have no palpitations.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "palpitations",
+              "label": "SYMPTOM",
+              "start": 10,
+              "end": 22,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_092",
+      "domain": "investigation",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The doctor ordered an ECG and a blood test yesterday because of dizziness.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "ECG",
+              "label": "INVESTIGATION",
+              "start": 22,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 32,
+              "end": 42,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "yesterday",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 43,
+              "end": 52,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "dizziness",
+              "label": "SYMPTOM",
+              "start": 64,
+              "end": 73,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The blood test showed an HbA1c of 8.2 percent.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "blood test",
+              "label": "LAB_TEST",
+              "start": 4,
+              "end": 14,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "HbA1c",
+              "label": "LAB_TEST",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "8.2 percent",
+              "label": "LAB_VALUE",
+              "start": 34,
+              "end": 45,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_093",
+      "domain": "family",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My father had a stroke at sixty, and my mother has hypertension.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "father",
+              "label": "FAMILY_HISTORY",
+              "start": 3,
+              "end": 9,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "stroke",
+              "label": "DISEASE",
+              "start": 16,
+              "end": 22,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "mother",
+              "label": "FAMILY_HISTORY",
+              "start": 40,
+              "end": 46,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "hypertension",
+              "label": "DISEASE",
+              "start": 51,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no family history of diabetes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "family history",
+              "label": "FAMILY_HISTORY",
+              "start": 12,
+              "end": 26,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "diabetes",
+              "label": "DISEASE",
+              "start": 30,
+              "end": 38,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_094",
+      "domain": "lifestyle",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I smoke about five cigarettes a day and drink coffee late at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoke",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 2,
+              "end": 7,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "about five cigarettes a day",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 8,
+              "end": 35,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "drink coffee late at night",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 40,
+              "end": 66,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I stopped smoking last month.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "smoking",
+              "label": "LIFESTYLE_FACTOR",
+              "start": 10,
+              "end": 17,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "last month",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 18,
+              "end": 28,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_095",
+      "domain": "procedure",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I had my appendix removed two years ago and recovered well.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "appendix removed",
+              "label": "PROCEDURE",
+              "start": 9,
+              "end": 25,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "two years ago",
+              "label": "TEMPORAL_EXPRESSION",
+              "start": 26,
+              "end": 39,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I have never had another operation.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "operation",
+              "label": "PROCEDURE",
+              "start": 25,
+              "end": 34,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_096",
+      "domain": "joint",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "My right knee is swollen and painful after running this weekend.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "right knee",
+              "label": "BODY_LOCATION",
+              "start": 3,
+              "end": 13,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "swollen",
+              "label": "SYMPTOM",
+              "start": 17,
+              "end": 24,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "painful",
+              "label": "SYMPTOM",
+              "start": 29,
+              "end": 36,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "after running this weekend",
+              "label": "TRIGGER",
+              "start": 37,
+              "end": 63,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "The pain is quite severe.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 18,
+              "end": 24,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_097",
+      "domain": "skin",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The rash gets worse after hot showers but settles with a cool compress.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 8,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "after hot showers",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 20,
+              "end": 37,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "cool compress",
+              "label": "RELIEVING_FACTOR",
+              "start": 57,
+              "end": 70,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "There is no rash on my face.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "rash",
+              "label": "SYMPTOM",
+              "start": 12,
+              "end": 16,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "face",
+              "label": "BODY_LOCATION",
+              "start": 23,
+              "end": 27,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_098",
+      "domain": "infection",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I have a sore throat and fever that began two days ago.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "sore throat",
+              "label": "SYMPTOM",
+              "start": 9,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 25,
+              "end": 30,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "two days ago",
+              "label": "DURATION",
+              "start": 42,
+              "end": 54,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have a cough or breathing difficulty.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "cough",
+              "label": "SYMPTOM",
+              "start": 15,
+              "end": 20,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "breathing difficulty",
+              "label": "SYMPTOM",
+              "start": 24,
+              "end": 44,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_099",
+      "domain": "respiratory",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "I've had a dry cough for five days, mostly at night.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "dry cough",
+              "label": "SYMPTOM",
+              "start": 11,
+              "end": 20,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "five days",
+              "label": "DURATION",
+              "start": 25,
+              "end": 34,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "I don't have fever or shortness of breath.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "fever",
+              "label": "SYMPTOM",
+              "start": 13,
+              "end": 18,
+              "assertion": "NEGATED"
+            },
+            {
+              "id": "E2",
+              "text": "shortness of breath",
+              "label": "SYMPTOM",
+              "start": 22,
+              "end": 41,
+              "assertion": "NEGATED"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "conversation_id": "VAL_100",
+      "domain": "headache",
+      "turns": [
+        {
+          "speaker": "PATIENT",
+          "text": "The headache began three days ago and is severe behind my eyes.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "headache",
+              "label": "SYMPTOM",
+              "start": 4,
+              "end": 12,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E2",
+              "text": "three days ago",
+              "label": "DURATION",
+              "start": 19,
+              "end": 33,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E3",
+              "text": "severe",
+              "label": "SEVERITY",
+              "start": 41,
+              "end": 47,
+              "assertion": "PRESENT"
+            },
+            {
+              "id": "E4",
+              "text": "behind my eyes",
+              "label": "BODY_LOCATION",
+              "start": 48,
+              "end": 62,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        },
+        {
+          "speaker": "GP",
+          "text": "Bright screens make it worse.",
+          "entities": [
+            {
+              "id": "E1",
+              "text": "Bright screens",
+              "label": "AGGRAVATING_FACTOR",
+              "start": 0,
+              "end": 14,
+              "assertion": "PRESENT"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    }
+  ]
+}

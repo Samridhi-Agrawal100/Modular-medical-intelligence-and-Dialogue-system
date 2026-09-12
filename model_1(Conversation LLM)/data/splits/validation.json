@@ -1,112 +1,215 @@
 [
   {
-    "id": "model1_00546",
+    "id": "model1_00050",
     "messages": [
       {
         "role": "assistant",
-        "content": "Hey, do you smoke cigarettes?"
+        "content": "How long have you been living with diabetes, sir?"
       },
       {
         "role": "user",
-        "content": "Yes I do smoke. Do you?"
+        "content": "Oh, it's been about thirty five years now."
       },
       {
         "role": "assistant",
-        "content": "Are you planning on quitting?"
+        "content": "How long have you been taking insulin for this?"
       },
       {
         "role": "user",
-        "content": "No, I just smoke one pack per day, it's not bad."
+        "content": "Well, um, I've been taking insulin for about twenty years now."
       },
       {
         "role": "assistant",
-        "content": "Where do you work?"
+        "content": "Do you have any major medical conditions that I should know about?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, um, prostate cancer."
+      },
+      {
+        "role": "assistant",
+        "content": "How were you treated for this?"
       }
     ],
-    "target": "occupation",
+    "target": "prior_treatment_history",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00133",
+    "id": "model1_00686",
     "messages": [
       {
         "role": "assistant",
-        "content": "How old are you?"
+        "content": "How can I help you today?"
       },
       {
         "role": "user",
-        "content": "Oh, I am fifty eight now."
+        "content": "I've been having really bad headaches lately."
       },
       {
         "role": "assistant",
-        "content": "So, you are here today because you are having some vision difficulties?"
+        "content": "Have you had any blurry vision or light sensitivity?"
       },
       {
         "role": "user",
-        "content": "Yeah. Okay. It all started a year ago. It started with losing the color in my vision."
+        "content": "Yes, I've had blurry vision."
       },
       {
         "role": "assistant",
-        "content": "Was the loss sudden or gradual?"
+        "content": "Have you had any nausea or vomiting with it?"
       },
       {
         "role": "user",
-        "content": "Gradual. And now I am starting to have blurry vision."
+        "content": "Yes, some nausea."
       },
       {
         "role": "assistant",
-        "content": "When did that start happening?"
+        "content": "Have you had any weakness or numbness anywhere?"
       },
       {
         "role": "user",
-        "content": "I noticed it two months ago."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "Have you had any fluctuations in your symptoms in the last year?"
-      },
-      {
-        "role": "user",
-        "content": "Some days I feel like things are a little better but not much. I have basically been the same."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you experienced any weakness, dizziness, vertigo, nausea or vomiting?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Any double vision or headaches?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Any pain in or behind the eye at all?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any other health concerns?"
+        "content": "Have you had any trouble with your speech or balance?"
       }
     ],
-    "target": "additional_concerns",
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00090",
+    "id": "model1_00325",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What brings you in to the clinic today?"
+      },
+      {
+        "role": "user",
+        "content": "Well, I have had a progressive loss of my vision in my right eye. My eye doctor told me that I should come and see a neurologist. So here I am."
+      },
+      {
+        "role": "assistant",
+        "content": "How long has the vision loss been progressing for?"
+      },
+      {
+        "role": "user",
+        "content": "About two months. It seems like it has been progressing really fast. I have always had bad vision in my left eye. That started about two years ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Can you still see out of you left eye?"
+      },
+      {
+        "role": "user",
+        "content": "No. I am considered blind in this eye now."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any other symptoms associated with your vision loss?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "Any headaches?"
+      },
+      {
+        "role": "user",
+        "content": "Nope."
+      },
+      {
+        "role": "assistant",
+        "content": "Which hand is your dominant hand?"
+      },
+      {
+        "role": "user",
+        "content": "What do you mean?"
+      },
+      {
+        "role": "assistant",
+        "content": "What hand do you write with or use dominantly?"
+      },
+      {
+        "role": "user",
+        "content": "Oh! I am right handed."
+      },
+      {
+        "role": "assistant",
+        "content": "And how old are you?"
+      }
+    ],
+    "target": "background_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00681",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "How can I help you today?"
+      },
+      {
+        "role": "user",
+        "content": "My lower back has been hurting since I lifted something heavy."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any swelling or redness in the area?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any fever or chills?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00746",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "So what seems to be the problem today?"
+      },
+      {
+        "role": "user",
+        "content": "I've been having really bad headaches lately."
+      },
+      {
+        "role": "assistant",
+        "content": "On a scale of one to ten, how severe is it?"
+      },
+      {
+        "role": "user",
+        "content": "It's a nine, it's pretty bad."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you currently taking any medications?"
+      }
+    ],
+    "target": "medications",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00514",
     "messages": [
       {
         "role": "assistant",
@@ -114,35 +217,780 @@
       },
       {
         "role": "user",
-        "content": "I wouldn't say I live alone. I have three cats and they always keep me company."
+        "content": "I do. I lost my husband to prostate cancer last year."
       },
       {
         "role": "assistant",
-        "content": "Aw, what kind of cats?"
+        "content": "How have you been doing otherwise?"
       },
       {
         "role": "user",
-        "content": "Two Persian cats and one Chartreux."
+        "content": "Not bad. I've been keeping myself busy with gardening."
       },
       {
         "role": "assistant",
-        "content": "Are you currently working?"
+        "content": "And as your doctor I have to ask, but any history of alcohol or drug use?"
+      }
+    ],
+    "target": "alcohol_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00441",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Were there any other complications with the pregnancy?"
       },
       {
         "role": "user",
-        "content": "I retired a few months ago. I used to work as a psych aide for the State of Pennsylvania."
+        "content": "He was exposed to drugs in the womb while I was pregnant, and he has been diagnosed with autism."
       },
       {
         "role": "assistant",
-        "content": "How long did you work as a psych aide?"
+        "content": "he has previously had an operation on the right knee, can you tell me more about that?"
       },
       {
         "role": "user",
-        "content": "Thirty two years."
+        "content": "He previously had a lot of trouble straightening out both of his legs, and since the right was worse than the left he had an operation on the inside part of the back of that leg."
       },
       {
         "role": "assistant",
-        "content": "Do you smoke, drink, or use drugs recreationally?"
+        "content": "When was this operation?"
+      },
+      {
+        "role": "user",
+        "content": "It was in February of two thousand seven."
+      },
+      {
+        "role": "assistant",
+        "content": "How did he respond to the operation?"
+      },
+      {
+        "role": "user",
+        "content": "He responded really well, he was walking much better, and even got back to playing sports with the other kids in the neighborhood."
+      },
+      {
+        "role": "assistant",
+        "content": "What seems to be the problem today?"
+      }
+    ],
+    "target": "chief_complaint",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00079",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Do you smoke cigarettes?"
+      },
+      {
+        "role": "user",
+        "content": "Yes."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you drink alcohol or use recreational drugs?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I have been in and out of treatment. I am not doing so well with staying clean."
+      },
+      {
+        "role": "assistant",
+        "content": "What substances do you use?"
+      }
+    ],
+    "target": "substance_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00240",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What is your current living status?"
+      },
+      {
+        "role": "user",
+        "content": "Well, right now I am living with my sister in Sacaton. I am currently looking for my own place, but I am staying with her for now."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you looking for a place in Sacaton?"
+      },
+      {
+        "role": "user",
+        "content": "No. I will probably look for a place back in Coolidge."
+      },
+      {
+        "role": "assistant",
+        "content": "Back in Coolidge?"
+      },
+      {
+        "role": "user",
+        "content": "I recently separated from my wife. We lived in Coolidge together. Sacaton is too far away from everything, but it is fine for now."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you and your sister close?"
+      },
+      {
+        "role": "user",
+        "content": "Not when we were growing up but now that we are older, we have become very close. She has been a great support for me in these hard times."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you a tobacco user?"
+      },
+      {
+        "role": "user",
+        "content": "I smoke cigarettes. I only smoke a little bit."
+      },
+      {
+        "role": "assistant",
+        "content": "How much do you smoke per day?"
+      },
+      {
+        "role": "user",
+        "content": "I only smoke about one or two cigarettes a day."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you or have you ever used drugs or alcohol?"
+      },
+      {
+        "role": "user",
+        "content": "I have never used drugs. I used to be a heavy drinker. I quit drinking a year ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you attend A A meetings?"
+      }
+    ],
+    "target": "substance_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00073",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Can you tell me more about your daughter's injury?"
+      },
+      {
+        "role": "user",
+        "content": "Well, we came in in November, and she was diagnosed with an acute on chronic right slipped capital femoral epiphysis."
+      },
+      {
+        "role": "assistant",
+        "content": "Did she have surgery on this?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, let me look at my notes, I have it written down here, um, a situ pinning."
+      },
+      {
+        "role": "assistant",
+        "content": "Remind me, how old are you, dear?"
+      }
+    ],
+    "target": "background_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00370",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Do you have any children, ma'am?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I have a wonderful baby girl at home."
+      },
+      {
+        "role": "assistant",
+        "content": "were there any complications with your pregnancy or delivery?"
+      },
+      {
+        "role": "user",
+        "content": "Nope, everything went very smooth. I'm thankful."
+      },
+      {
+        "role": "assistant",
+        "content": "have you ever been hospitalized for any issue?"
+      },
+      {
+        "role": "user",
+        "content": "No, thankfully."
+      },
+      {
+        "role": "assistant",
+        "content": "so I can assume you've never had surgery?"
+      }
+    ],
+    "target": "surgical_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00406",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "How is your sleep?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, without any disturbance. I sleep like a log!"
+      },
+      {
+        "role": "assistant",
+        "content": "Any mood swings or did you feel your emotions are out of control?"
+      },
+      {
+        "role": "user",
+        "content": "Nah, just the normal mood swings around my periods otherwise no problem at all."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any feelings of depression or sudden mood changes?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any sadness or hopelessness?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00156",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hi, how are you?"
+      },
+      {
+        "role": "user",
+        "content": "I am okay."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any bone pain or issues around that?"
+      },
+      {
+        "role": "user",
+        "content": "No, I do not."
+      },
+      {
+        "role": "assistant",
+        "content": "How well is your pain controlled?"
+      }
+    ],
+    "target": "symptom_severity",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00121",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Let's get started, how old are you?"
+      },
+      {
+        "role": "user",
+        "content": "Good afternoon, doctor. I'm fifty two years old."
+      },
+      {
+        "role": "assistant",
+        "content": "My nurse says that you're here for an independent evaluation, is that correct?"
+      },
+      {
+        "role": "user",
+        "content": "Yes sir, that is."
+      },
+      {
+        "role": "assistant",
+        "content": "what do you do for a living?"
+      },
+      {
+        "role": "user",
+        "content": "Right now, I'm a temporary employee for A B C A B C, I've worked for A B C D, too."
+      },
+      {
+        "role": "assistant",
+        "content": "What do you do there?"
+      },
+      {
+        "role": "user",
+        "content": "Mainly, I handle the loading and unloading of furniture and appliances for people's houses."
+      },
+      {
+        "role": "assistant",
+        "content": "When did you get hurt?"
+      },
+      {
+        "role": "user",
+        "content": "It was about two and a half weeks ago now, back in October."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have a history of back problems, like before this injury?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I've had back pain for a long time."
+      },
+      {
+        "role": "assistant",
+        "content": "What happened when you got hurt this time?"
+      },
+      {
+        "role": "user",
+        "content": "I was unloading one of the A B C eighteen wheelers, when I bent down to pick up some boxes, and I felt the pain."
+      },
+      {
+        "role": "assistant",
+        "content": "What kind of pain did you feel?"
+      },
+      {
+        "role": "user",
+        "content": "I felt a sharp pain in my lower back right away when I tried to lift those boxes."
+      },
+      {
+        "role": "assistant",
+        "content": "Does your pain go down your legs?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, it goes into the right side of my butt, and then all the way down the outside of my right leg, like into the knee."
+      },
+      {
+        "role": "assistant",
+        "content": "How have your symptoms progressed since they began?"
+      },
+      {
+        "role": "user",
+        "content": "Doctor, they've only gotten worse."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any pain in your left leg?"
+      },
+      {
+        "role": "user",
+        "content": "A little, not as bad as the right."
+      },
+      {
+        "role": "assistant",
+        "content": "What other symptoms are you having besides the pain down your leg?"
+      },
+      {
+        "role": "user",
+        "content": "The muscles in my butt are spazzing, and it's happening more and more."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you seen another doctor for this?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I saw Doctor Z at first."
+      },
+      {
+        "role": "assistant",
+        "content": "What did they do for you?"
+      },
+      {
+        "role": "user",
+        "content": "He gave me some muscle relaxers, and some, um, Lidocaine patches."
+      },
+      {
+        "role": "assistant",
+        "content": "Did this help at all?"
+      },
+      {
+        "role": "user",
+        "content": "No, not at all."
+      },
+      {
+        "role": "assistant",
+        "content": "Who else have you seen?"
+      },
+      {
+        "role": "user",
+        "content": "I saw doctor X Y Z too, through worker's comp."
+      },
+      {
+        "role": "assistant",
+        "content": "When did you see them?"
+      },
+      {
+        "role": "user",
+        "content": "That was back in April."
+      },
+      {
+        "role": "assistant",
+        "content": "What did they recommend?"
+      },
+      {
+        "role": "user",
+        "content": "Um, he sent me for an M R I, and I have the report for that right here."
+      },
+      {
+        "role": "assistant",
+        "content": "Did he give you any medications?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, he gave me some opioids."
+      },
+      {
+        "role": "assistant",
+        "content": "What is your work status right now?"
+      },
+      {
+        "role": "user",
+        "content": "Doctor X Y Z put me on restricted duty status, doctor."
+      },
+      {
+        "role": "assistant",
+        "content": "When you went for follow up, did you still have that pain down your legs?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I did."
+      },
+      {
+        "role": "assistant",
+        "content": "What did doctor X Y Z recommend at that time?"
+      },
+      {
+        "role": "user",
+        "content": "He referred me to a Pain Clinic, and he recommended I have, um, epidural injections with doctor A B C."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you have this done?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I did. No, it did absolutely nothing."
+      },
+      {
+        "role": "assistant",
+        "content": "so after that, what treatment did you have?"
+      },
+      {
+        "role": "user",
+        "content": "I had an M R I, um, E M G, and nerve conduction study with doctor A B C D."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have the results of that as well?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, doctor, they're right here."
+      },
+      {
+        "role": "assistant",
+        "content": "What aggravates your pain?"
+      },
+      {
+        "role": "user",
+        "content": "Well, anything like sitting for a long time. When I do that, I feel it in my legs."
+      },
+      {
+        "role": "assistant",
+        "content": "When you sit for a long time, is it in both legs?"
+      },
+      {
+        "role": "user",
+        "content": "It's really on my right."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you able to sleep at night?"
+      },
+      {
+        "role": "user",
+        "content": "No, sir, I'm not able to sleep at all."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you been able to return to work?"
+      },
+      {
+        "role": "user",
+        "content": "Well, I went back to work in June, after doctor X said I'd reached the maximum medical improvement we talked about."
+      },
+      {
+        "role": "assistant",
+        "content": "Finally, have you seen a chiropractor for this pain?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I saw doctor X about eight or nine times."
+      },
+      {
+        "role": "assistant",
+        "content": "Did they do anything to help you feel better?"
+      }
+    ],
+    "target": "aggravating_relieving_factors",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00427",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hi, do you smoke?"
+      },
+      {
+        "role": "user",
+        "content": "No, sir, I don't."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you use any recreational or illicit drugs?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "What about drinks?"
+      }
+    ],
+    "target": "alcohol_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00119",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "How old is the baby?"
+      },
+      {
+        "role": "user",
+        "content": "She is just fourteen days old. Let me tell you from the beginning. On Friday, when I was taking her for a bath, I noticed a blister near her umbilicus area. We went to our doctor on Saturday, and they did a test."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you get the test result?"
+      },
+      {
+        "role": "user",
+        "content": "I got it today. Here is the report."
+      },
+      {
+        "role": "assistant",
+        "content": "So how is the blister on the umbilicus now?"
+      },
+      {
+        "role": "user",
+        "content": "She has been doing good. We put on some bacitracin ointment, and it almost healed up. But today I noticed that another small blister on her head. It really scared me, and I did not want to take any chance. That's why I reached out to the Infectious Disease center. I know it is private. But still, I don't want to take any chance with my baby's health. I called the center directly and they asked me to come to the hospital."
+      },
+      {
+        "role": "assistant",
+        "content": "How are her eating and sleeping habits?"
+      },
+      {
+        "role": "user",
+        "content": "She hasn't missed any of her meals. She is taking around two ounces of milk in every feed. I don't think I have any issues with her eating or sleeping."
+      },
+      {
+        "role": "assistant",
+        "content": "Did she have any fever?"
+      },
+      {
+        "role": "user",
+        "content": "Not that I noticed."
+      },
+      {
+        "role": "assistant",
+        "content": "Has she been lethargic or crying more than normal?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you noticed any other changes in her daily routine?"
+      }
+    ],
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00405",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What brings you in today?"
+      },
+      {
+        "role": "user",
+        "content": "I have this nasty cough and my nose has been super stuffy."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you bringing anything up when you cough?"
+      },
+      {
+        "role": "user",
+        "content": "Not really, no."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you having any other symptoms, such as chest pain or headaches?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you having any other symptoms, such as nausea or vomiting?"
+      },
+      {
+        "role": "user",
+        "content": "No. I did have a slight headache last night but I took Advil and it's since gotten better."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you taking anything for the cough or stuffy nose?"
+      }
+    ],
+    "target": "medications",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00600",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What's going on today?"
+      },
+      {
+        "role": "user",
+        "content": "I've had this cough that won't go away for two weeks."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any fever or chills?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I've had a low fever."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any shortness of breath or wheezing?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any sore throat or congestion?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00519",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hi there how are you?"
+      },
+      {
+        "role": "user",
+        "content": "I am good no problem at all other than the usual."
+      },
+      {
+        "role": "assistant",
+        "content": "And what is that?"
+      },
+      {
+        "role": "user",
+        "content": "You know, some discomfort I have on my right side. I have been feeling that since I had a stroke five years back."
+      },
+      {
+        "role": "assistant",
+        "content": "We did an E M G right?"
+      },
+      {
+        "role": "user",
+        "content": "Yes."
+      },
+      {
+        "role": "assistant",
+        "content": "And none of the medications we tried are helping?"
+      },
+      {
+        "role": "user",
+        "content": "No, I also saw a neurologist, but nothing is helping"
+      },
+      {
+        "role": "assistant",
+        "content": "and are you monitoring your sugar regularly?"
+      },
+      {
+        "role": "user",
+        "content": "Oh yes, Everyday at least two to three times a day."
+      },
+      {
+        "role": "assistant",
+        "content": "And how bout insulin dose?"
+      },
+      {
+        "role": "user",
+        "content": "Oh, that I kind of adjust myself."
+      },
+      {
+        "role": "assistant",
+        "content": "And you are not smoking or drinking again are you?"
       }
     ],
     "target": "tobacco_use",
@@ -151,136 +999,401 @@
     }
   },
   {
-    "id": "model1_00513",
+    "id": "model1_00362",
     "messages": [
       {
         "role": "assistant",
-        "content": "How are you doing?"
+        "content": "Do you remember when your last flu vaccine was?"
       },
       {
         "role": "user",
-        "content": "Um. I am feeing really strange."
+        "content": "I don't remember what month, but it was in nineteen ninety nine."
       },
       {
         "role": "assistant",
-        "content": "Strange how?"
+        "content": "and do you remember your last pneumonia vaccine?"
       },
       {
         "role": "user",
-        "content": "I took Ecstasy over the weekend and I feel weird still. My heart is racing. I feel agitated and have been having waves of sadness. I cannot shake this feeling."
+        "content": "Let me look at my notes here, um, it was in nineteen ninety six."
       },
       {
         "role": "assistant",
-        "content": "When did you take the Ecstasy?"
+        "content": "Do you know their medical histories?"
+      },
+      {
+        "role": "user",
+        "content": "Let me think, my dad is still around, he had a stroke. Oh yeah, and he has high blood pressure."
+      },
+      {
+        "role": "assistant",
+        "content": "How old is your father?"
+      },
+      {
+        "role": "user",
+        "content": "He's seventy nine now."
+      },
+      {
+        "role": "assistant",
+        "content": "what about your mother?"
+      },
+      {
+        "role": "user",
+        "content": "She died when she was seventy four, she had heart failure and emphysema."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any brothers or sisters?"
       }
     ],
-    "target": "substance_use",
-    "safety": {
-      "red_flag": true
-    }
-  },
-  {
-    "id": "model1_00221",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "What brings you in today?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah. I am forty five. I've had really bad stomach pain on my right side since last week."
-      },
-      {
-        "role": "assistant",
-        "content": "On a scale of one to ten, how bad is the pain at its worst?"
-      },
-      {
-        "role": "user",
-        "content": "I'd have to say a seven."
-      },
-      {
-        "role": "assistant",
-        "content": "How would you rate it now?"
-      },
-      {
-        "role": "user",
-        "content": "Oh um it's at a five at the moment."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you been taking your diabetes medication?"
-      }
-    ],
-    "target": "medication_adherence",
+    "target": "family_history",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00150",
+    "id": "model1_00008",
     "messages": [
       {
         "role": "assistant",
-        "content": "Can you tell me more about your family's medical history?"
+        "content": "How old are you?"
       },
       {
         "role": "user",
-        "content": "Well, my dad died from prostate cancer, and my mom died as well, she was an alcoholic."
+        "content": "I am forty four."
       },
       {
         "role": "assistant",
-        "content": "I'm so sorry to hear that, ma'am, how old were they?"
+        "content": "Are you right handed or left handed?"
       },
       {
         "role": "user",
-        "content": "Well, my father was eighty, and my mother was sixty seven."
+        "content": "I'm right handed."
       },
       {
         "role": "assistant",
-        "content": "I'm so sorry, do you have any siblings?"
+        "content": "Was there any sensation like having pins and needles?"
       },
       {
         "role": "user",
-        "content": "Yeah, I had a brother, he passed away too, from bone and throat cancer."
+        "content": "I was able to walk and there was no weakness or any other thing you mentioned."
       },
       {
         "role": "assistant",
-        "content": "I'm sorry, how old was he?"
+        "content": "When did you first start noticing these symptoms?"
       },
       {
         "role": "user",
-        "content": "He was seventy, doctor."
+        "content": "There was nothing around Independence Day. It all started after that. At first, I felt that my right hand is very clumsy, and it is kind of stiff. Then I noticed leaning towards the right when walking. It was strange. Happened around July seventh."
       },
       {
         "role": "assistant",
-        "content": "Do you have any children?"
+        "content": "Did you recently have any cold or flu like symptoms?"
       },
       {
         "role": "user",
-        "content": "I have four, two of each."
+        "content": "No."
       },
       {
         "role": "assistant",
-        "content": "how are your sons doing?"
+        "content": "Were you diagnosed with a thing called multiple sclerosis?"
       },
       {
         "role": "user",
-        "content": "They're thirty seven and thirty eight, and they're both doing really well."
+        "content": "No."
       },
       {
         "role": "assistant",
-        "content": "what about your daughters?"
+        "content": "Did you ever have a feeling where you felt like there's an electric is going up or down your spine?"
       },
       {
         "role": "user",
-        "content": "Well, they're sixty and fifty eight, and they both have cancer. They're real fighters."
+        "content": "No."
       },
       {
         "role": "assistant",
-        "content": "Are there any other conditions you're aware of?"
+        "content": "How about any fatigue or pain?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00529",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "If I'm understanding correctly, you sustained an elbow injury during a fight with some other kids in Juvenile Hall?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah. My left elbow is killing me."
+      },
+      {
+        "role": "assistant",
+        "content": "How old are you?"
+      },
+      {
+        "role": "user",
+        "content": "Seventeen."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you having pain anywhere else?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah. My left ankle also hurts."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you able to walk without difficulty?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah."
+      },
+      {
+        "role": "assistant",
+        "content": "Any knee pain?"
+      },
+      {
+        "role": "user",
+        "content": "Not right now, but I've had left knee pain in the past."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you pass out or hurt your neck in any way?"
+      },
+      {
+        "role": "user",
+        "content": "I didn't pass out. I hit my head against the floor when one of the kids tried to pin me down."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have a headache, nausea, or blurry vision?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "And no chest or abdominal pain?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "Were any weapons used during the fight?"
+      }
+    ],
+    "target": "safety_screening",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00747",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What can I help you with today?"
+      },
+      {
+        "role": "user",
+        "content": "I've noticed I'm losing weight without trying."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you smoke or use any tobacco products?"
+      },
+      {
+        "role": "user",
+        "content": "No, I've never smoked."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you currently sexually active?"
+      }
+    ],
+    "target": "sexual_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00085",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Are you a new patient?"
+      },
+      {
+        "role": "user",
+        "content": "I am. I've been traveling a lot, so I don't have a local doctor I usually see."
+      },
+      {
+        "role": "assistant",
+        "content": "What is the reason for your visit?"
+      },
+      {
+        "role": "user",
+        "content": "I've had this dark spot on my leg for a long time."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you know if your family has any chronic medical problems?"
+      },
+      {
+        "role": "user",
+        "content": "Not that I know of."
+      },
+      {
+        "role": "assistant",
+        "content": "Before I go over the procedures, have you had a surgery before?"
+      }
+    ],
+    "target": "surgical_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00197",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "You have been diagnosed with allergic rhinitis, right?"
+      },
+      {
+        "role": "user",
+        "content": "Um, I would say around four years now. Oh my God it has been so, so many medications that I had to take for this."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you diabetic?"
+      },
+      {
+        "role": "user",
+        "content": "No, I don't have any such conditions."
+      },
+      {
+        "role": "assistant",
+        "content": "So no hypertension or any kidney diseases?"
+      },
+      {
+        "role": "user",
+        "content": "Nope."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you ever been diagnosed with tuberculosis, asthma, or another lung condition?"
       }
     ],
     "target": "past_medical_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00251",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Has anyone in your family had heart diseases?"
+      },
+      {
+        "role": "user",
+        "content": "Yes my father. They did his heart bypass surgery when he was sixty."
+      },
+      {
+        "role": "assistant",
+        "content": "Is he alright now?"
+      },
+      {
+        "role": "user",
+        "content": "Yes I know what you mean. Yes by God's grace, both my parents are alive."
+      },
+      {
+        "role": "assistant",
+        "content": "What exactly was the heart disease named?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah they said it was something called coronary artery disease and he had many strokes due to that."
+      },
+      {
+        "role": "assistant",
+        "content": "How old is he now?"
+      },
+      {
+        "role": "user",
+        "content": "My father is in his eighties. My mother is eighty years old too and she has dementia. My father has dementia too."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you smoke or drink alcohol?"
+      }
+    ],
+    "target": "tobacco_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00248",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "How are you feeling today?"
+      },
+      {
+        "role": "user",
+        "content": "I am feeling very tired."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any other self harm events that you have not come to see use for?"
+      },
+      {
+        "role": "user",
+        "content": "No. I have been seeing Doctor Lin."
+      },
+      {
+        "role": "assistant",
+        "content": "Is there anything that is currently going on in your life that could be triggering these resent episode?"
+      },
+      {
+        "role": "user",
+        "content": "Last month I lost my job. And then this month my boyfriend left me."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you been diagnosed with any mental health conditions?"
+      },
+      {
+        "role": "user",
+        "content": "Doctor Lin just said that I was depressed."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you ever been put on any medication for the for your depression?"
+      },
+      {
+        "role": "user",
+        "content": "I have taken Lexapro before."
+      },
+      {
+        "role": "assistant",
+        "content": "How long ago did you take the Lexapro?"
+      }
+    ],
+    "target": "symptom_duration",
     "safety": {
       "red_flag": false
     }
@@ -435,115 +1548,255 @@
     }
   },
   {
-    "id": "model1_00110",
+    "id": "model1_00261",
     "messages": [
       {
         "role": "assistant",
-        "content": "What is the reason for your visit today?"
+        "content": "How old are you, sir?"
       },
       {
         "role": "user",
-        "content": "I was referred by a doctor to come see you so that you could check up on my nasal problems. Here is my report from my previous doctor who referred me to you."
+        "content": "I'm sixty five years old."
       },
       {
         "role": "assistant",
-        "content": "here it says you had severe sinusitis two to three months ago, correct?"
+        "content": "Are you right handed or left handed?"
       },
       {
         "role": "user",
-        "content": "Is that what they're calling my nasal problems?"
+        "content": "I'm right handed."
       },
       {
         "role": "assistant",
-        "content": "Would you be able to describe to me what you had been feeling two to three months ago?"
+        "content": "When was your last stroke?"
       },
       {
         "role": "user",
-        "content": "Yeah, I can. My face would feel uncomfortable, my nose was stuffy, my eyes hurt, and I felt something dropping in the back of my throat."
+        "content": "Well, it was on January seventeenth. I had these episodes where I was like always so confused and looks like I lost everything. All my memory and everything. And then they did a scan. It was verified that I was having a stroke on the same day."
       },
       {
         "role": "assistant",
-        "content": "Have you ever been prescribed any medication?"
+        "content": "Did they put you on some medications?"
       },
       {
         "role": "user",
-        "content": "Here's the list of medicine I was taking."
+        "content": "They gave me an anticonvulsant and aspirin."
       },
       {
         "role": "assistant",
-        "content": "you were given antibiotics, correct?"
+        "content": "Are you taking them regularly?"
       },
       {
         "role": "user",
-        "content": "I was, but I don't know what those are. Could you explain them to me?"
+        "content": "There have a few times like one or two days that I forgot to take my, uh, dyphenhydramine, but even when I'm taking it regularly, I'm still having all those symptoms or forgetfulness, confusion, and everything."
       },
       {
         "role": "assistant",
-        "content": "Do you remember if the antibiotics helped?"
+        "content": "Do you feel anything else along with these episodes like a urine urgency, tendency to bite your tongue, headaches, any visual change, or your heart is beating very fast?"
       },
       {
         "role": "user",
-        "content": "Not really. I felt like my symptoms were the same."
+        "content": "No nothing else, just the confusion and forgetfulness."
       },
       {
         "role": "assistant",
-        "content": "Did your doctor order any advanced imaging's?"
+        "content": "How frequent are these episodes?"
+      }
+    ],
+    "target": "symptom_frequency",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00216",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Hello, what brings you here today?"
       },
       {
         "role": "user",
-        "content": "Yeah. They did a C T scan of my nose. Here is the report from my C T scan."
+        "content": "I fell four times on third of this month because my leg suddenly gave out."
       },
       {
         "role": "assistant",
-        "content": "Going back to your list of medications, I know you took antibiotics for your infection, but did you take any medication for your sinuses?"
+        "content": "How old are you?"
       },
       {
         "role": "user",
-        "content": "No, I haven't. I did try this cream for my nose, but that didn't work either. Nothing worked!"
+        "content": "You don't ask age of a lady. She will never tell you the truth."
       },
       {
         "role": "assistant",
-        "content": "Are there any other symptoms that you have been experiencing?"
+        "content": "So how old are you?"
       },
       {
         "role": "user",
-        "content": "I've had some trouble with my balance, and I feel like I've lost some of my hearing. I thought this was odd since I'm only fifty years old. I think my ears felt plugged or full of air, so they just needed to pop."
+        "content": "That's true. I'm just teasing you. I'm fifty one."
       },
       {
         "role": "assistant",
-        "content": "Do you feel any fullness or pressure?"
+        "content": "Are you right handed or left handed?"
       },
       {
         "role": "user",
-        "content": "No, I don't feel anything like that right now."
+        "content": "I am right handed."
       },
       {
         "role": "assistant",
-        "content": "Do you hear any humming, buzzing, or roaring sounds?"
+        "content": "What happened exactly?"
       },
       {
         "role": "user",
-        "content": "Nope. I don't hear anything like that."
+        "content": "Oh, I noticed weakness in my right leg before as well and sometimes, like, I have to give the support of my arm to actually move it. Sometimes during these episodes I just turn pale and it's like overall weakness. I feel so tired. My husband, he gives me some sugar, three teaspoons, and then it helps a little bit but not completely."
       },
       {
         "role": "assistant",
-        "content": "When did you start noticing your balance was affected?"
+        "content": "So, is your weakness like overall in your legs or it is at any single point?"
       },
       {
         "role": "user",
-        "content": "I think it could have been to this one medicine that starts with an A. I forgot the name, but it didn't really help my nasal problems. It just made my balance worse."
+        "content": "It's overall. I remember in one of these episodes I was, like, in an odd fisted posture."
       },
       {
         "role": "assistant",
-        "content": "Was the medicine called Allegra?"
+        "content": "Is there any change in your sensations?"
       },
       {
         "role": "user",
-        "content": "Oh, yeah. That's what it was called. I thought I had some sort of allergy, so I thought it would help."
+        "content": "No, nothing like that."
       },
       {
         "role": "assistant",
-        "content": "Did you ever feel any dizziness too?"
+        "content": "Is there change in vision?"
+      },
+      {
+        "role": "user",
+        "content": "Nope."
+      },
+      {
+        "role": "assistant",
+        "content": "Any difficulty in swallowing or eating?"
+      },
+      {
+        "role": "user",
+        "content": "Nope."
+      },
+      {
+        "role": "assistant",
+        "content": "Any difficulty in speech?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "You said that these episodes have been happening for some time, so did you see anyone for those before?"
+      }
+    ],
+    "target": "prior_care_history",
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "model1_00337",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Are you married?"
+      },
+      {
+        "role": "user",
+        "content": "I'm divorced."
+      },
+      {
+        "role": "assistant",
+        "content": "So, do you live alone?"
+      },
+      {
+        "role": "user",
+        "content": "I live with my girlfriend, and we have a kid together. I also have three other kids from my former wife."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you smoke?"
+      },
+      {
+        "role": "user",
+        "content": "I used to smoke. But I, I've quit like fifteen years ago."
+      },
+      {
+        "role": "assistant",
+        "content": "What about alcohol?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I drink beer. Around one to two beers a day."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you working?"
+      }
+    ],
+    "target": "occupation",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00182",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Do you or have you used tobacco products,sir?"
+      },
+      {
+        "role": "user",
+        "content": "No. I have never been a smoker."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any history of alcohol or recreational drugs use?"
+      },
+      {
+        "role": "user",
+        "content": "I have never been a drug user, but I used to drink a little, but it was never a problem. I don't drink any more."
+      },
+      {
+        "role": "assistant",
+        "content": "What do you do for a living?"
+      }
+    ],
+    "target": "occupation",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00087",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Do you have any nausea, vomiting?"
+      },
+      {
+        "role": "user",
+        "content": "Yes to both."
+      },
+      {
+        "role": "assistant",
+        "content": "How about fever?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I do."
+      },
+      {
+        "role": "assistant",
+        "content": "Any blood in sputum or chest pain?"
       }
     ],
     "target": "associated_symptoms",
@@ -552,15 +1805,15 @@
     }
   },
   {
-    "id": "model1_00007",
+    "id": "model1_00134",
     "messages": [
       {
         "role": "assistant",
-        "content": "I hear someone has a birthday coming up, how old are you turning, ma'am?"
+        "content": "Before we begin, can you confirm your age for me, please?"
       },
       {
         "role": "user",
-        "content": "I'll be ninety later this month, doctor."
+        "content": "I'm fifty six years old."
       },
       {
         "role": "assistant",
@@ -568,332 +1821,533 @@
       },
       {
         "role": "user",
-        "content": "Well, actually, my high blood pressure and right arm symptoms are basically gone."
+        "content": "Well, I have a history of systemic lupus erythematosus."
       },
       {
         "role": "assistant",
-        "content": "Are you taking the higher dose of Mavik we recommended?"
+        "content": "How have you been treated for this in the past?"
       },
       {
         "role": "user",
-        "content": "No, I'm not taking that right now."
+        "content": "Um, I went to a rheumatologist about four months ago, I had discomfort in both of my hands."
       },
       {
         "role": "assistant",
-        "content": "How did you tolerate the higher dose?"
+        "content": "Which hand was worse?"
       },
       {
         "role": "user",
-        "content": "I didn't feel well at all, so I just went back to the old dose."
+        "content": "My left was worse than my right at that time."
       },
       {
         "role": "assistant",
-        "content": "That was one M G per day, correct?"
+        "content": "Have you seen anyone else for this?"
       },
       {
         "role": "user",
-        "content": "Yes, doctor. I do think I could have some white coat high blood pressure. Doctors' offices make me nervous. Hello doctor, I'm her daughter. Just so you know, we check her blood pressure at home periodically and it's always similar to that reading."
+        "content": "Um, I came in on October thirtieth two thousand seven. I was having the same problem."
       },
       {
         "role": "assistant",
-        "content": "so back to that right arm, how is that doing today?"
+        "content": "What did they do for you at that time?"
       },
       {
         "role": "user",
-        "content": "Well, that pain is basically gone now, I think it had to do with that muscle problem back in my right shoulder blade."
+        "content": "They have me a trial of Elavil because they thought it was, um, ulnar or radial neuropathy."
       },
       {
         "role": "assistant",
-        "content": "Did you have x rays taken today?"
+        "content": "Did they give you any topical creams?"
       },
       {
         "role": "user",
-        "content": "Yes, the tech brought me back right before you came in."
+        "content": "Yeah, they gave me a prescription for Zostrix but I couldn't fill it because of my insurance."
       },
       {
         "role": "assistant",
-        "content": "The humeral head is pretty high in the glenoid in the right shoulder, but do you have any pain here?"
+        "content": "have your symptoms gotten worse since they began?"
       },
       {
         "role": "user",
-        "content": "No, none."
+        "content": "Yeah, especially here, at the base of my left hand, like around my wrist."
       },
       {
         "role": "assistant",
-        "content": "How has this pain developed and progressed recently?"
+        "content": "Which fingers do you feel it in?"
       },
       {
         "role": "user",
-        "content": "Well, it's improved somewhat with me not taking Aleve anymore."
+        "content": "Right here, doctor."
       },
       {
         "role": "assistant",
-        "content": "What medicines are you taking right now, then?"
+        "content": "Do you have any other symptoms of note?"
       },
       {
         "role": "user",
-        "content": "Right know, I'm just taking Tylenol as needed. That seems to be enough for me."
+        "content": "Um, actually yeah, I've been having some respiratory problems for the last three days or so."
       },
       {
         "role": "assistant",
-        "content": "Do you think this could be acid reflux, or heartburn?"
+        "content": "What symptoms have you been experiencing?"
       },
       {
         "role": "user",
-        "content": "No, but I take Tums, um, three times a day, and Mylanta at night. Oh yeah, I have these sores in my mouth, can you take a look?"
+        "content": "Um, I've had a dry cough and I feel like I've had a fever but I haven't taken my temperature."
       },
       {
         "role": "assistant",
-        "content": "How long have you worn dentures?"
+        "content": "Have you had any night sweats or chills?"
       },
       {
         "role": "user",
-        "content": "Oh I couldn't even tell you, it's been many, many years."
+        "content": "No, not that I can remember."
       },
       {
         "role": "assistant",
-        "content": "Do they come and go, the sores?"
+        "content": "Have you had any chest pain or discomfort?"
       },
       {
         "role": "user",
-        "content": "Yes, one will come, then it'll heal up, then another."
+        "content": "No."
       },
       {
         "role": "assistant",
-        "content": "It's hard to tell if you have a tremor today, ma'am, but do you think the Lexapro is helping otherwise?"
+        "content": "Have you had any shortness of breath or gastrointestinal problems?"
       }
     ],
-    "target": "medication_response",
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00417",
+    "id": "model1_00708",
     "messages": [
       {
         "role": "assistant",
-        "content": "How are you doing today?"
+        "content": "So what seems to be the problem today?"
       },
       {
         "role": "user",
-        "content": "I have this massive headache."
+        "content": "I get numbness and tingling in my hands sometimes."
       },
       {
         "role": "assistant",
-        "content": "Do migraines usually run in your family?"
+        "content": "Have you had any blurry vision or light sensitivity?"
       },
       {
         "role": "user",
-        "content": "They do. Everyone has it. We've been having it for many years."
+        "content": "Yes, I've had blurry vision."
       },
       {
         "role": "assistant",
-        "content": "Does diabetes run in your family too?"
+        "content": "Have you had any nausea or vomiting with it?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, some nausea."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any weakness or numbness anywhere?"
       }
     ],
-    "target": "family_history",
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00064",
+    "id": "model1_00468",
     "messages": [
       {
         "role": "assistant",
-        "content": "Are you married?"
+        "content": "Where are you having numbness?"
       },
       {
         "role": "user",
-        "content": "Yes, for almost twenty two years now."
+        "content": "In my left hand."
       },
       {
         "role": "assistant",
-        "content": "And are you working?"
+        "content": "And no other symptoms?"
       },
       {
         "role": "user",
-        "content": "Ah yes, I drive a delivery truck in the town."
+        "content": "No. Just that weird feeling in my left hand."
       },
       {
         "role": "assistant",
-        "content": "So, tell me do you smoke or drink? And how much would you say you smoke per day?"
-      },
-      {
-        "role": "user",
-        "content": "I smoke about two packs a day."
-      },
-      {
-        "role": "assistant",
-        "content": "how much do you drink?"
-      },
-      {
-        "role": "user",
-        "content": "I drink three, oh wait, I drink two beers every day."
-      },
-      {
-        "role": "assistant",
-        "content": "And do you do any drugs like coke or anything?"
+        "content": "What about any phlegm or shortness of breath?"
       }
     ],
-    "target": "substance_use",
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00085",
+    "id": "model1_00032",
     "messages": [
       {
         "role": "assistant",
-        "content": "Are you a new patient?"
+        "content": "So, what is your family's living situation at home?"
       },
       {
         "role": "user",
-        "content": "I am. I've been traveling a lot, so I don't have a local doctor I usually see."
+        "content": "Um, he lives at home with me, and his father."
       },
       {
         "role": "assistant",
-        "content": "What is the reason for your visit?"
+        "content": "May I assume that you are his biological parents?"
       },
       {
         "role": "user",
-        "content": "I've had this dark spot on my leg for a long time."
+        "content": "Yes, that's correct."
       },
       {
         "role": "assistant",
-        "content": "Do you know if your family has any chronic medical problems?"
+        "content": "does he have any siblings?"
       },
       {
         "role": "user",
-        "content": "Not that I know of."
+        "content": "No, right now, he's an only child."
       },
       {
         "role": "assistant",
-        "content": "Before I go over the procedures, have you had a surgery before?"
+        "content": "What grade is he in?"
+      },
+      {
+        "role": "user",
+        "content": "He's in the third grade."
+      },
+      {
+        "role": "assistant",
+        "content": "How is he doing in school?"
       }
     ],
-    "target": "surgical_history",
+    "target": "functional_impact",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00544",
+    "id": "model1_00011",
     "messages": [
       {
         "role": "assistant",
-        "content": "How are you doing miss?"
+        "content": "Do you know about any medical traits in your family?"
       },
       {
         "role": "user",
-        "content": "I'm doing good. Thank you. Sugar has consistently been one hundred and thirty five or under it."
+        "content": "No, everyone in my family is quite healthy. I'm not aware of any medical problems."
       },
       {
         "role": "assistant",
-        "content": "How are you checking it?"
+        "content": "Are you sexually active?"
       },
       {
         "role": "user",
-        "content": "I have a glucose monitor at home I'm using that only."
+        "content": "Yes, I am with my boyfriend."
       },
       {
         "role": "assistant",
-        "content": "Did you eat anything in the morning today?"
+        "content": "Do you take any drugs or alcohol?"
       },
       {
         "role": "user",
-        "content": "No, I'm fasting for my test."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "Are you being active?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, I'm exercising as a rule three times every week. I don't miss it."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you feel any tingling or numbness or any kind of cramps?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "Any kind of blurry vision?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you noticed any weight loss?"
+        "content": "Do you take any smoke?"
       }
     ],
-    "target": "weight_change",
+    "target": "tobacco_use",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00012",
+    "id": "model1_00621",
     "messages": [
       {
         "role": "assistant",
-        "content": "Any past medical history?"
+        "content": "What's going on today?"
       },
       {
         "role": "user",
-        "content": "Um there were a couple times where I noticed my blood pressure was high but that's improved as of late."
+        "content": "I've been feeling dizzy whenever I stand up."
       },
       {
         "role": "assistant",
-        "content": "When did these episodes occur?"
+        "content": "Do you drink alcohol?"
+      }
+    ],
+    "target": "alcohol_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00582",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "So what seems to be the problem today?"
       },
       {
         "role": "user",
-        "content": "About a year ago."
+        "content": "I've had diarrhea for the past three days."
       },
       {
         "role": "assistant",
-        "content": "Did you follow up with your previous doctor?"
+        "content": "Have you had any nausea or vomiting?"
       },
       {
         "role": "user",
-        "content": "Yeah, my old doctor knows."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "Have you been checking your own blood pressure as a result?"
+        "content": "Have you had any fever or chills?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00738",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What brings you in today?"
       },
       {
         "role": "user",
-        "content": "No not really."
+        "content": "I have a persistent sinus headache and pressure in my face."
       },
       {
         "role": "assistant",
-        "content": "any allergies to medications?"
+        "content": "Have you had any fever or chills?"
       },
       {
         "role": "user",
-        "content": "None that I know of."
+        "content": "Yes, I've had a low fever."
       },
       {
         "role": "assistant",
-        "content": "Any new diet changes or stressors?"
+        "content": "Have you had any shortness of breath or wheezing?"
       },
       {
         "role": "user",
-        "content": "I lost my job last January and it took a pretty big toll on me."
+        "content": "Yes, I've been a little wheezy."
       },
       {
         "role": "assistant",
-        "content": "How have you been coping?"
+        "content": "Have you had any sore throat or congestion?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you noticed any chest pain when you cough?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00205",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "You recently turned sixty seven, correct?"
+      },
+      {
+        "role": "user",
+        "content": "Yes. Sixty seven years young."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you right or left handed?"
+      },
+      {
+        "role": "user",
+        "content": "Right."
+      },
+      {
+        "role": "assistant",
+        "content": "When were you first diagnosed with Parkinson's?"
+      },
+      {
+        "role": "user",
+        "content": "September first of nineteen ninety five."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you remember who diagnosed you?"
+      },
+      {
+        "role": "user",
+        "content": "A local doctor I was seeing at the time. A year before my diagnosis, I had a few falls and episodes of lightheadedness. I also noticed that I was staggering a lot more when walking."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you lose consciousness during any of your falls?"
+      },
+      {
+        "role": "user",
+        "content": "Not that I know of. I had noticed that I was losing my normal voice to a degree. On top of losing my normal voice, my handwriting became smaller and smaller. I don't ever remember writing so small. Something seemed really off to me."
+      },
+      {
+        "role": "assistant",
+        "content": "By slower, do you mean the movements of your arms and legs were slower and impaired?"
+      },
+      {
+        "role": "user",
+        "content": "Yes. I was prescribed Sinemet back in September of nineteen ninety five."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you notice any improvement while taking it?"
+      },
+      {
+        "role": "user",
+        "content": "None. I was pretty disappointed and discouraged as a result. I have problems with coordination and walking without staggering even today."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you experiencing any other symptoms, such as stroke like events or vision changes?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you experiencing any other symptoms, such as stroke like seizures or problems with moving?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you experiencing any other symptoms, such as stroke like coordinating your arms?"
+      },
+      {
+        "role": "user",
+        "content": "No."
+      },
+      {
+        "role": "assistant",
+        "content": "Any headache or nausea?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Any vomiting or chills?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Any fever?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00394",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Is it worse when you exert yourself?"
+      },
+      {
+        "role": "user",
+        "content": "Um no, not really. I've had a terrible cough along with frequent headaches and chest congestion. I have also had a low fever."
+      },
+      {
+        "role": "assistant",
+        "content": "Did these symptoms start around the same time?"
+      },
+      {
+        "role": "user",
+        "content": "I think so."
+      },
+      {
+        "role": "assistant",
+        "content": "Where does your chest feel most congested?"
+      },
+      {
+        "role": "user",
+        "content": "Both sides. I'd say it's at a three currently."
+      },
+      {
+        "role": "assistant",
+        "content": "Does it send pain or numbness or tingling down your arms?"
+      },
+      {
+        "role": "user",
+        "content": "No, but it does get worse whenever I cough."
+      },
+      {
+        "role": "assistant",
+        "content": "Is this your first time experiencing this type of congestion?"
+      },
+      {
+        "role": "user",
+        "content": "Oh no. I had something like it about ten months ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Did that improve on its own?"
+      }
+    ],
+    "target": "symptom_progression",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00372",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Where do you live?"
+      },
+      {
+        "role": "user",
+        "content": "I live with my mother around the corner where the Whole Foods is. I have been there for a few years now."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you the mother of the patient?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I'm the mother."
+      },
+      {
+        "role": "assistant",
+        "content": "How are you dealing with everything?"
       }
     ],
     "target": "coping_and_stress",
@@ -902,83 +2356,170 @@
     }
   },
   {
-    "id": "model1_00034",
+    "id": "model1_00055",
     "messages": [
       {
         "role": "assistant",
-        "content": "My chart here says that you're eighty three years old, is that correct, ma'am?"
+        "content": "How are you doing today?"
       },
       {
         "role": "user",
-        "content": "Yes doctor, that's correct, I just had my birthday."
+        "content": "I have a long history of lung disease. COPD to be exact. Recently, I was experiencing a lot of coughing and shortness of breath even on walking from one room to another. All the time I felt sleepy, tired, or confused."
       },
       {
         "role": "assistant",
-        "content": "How have you been doing since your last visit?"
+        "content": "How is it now?"
       },
       {
         "role": "user",
-        "content": "Well, my cancer hasn't needed phlebotomies for several months now, which is good."
+        "content": "It is getting better."
       },
       {
         "role": "assistant",
-        "content": "you have been treated for polycythemia vera, correct?"
+        "content": "What else?"
+      },
+      {
+        "role": "user",
+        "content": "I was also diagnosed with pneumonia; I was on trip and there they found it. It is also getting a lot better now, but doctor said to continue taking oxygen for some more time. I also felt very instable and had a fall. I did not call for any assistance but now I think I should have called someone. Everyone including my family and nurses all tell me all the time to call for assistance. I was just being stubborn and hurt myself."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you use a wheelchair?"
       }
     ],
-    "target": "prior_treatment_history",
+    "target": "functional_impact",
+    "safety": {
+      "red_flag": true
+    }
+  },
+  {
+    "id": "model1_00024",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Where do you live?"
+      },
+      {
+        "role": "user",
+        "content": "I live in a board and care. It is a nice small care home with some very nice and supportive people. It is just next to the Safeway on Village Drive."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you consume alcohol in any way?"
+      },
+      {
+        "role": "user",
+        "content": "No Sir."
+      },
+      {
+        "role": "assistant",
+        "content": "Any tobacco consumption?"
+      },
+      {
+        "role": "user",
+        "content": "Never in my life."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you ever try any kind of illicit drugs?"
+      }
+    ],
+    "target": "substance_use",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00320",
+    "id": "model1_00678",
     "messages": [
       {
         "role": "assistant",
-        "content": "So, who is in your family?"
+        "content": "What brings you in today?"
       },
       {
         "role": "user",
-        "content": "Well, my mom, dad, and I have four brothers aged eighteen, sixteen, fourteen and twelve and I also have a younger sister. She is only three."
+        "content": "I've been short of breath just climbing the stairs."
       },
       {
         "role": "assistant",
-        "content": "and you all stay together?"
+        "content": "Is this affecting your ability to work or do your daily activities?"
       },
       {
         "role": "user",
-        "content": "Yes, and we also have two dogs and two cats."
+        "content": "Not really, I can still manage."
       },
       {
         "role": "assistant",
-        "content": "And everyone at home is doing fine?"
-      },
-      {
-        "role": "user",
-        "content": "No, not really. Everyone at home is sick with a cough, cold and runny nose, except- Except for my mom! Yeah, except for me thankfully."
-      },
-      {
-        "role": "assistant",
-        "content": "and did you travel anywhere recently, especially during the holiday season?"
-      },
-      {
-        "role": "user",
-        "content": "No, right mom? Yeah, we didn't travel anywhere recently."
-      },
-      {
-        "role": "assistant",
-        "content": "Anybody in your house smokes?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "No exposure to smoke, right?"
+        "content": "Does anyone in your family have a history of heart disease, diabetes, or cancer?"
       }
     ],
-    "target": "tobacco_use",
+    "target": "family_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00491",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What do you do for a living, sir?"
+      },
+      {
+        "role": "user",
+        "content": "I'm actually retired, but I used to work as a dock hand."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you smoke?"
+      },
+      {
+        "role": "user",
+        "content": "I smoke about a half a pack of cigarettes a day."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you drink, sir?"
+      }
+    ],
+    "target": "alcohol_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00552",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What's going on today?"
+      },
+      {
+        "role": "user",
+        "content": "I've had diarrhea for the past three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any nausea or vomiting?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, I've thrown up twice."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any fever or chills?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, a mild fever."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you noticed any blood in your stool?"
+      }
+    ],
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }
@@ -1021,245 +2562,43 @@
     }
   },
   {
-    "id": "model1_00370",
+    "id": "model1_00669",
     "messages": [
       {
         "role": "assistant",
-        "content": "Do you have any children, ma'am?"
+        "content": "How can I help you today?"
       },
       {
         "role": "user",
-        "content": "Yes, I have a wonderful baby girl at home."
+        "content": "I've had trouble breathing at night, it wakes me up."
       },
       {
         "role": "assistant",
-        "content": "were there any complications with your pregnancy or delivery?"
+        "content": "Have you had any fever or chills?"
       },
       {
         "role": "user",
-        "content": "Nope, everything went very smooth. I'm thankful."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "have you ever been hospitalized for any issue?"
+        "content": "Have you had any shortness of breath or wheezing?"
       },
       {
         "role": "user",
-        "content": "No, thankfully."
+        "content": "Yes, I've been a little wheezy."
       },
       {
         "role": "assistant",
-        "content": "so I can assume you've never had surgery?"
-      }
-    ],
-    "target": "surgical_history",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00522",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "You're seventy nine years old, correct?"
+        "content": "Have you had any sore throat or congestion?"
       },
       {
         "role": "user",
-        "content": "Yes."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "or left handed?"
-      },
-      {
-        "role": "user",
-        "content": "Right."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you remember when you had your first fall?"
-      },
-      {
-        "role": "user",
-        "content": "Hm about a year and a half ago I fell while trying to walk from my bed to the living room."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you feel lightheaded prior?"
-      },
-      {
-        "role": "user",
-        "content": "Uh yeah I did have some lightheadedness and I was a bit confused. I was aware of my surroundings though. My legs just gave out and the next thing I knew I was on the floor."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you lose consciousness?"
-      },
-      {
-        "role": "user",
-        "content": "No, thank goodness. He got up by himself and felt fine afterwards. The strangest thing. Yeah. I was good until my legs gave out on me July third of O eight."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you experience the same lightheadedness as before?"
-      },
-      {
-        "role": "user",
-        "content": "Not this time. We had to rush him to the hospital after that. I was later diagnosed with pneumonia. The fall was blamed on the pneumonia."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you need any type of walking assistance prior to your falls?"
-      },
-      {
-        "role": "user",
-        "content": "Nope. I used to walk about two miles a day before all of this stuff started happening to me. This isn't even the end of it. My legs gave out on me again August O eight. No lightheadedness beforehand, but they did find that I had pneumonia again. They admitted him to the hospital and later sent him for rehab."
-      },
-      {
-        "role": "assistant",
-        "content": "Did rehab help?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah. I was able to use my walker after that."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you return to your previous health?"
-      },
-      {
-        "role": "user",
-        "content": "Uh not really, no. I had another fall in October O eight."
-      },
-      {
-        "role": "assistant",
-        "content": "Did they diagnose you with pneumonia again?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah. I also had shingles."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you currently living at home?"
-      },
-      {
-        "role": "user",
-        "content": "I'm living in a Chronic Rehab Unit. I can't use my walker anymore. I'm confined to a wheelchair."
-      },
-      {
-        "role": "assistant",
-        "content": "Is it all of your fingers or only some?"
-      },
-      {
-        "role": "user",
-        "content": "All."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you noticing any other symptoms along with the numbness in your fingers?"
-      },
-      {
-        "role": "user",
-        "content": "Yes. I feel like I've lost quite a bit of muscle in my hands. They're also much weaker than before. My strength hasn't been the same since July O eight. It's definitely getting worse."
-      },
-      {
-        "role": "assistant",
-        "content": "Fasciculations?"
-      },
-      {
-        "role": "user",
-        "content": "Yes. In my lower legs and thighs."
-      },
-      {
-        "role": "assistant",
-        "content": "Any cramping or problems swallowing?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Any difficulty breathing?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Any constipation or diarrhea?"
-      },
-      {
-        "role": "user",
-        "content": "Both actually. It tends to alternate."
-      },
-      {
-        "role": "assistant",
-        "content": "But no loss of bowel or bladder control?"
-      },
-      {
-        "role": "user",
-        "content": "No. I've noticed that my blood pressure has been out of whack. I also feel like I'm about to faint anytime I stand."
-      },
-      {
-        "role": "assistant",
-        "content": "How long has that been going on?"
-      }
-    ],
-    "target": "symptom_duration",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00069",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "How are you all today?"
-      },
-      {
-        "role": "user",
-        "content": "Not good. We are really worried about our daughter."
-      },
-      {
-        "role": "assistant",
-        "content": "What happened?"
-      },
-      {
-        "role": "user",
-        "content": "I turned my back for one second and I saw her under the counter in the cabinet. We have childproofing on that cabinet. I don't know how she got it open. I pulled her out from the cabinet, and she had the bottle of ant bait in her hands. She had spilled the entire bottle all over her. She had the liquid on her hands. I don't know if she drank any of it or put her hands in her mouth."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you know what the ant bait was called?"
-      },
-      {
-        "role": "user",
-        "content": "No. I know it was the kind with Borax in it."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you know how big the container was?"
-      },
-      {
-        "role": "user",
-        "content": "It was an eleven M L bottle. I am not sure if that stuff is toxic or not?"
-      },
-      {
-        "role": "assistant",
-        "content": "How old is she?"
-      },
-      {
-        "role": "user",
-        "content": "She is fourteen months."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you noticed and strange behavior or vomiting?"
+        "content": "Have you noticed any chest pain when you cough?"
       }
     ],
     "target": "associated_symptoms",
@@ -1268,199 +2607,27 @@
     }
   },
   {
-    "id": "model1_00239",
+    "id": "model1_00697",
     "messages": [
       {
         "role": "assistant",
-        "content": "Is everything fine?"
+        "content": "What brings you in today?"
       },
       {
         "role": "user",
-        "content": "My mom is not well."
+        "content": "I get numbness and tingling in my hands sometimes."
       },
       {
         "role": "assistant",
-        "content": "When did this start?"
+        "content": "Have you had any blurry vision or light sensitivity?"
       },
       {
         "role": "user",
-        "content": "I don't know but she is not in her correct state of mind."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "let's see what we can do, how old is she?"
-      }
-    ],
-    "target": "background_history",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00141",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "When was your last menstrual period?"
-      },
-      {
-        "role": "user",
-        "content": "My last period was on June first two thousand and four."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you currently sexually active?"
-      },
-      {
-        "role": "user",
-        "content": "No! There is no possibility that I am pregnant. I have not had sex in two years."
-      },
-      {
-        "role": "assistant",
-        "content": "How old where you when you had your first menstrual period?"
-      },
-      {
-        "role": "user",
-        "content": "I was ten years old when I got my first period. My cycle has never been regular. It runs in my mom's side of the family."
-      },
-      {
-        "role": "assistant",
-        "content": "What is your family history of reproductive health conditions on your mom's side of the family?"
-      },
-      {
-        "role": "user",
-        "content": "My mom and my aunt have both had total hysterectomies."
-      },
-      {
-        "role": "assistant",
-        "content": "Is there any other personal medical history I should know about?"
-      },
-      {
-        "role": "user",
-        "content": "I see Doctor X Y Z Allen for my abnormal heart valve condition. I am on S B E prophylaxis. I have to limit my activity because of my heart condition."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you avoid using decongestants?"
-      }
-    ],
-    "target": "medications",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00132",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "What do you do for work?"
-      },
-      {
-        "role": "user",
-        "content": "I work in Human Resources for the State of Maryland."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you live alone or with others?"
-      },
-      {
-        "role": "user",
-        "content": "I live alone."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you smoke cigarettes?"
-      },
-      {
-        "role": "user",
-        "content": "I used to smoke like a chimney. I quit smoking a while back. I had been smoking for about sixteen years."
-      },
-      {
-        "role": "assistant",
-        "content": "When did you quit?"
-      },
-      {
-        "role": "user",
-        "content": "I quit in nineteen eighty four. That is also the year I quit drinking."
-      },
-      {
-        "role": "assistant",
-        "content": "What was the reason behind quitting drinking?"
-      },
-      {
-        "role": "user",
-        "content": "I had a drinking problem. I am in A A. I have been in A A since I quit."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any history of recreational or I V drug use?"
-      },
-      {
-        "role": "user",
-        "content": "Yes. I used to take pills, but I never got into needle drugs. Thank God. I went through treatment, all those years back. I started going to A A and got my life together."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any other risk factors for H I V?"
-      }
-    ],
-    "target": "sexual_history",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00210",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Could you verify your age, please?"
-      },
-      {
-        "role": "user",
-        "content": "I'm fifty five years old."
-      },
-      {
-        "role": "assistant",
-        "content": "What is the reason for your visit today?"
-      },
-      {
-        "role": "user",
-        "content": "I've been having a lot of problems recently, so I decided to come get it checked out by you."
-      },
-      {
-        "role": "assistant",
-        "content": "What kind of problems are you experiencing?"
-      }
-    ],
-    "target": "symptom_character",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00087",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Do you have any nausea, vomiting?"
-      },
-      {
-        "role": "user",
-        "content": "Yes to both."
-      },
-      {
-        "role": "assistant",
-        "content": "How about fever?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, I do."
-      },
-      {
-        "role": "assistant",
-        "content": "Any blood in sputum or chest pain?"
+        "content": "Have you had any nausea or vomiting with it?"
       }
     ],
     "target": "associated_symptoms",
@@ -1469,35 +2636,162 @@
     }
   },
   {
-    "id": "model1_00281",
+    "id": "model1_00651",
     "messages": [
       {
         "role": "assistant",
-        "content": "Is it fine if I ask you a few questions?"
+        "content": "What's going on today?"
       },
       {
         "role": "user",
-        "content": "Of course. Go ahead."
+        "content": "I've been short of breath just climbing the stairs."
       },
       {
         "role": "assistant",
-        "content": "Do you currently smoke?"
+        "content": "Are you currently taking any medications?"
       },
       {
         "role": "user",
-        "content": "No, I finally stopped smoking cigarettes."
+        "content": "No, nothing regularly."
       },
       {
         "role": "assistant",
-        "content": "Did you smoke before?"
+        "content": "Do you have any other ongoing medical conditions I should know about?"
       },
       {
         "role": "user",
-        "content": "I did. I smoked a half a pack for about twenty years."
+        "content": "No, I'm generally pretty healthy."
       },
       {
         "role": "assistant",
-        "content": "Do you drink alcohol?"
+        "content": "How has your sleep been lately?"
+      }
+    ],
+    "target": "sleep",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00500",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Are you from the area?"
+      },
+      {
+        "role": "user",
+        "content": "I was born and raised in Iowa. My husband and I moved here twenty years ago, and we have been here ever since."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have kids?"
+      },
+      {
+        "role": "user",
+        "content": "Yes! We have two kids."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any history or present use of tobacco?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any alcohol or recreational drugs?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you have any substances?"
+      }
+    ],
+    "target": "tobacco_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00077",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "How are you feeling today, ma'am?"
+      },
+      {
+        "role": "user",
+        "content": "Honestly, overall, I'm feeling a lot better."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you still having the diarrhea and decreased appetite?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, but I'm still feeling better though."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you been peeing a normal amount?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, no problems there. I measured it like you told me to—six hundred M L."
+      },
+      {
+        "role": "assistant",
+        "content": "When was the last time you peed?"
+      },
+      {
+        "role": "user",
+        "content": "Um, it was about seven this morning."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you having any fever symptoms?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00149",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Any history of smoking?"
+      },
+      {
+        "role": "user",
+        "content": "Uh yeah, but I quit in two thousand seven."
+      },
+      {
+        "role": "assistant",
+        "content": "On average, how many packs per day did you smoke?"
+      },
+      {
+        "role": "user",
+        "content": "Uh if I were to guess, I'd say one pack per day."
+      },
+      {
+        "role": "assistant",
+        "content": "Any other drugs?"
+      },
+      {
+        "role": "user",
+        "content": "I used to do coke, but I quit that in two thousand five."
+      },
+      {
+        "role": "assistant",
+        "content": "And any history of drinking?"
       }
     ],
     "target": "alcohol_use",
@@ -1506,91 +2800,99 @@
     }
   },
   {
-    "id": "model1_00001",
+    "id": "model1_00674",
     "messages": [
       {
         "role": "assistant",
-        "content": "What brings you back into the clinic today, miss?"
+        "content": "What's going on today?"
       },
       {
         "role": "user",
-        "content": "I came in for a refill of my blood pressure medicine."
+        "content": "I've had trouble breathing at night, it wakes me up."
       },
       {
         "role": "assistant",
-        "content": "Have you noticed any changes or do you have any concerns regarding these issues?"
+        "content": "Have your medications been helping?"
       },
       {
         "role": "user",
-        "content": "No."
+        "content": "Not really, the symptoms still come back."
       },
       {
         "role": "assistant",
-        "content": "Have you had any fever or chills, cough, congestion, nausea, vomiting, chest pain, chest pressure?"
+        "content": "Has it been getting better, worse, or staying about the same?"
       }
     ],
-    "target": "associated_symptoms",
+    "target": "symptom_progression",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00540",
+    "id": "model1_00433",
     "messages": [
       {
         "role": "assistant",
-        "content": "Hi, what is going on?"
+        "content": "My nurses tell me that you're thirty nine years old, is that correct?"
       },
       {
         "role": "user",
-        "content": "She was doing well until this morning, but now she can barely move her right arm and is having speech issues. She can't seem to comprehend words. I think it is a stroke."
+        "content": "Good morning, Doctor. Yes, that's correct."
       },
       {
         "role": "assistant",
-        "content": "You just saw Doctor H, right?"
+        "content": "So, what seems to be the problem today, ma'am?"
       },
       {
         "role": "user",
-        "content": "Yes. We did a C T head scan and labs."
+        "content": "I hurt my knee while on the trampoline back in late August."
       },
       {
         "role": "assistant",
-        "content": "Where is she living?"
+        "content": "Do you remember the mechanism of injury to this knee?"
       },
       {
         "role": "user",
-        "content": "No. She is at the Life Care Center."
+        "content": "What do you mean?"
       },
       {
         "role": "assistant",
-        "content": "Ma'am, do you have headache or chest pain?"
+        "content": "was it a twisting, pulling, snapping kind of injury?"
       },
       {
         "role": "user",
-        "content": "What? What? Huh? She has not complained of anything like that."
+        "content": "Oh, I twisted my knee."
       },
       {
         "role": "assistant",
-        "content": "Do you have vision issues?"
+        "content": "have you seen another doctor for this?"
       },
       {
         "role": "user",
-        "content": "What? I can see. Of course I can see."
+        "content": "Yeah, and I got an M R I."
       },
       {
         "role": "assistant",
-        "content": "Any shortness of breath?"
+        "content": "Can I see the report?"
       },
       {
         "role": "user",
-        "content": "She is breathing fine."
+        "content": "Yes, here you go."
       },
       {
         "role": "assistant",
-        "content": "Have your symptoms improved at all?"
+        "content": "Do you have any instability in this knee?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I feel like my knee joint has been unstable for years."
+      },
+      {
+        "role": "assistant",
+        "content": "Have there been any dislocations?"
       }
     ],
-    "target": "symptom_progression",
+    "target": "injury_history",
     "safety": {
       "red_flag": false
     }
@@ -1608,7 +2910,15 @@
       },
       {
         "role": "assistant",
-        "content": "Did you have any chest pain or shortness of breath or uneasiness?"
+        "content": "Did you have any chest pain or shortness of breath?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you have any uneasiness?"
       },
       {
         "role": "user",
@@ -1625,350 +2935,416 @@
     }
   },
   {
-    "id": "model1_00329",
+    "id": "model1_00358",
     "messages": [
-      {
-        "role": "assistant",
-        "content": "Do you smoke or drink, ma'am?"
-      },
-      {
-        "role": "user",
-        "content": "I don't smoke, and I drink, um, I'd say on occasionally."
-      },
-      {
-        "role": "assistant",
-        "content": "What about harder drugs, do you use any of those?"
-      },
-      {
-        "role": "user",
-        "content": "No, I don't."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you married?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, to my wonderful husband."
-      },
-      {
-        "role": "assistant",
-        "content": "what do you two do for a living?"
-      },
-      {
-        "role": "user",
-        "content": "I'm a social worker, and my husband is a high school chemistry teacher."
-      },
-      {
-        "role": "assistant",
-        "content": "What kinds of people do you work with as a social worker?"
-      },
-      {
-        "role": "user",
-        "content": "I love it, I work with adult abuse and neglect issues."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any children?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, we have two sons."
-      },
-      {
-        "role": "assistant",
-        "content": "Do they live at home?"
-      }
-    ],
-    "target": "living_situation",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00138",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "What brings you into see me today?"
-      },
-      {
-        "role": "user",
-        "content": "I have had this pain in my finger and wrist for about a month. I have had some numbness too. The numbness started in the finger and is now in the wrist too."
-      },
-      {
-        "role": "assistant",
-        "content": "Which wrist and finger is it that is hurting?"
-      },
-      {
-        "role": "user",
-        "content": "The left one and the middle finger, here."
-      },
-      {
-        "role": "assistant",
-        "content": "What was to time frame of the procreation of the numbness from the finger to the wrist?"
-      },
-      {
-        "role": "user",
-        "content": "It started when I woke up and then by the end of the day my wrist was numb too."
-      },
-      {
-        "role": "assistant",
-        "content": "When did you start experiencing pain in the wrist area?"
-      },
-      {
-        "role": "user",
-        "content": "A few days after the numbness started."
-      },
-      {
-        "role": "assistant",
-        "content": "Which hand is your dominate hand?"
-      },
-      {
-        "role": "user",
-        "content": "I am left handed."
-      },
-      {
-        "role": "assistant",
-        "content": "What do you do for work?"
-      },
-      {
-        "role": "user",
-        "content": "I am a cook. I also cut the fish for the whole restaurant. I cut fish for hours in the mornings and it has been a struggle and it is aggravating my finger and wrist."
-      },
       {
         "role": "assistant",
         "content": "How old are you?"
       },
       {
         "role": "user",
-        "content": "I am forty four."
+        "content": "I am seventy three."
       },
       {
         "role": "assistant",
-        "content": "Do you have any history of injuring a neck injury?"
+        "content": "Are you right handed or left handed?"
       },
       {
         "role": "user",
-        "content": "No."
+        "content": "Right."
       },
       {
         "role": "assistant",
-        "content": "Any neck pain or weakness?"
+        "content": "Tell me what exactly happened, and how did you notice the symptoms?"
       },
       {
         "role": "user",
-        "content": "No."
+        "content": "We noticed it the week prior to Thanksgiving last year in nineteen ninety four. We have a family tradition where we play a game and this time, we were taking her to Vail, Colorado to play \"Murder She Wrote\" at one of our family gatherings. She was chosen to be the assassin."
       },
       {
         "role": "assistant",
-        "content": "Any difficulties with bowel movements or urination?"
+        "content": "Was she slurring?"
+      },
+      {
+        "role": "user",
+        "content": "Nope."
+      },
+      {
+        "role": "assistant",
+        "content": "Was there any difficulty with vision?"
+      },
+      {
+        "role": "user",
+        "content": "Nope. Nothing that we noticed."
+      },
+      {
+        "role": "assistant",
+        "content": "How was it after returning from there?"
+      },
+      {
+        "role": "user",
+        "content": "She returned to work. She used to work in a local florist shop. She returned on the Monday following Thanksgiving. And she had difficulty. I was not able to take on with my usual task of flower arrangements or dealing with the cash at the cash register. She quit the next day, and she never went back."
+      },
+      {
+        "role": "assistant",
+        "content": "How was it after that?"
+      },
+      {
+        "role": "user",
+        "content": "She seemed to be doing fine and stable throughout November and December, and we were visiting a local neurologist as well, who was evaluating her. He did a few blood tests and did uh, M R I of the brain. He gave us all clear. He said there's nothing there."
+      },
+      {
+        "role": "assistant",
+        "content": "When did these symptoms increase?"
       }
     ],
-    "target": "urinary_symptoms",
+    "target": "symptom_progression",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00454",
+    "id": "model1_00369",
     "messages": [
       {
         "role": "assistant",
-        "content": "Is this your mother?"
+        "content": "afternoon, how old are you?"
       },
       {
         "role": "user",
-        "content": "Good afternoon, doctor. Yes, this is my mom."
+        "content": "Hello Doctor, I'm fifty four years old."
       },
       {
         "role": "assistant",
-        "content": "What do you mean, bad crowd?"
+        "content": "What gender do you identify with?"
       },
       {
         "role": "user",
-        "content": "Well, I got addicted to drugs out there, and I used to inject heroin."
+        "content": "I identify as a female."
       },
       {
         "role": "assistant",
-        "content": "Did you see a doctor for this addiction?"
+        "content": "What symptoms are you experiencing in your right hand?"
       },
       {
         "role": "user",
-        "content": "Yeah, I saw another doctor in the city."
+        "content": "I have numbness and tingling in my right hand."
       },
       {
         "role": "assistant",
-        "content": "How did they treat you at that time?"
+        "content": "Are there any specific fingers that you feel it in?"
       },
       {
         "role": "user",
-        "content": "They prescribed me methadone for a while."
+        "content": "I really feel it in my fifth, fourth, and third fingers."
       },
       {
         "role": "assistant",
-        "content": "Did that help at all?"
+        "content": "What kind of treatments have you done for this pain?"
       },
       {
         "role": "user",
-        "content": "Honestly, no, it didn't help at all."
+        "content": "I've taken antiinflammatories, stayed away from sports and stuff like that, and rested."
       },
       {
         "role": "assistant",
-        "content": "Do you remember the dosage that you were given?"
-      },
-      {
-        "role": "user",
-        "content": "Um, it was ten M G."
-      },
-      {
-        "role": "assistant",
-        "content": "How long did you take methadone for?"
-      },
-      {
-        "role": "user",
-        "content": "Um, it was for three or four months."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you ever try to decrease your dosage?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, um, I tried to wean off it for a while, but I was never really successful."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you been using heroin since?"
-      },
-      {
-        "role": "user",
-        "content": "Um, yeah, I've been using it occasionally."
-      },
-      {
-        "role": "assistant",
-        "content": "Were you roommates at school using drugs?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, so it's hard to get away from the stuff, it was all over the house. Well, he can now, especially because he lives with me."
-      },
-      {
-        "role": "assistant",
-        "content": "when was the last time you used heroin?"
-      },
-      {
-        "role": "user",
-        "content": "Um, it's been about eight days now."
-      },
-      {
-        "role": "assistant",
-        "content": "When was the last time you had methadone?"
-      },
-      {
-        "role": "user",
-        "content": "Um, it's been about a week for that now, too. Am I able to get more today?"
-      },
-      {
-        "role": "assistant",
-        "content": "Have you had any feelings of depression recently?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, I feel down and sad a lot."
-      },
-      {
-        "role": "assistant",
-        "content": "What about your energy?"
-      },
-      {
-        "role": "user",
-        "content": "I really don't have much."
-      },
-      {
-        "role": "assistant",
-        "content": "What about your enthusiasm for the foods or activities you enjoy?"
-      },
-      {
-        "role": "user",
-        "content": "He hasn't had much enthusiasm for anything, either."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you having any suicidal or homicidal thoughts or actions at this time?"
-      },
-      {
-        "role": "user",
-        "content": "No, nothing like that, doctor."
-      },
-      {
-        "role": "assistant",
-        "content": "what about delusions, hallucinations, or disorganized thoughts or behaviors?"
-      },
-      {
-        "role": "user",
-        "content": "No, nothing like that either, doctor."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any medical conditions in the past that I should know about?"
-      },
-      {
-        "role": "user",
-        "content": "No, not that I know of. No, he hasn't been treated for anything before, doctor."
-      },
-      {
-        "role": "assistant",
-        "content": "You completed your family and social history earlier with the nurses, is there anything you want to add to that?"
-      },
-      {
-        "role": "user",
-        "content": "No, everything there is complete."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any allergies?"
-      },
-      {
-        "role": "user",
-        "content": "No, I don't have any."
-      },
-      {
-        "role": "assistant",
-        "content": "and do you take any medications right now?"
-      },
-      {
-        "role": "user",
-        "content": "No, doctor. I don't take anything."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you had any surgeries in the past?"
+        "content": "Has this treatment helped at all?"
       }
     ],
-    "target": "surgical_history",
+    "target": "prior_treatment_history",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00178",
+    "id": "model1_00235",
     "messages": [
       {
         "role": "assistant",
-        "content": "Is that correct?"
+        "content": "Before we begin your visit, could you verify your age and ethnicity for me, please?"
       },
       {
         "role": "user",
-        "content": "Yes, I am."
+        "content": "I'm forty nine years old, and I identify as white."
       },
       {
         "role": "assistant",
-        "content": "Do you have any other children?"
+        "content": "What brought you in today?"
       },
       {
         "role": "user",
-        "content": "Yes. I have a two year old son."
+        "content": "I was referred to you so that I could get whatever's wrong with me under control."
+      },
+      {
+        "role": "assistant",
+        "content": "What seems to be happening?"
+      },
+      {
+        "role": "user",
+        "content": "I hurt the back of my leg pretty bad this past year when I was in A B C D."
+      },
+      {
+        "role": "assistant",
+        "content": "What part of your leg?"
+      },
+      {
+        "role": "user",
+        "content": "The back of my left thigh."
+      },
+      {
+        "role": "assistant",
+        "content": "So just the leg?"
+      },
+      {
+        "role": "user",
+        "content": "I also hurt my kneecap from a boat when I was out in the water fishing."
+      },
+      {
+        "role": "assistant",
+        "content": "Was that severe?"
+      },
+      {
+        "role": "user",
+        "content": "It was a whole show. A helicopter came down and swooped me to X Y Z Hospital, where I got surgery."
+      },
+      {
+        "role": "assistant",
+        "content": "Did the hospital give you a report on the surgery?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, they did. Here you go."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you feeling any symptoms of a fever or anything?"
+      }
+    ],
+    "target": "associated_symptoms",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00728",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "So what seems to be the problem today?"
+      },
+      {
+        "role": "user",
+        "content": "I've had diarrhea for the past three days."
+      },
+      {
+        "role": "assistant",
+        "content": "Is this affecting your ability to work or do your daily activities?"
+      },
+      {
+        "role": "user",
+        "content": "Not really, I can still manage."
+      },
+      {
+        "role": "assistant",
+        "content": "Has it been getting better, worse, or staying about the same?"
+      },
+      {
+        "role": "user",
+        "content": "It's been getting worse."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you smoke or use any tobacco products?"
+      }
+    ],
+    "target": "tobacco_use",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00175",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "here on my chart that you're thirty years old, is that correct?"
+      },
+      {
+        "role": "user",
+        "content": "Yes doctor, that's correct."
+      },
+      {
+        "role": "assistant",
+        "content": "and which hand is your dominant hand?"
+      },
+      {
+        "role": "user",
+        "content": "I use my right hand for everything."
+      },
+      {
+        "role": "assistant",
+        "content": "When did everything start?"
+      },
+      {
+        "role": "user",
+        "content": "I was doing well until July of nineteen ninety three."
+      },
+      {
+        "role": "assistant",
+        "content": "What were your initial symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "I began having weakness in my right arm, and there was some neck pain too."
+      },
+      {
+        "role": "assistant",
+        "content": "when these symptoms began, how did you manage them?"
+      },
+      {
+        "role": "user",
+        "content": "At first, I went to a chiropractor, but after a while my arm started atrophying, and my right hand felt tight. I couldn't extend all my fingers out."
+      },
+      {
+        "role": "assistant",
+        "content": "Once you noticed the atrophy and contractures, that's the tightness you were experiencing, how were you treated?"
+      },
+      {
+        "role": "user",
+        "content": "After that, I went to a neurosurgeon close to my house, and he ordered an, um, C T scan of my neck."
+      },
+      {
+        "role": "assistant",
+        "content": "do you have the report of that C T Scan with you today?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, doctor, I have it right here. They were one on the twenty fifth of September in ninety two."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you have neck surgery?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I have the op notes right here."
+      },
+      {
+        "role": "assistant",
+        "content": "How did you respond to this surgery?"
+      },
+      {
+        "role": "user",
+        "content": "Well, honestly, I improved for about three months following the operation, but after that I just got worse and worse."
+      },
+      {
+        "role": "assistant",
+        "content": "Once your symptoms worsened, what happened?"
+      },
+      {
+        "role": "user",
+        "content": "Um, I started having this burning sensation on my left side."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you have any weakness, sir?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I had weakness in both my arms."
+      },
+      {
+        "role": "assistant",
+        "content": "Was one side worse than the other?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, my right side was worse than my left."
+      },
+      {
+        "role": "assistant",
+        "content": "In addition to the burning and weakness, did you have any other symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "Um, I had really bad balance, I felt nauseous, like I was going to throw up at all times, which I did do some, and, um, my heart was beating really fast, and my blood pressure went up really high."
+      },
+      {
+        "role": "assistant",
+        "content": "After all these symptoms began, how were you treated?"
+      },
+      {
+        "role": "user",
+        "content": "On, um, August thirty first nineteen ninety three I had an M R I of my neck, and I have that report right here, too."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you have another surgery for this?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I had brain surgery. I have those notes right here, too."
+      },
+      {
+        "role": "assistant",
+        "content": "After this surgery how were your symptoms?"
+      },
+      {
+        "role": "user",
+        "content": "I felt good, the doctors said I stabilized out. I went through some radiation procedures from September of ninety three to January nineteenth of ninety four."
+      },
+      {
+        "role": "assistant",
+        "content": "How have your symptoms progressed since?"
+      },
+      {
+        "role": "user",
+        "content": "I went to the NeuroOncology clinic on October twenty sixth nineteen ninety five because I was having weakness in both arms and both legs, as well as trouble swallowing food."
+      },
+      {
+        "role": "assistant",
+        "content": "How much weakness was there?"
+      },
+      {
+        "role": "user",
+        "content": "It was so bad I couldn't even put on a shirt, or raise my arms, or even feed myself."
+      },
+      {
+        "role": "assistant",
+        "content": "Can you go up and down stairs?"
+      },
+      {
+        "role": "user",
+        "content": "No, not really, but I can climb them."
+      },
+      {
+        "role": "assistant",
+        "content": "How about going to the bathroom, is everything normal there?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, no problems there."
+      },
+      {
+        "role": "assistant",
+        "content": "and What did the doctor at that clinic recommend?"
+      }
+    ],
+    "target": "prior_care_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00605",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "How can I help you today?"
+      },
+      {
+        "role": "user",
+        "content": "I've had this cough that won't go away for two weeks."
       },
       {
         "role": "assistant",
@@ -1981,149 +3357,59 @@
     }
   },
   {
-    "id": "model1_00372",
+    "id": "model1_00495",
     "messages": [
       {
         "role": "assistant",
-        "content": "Where do you live?"
+        "content": "Any tenderness or pain?"
       },
       {
         "role": "user",
-        "content": "I live with my mother around the corner where the Whole Foods is. I have been there for a few years now."
+        "content": "Ah, not really!"
       },
       {
         "role": "assistant",
-        "content": "Are you the mother of the patient?"
+        "content": "Can you move your hand up and down?"
       },
       {
         "role": "user",
-        "content": "Yes, I'm the mother."
+        "content": "Yes, I can do all of that, no problem at all."
       },
       {
         "role": "assistant",
-        "content": "How are you dealing with everything?"
+        "content": "Can you bend your hand?"
       }
     ],
-    "target": "coping_and_stress",
+    "target": "functional_impact",
     "safety": {
       "red_flag": false
     }
   },
   {
-    "id": "model1_00166",
+    "id": "model1_00741",
     "messages": [
       {
         "role": "assistant",
-        "content": "So, are you married, ma'am?"
+        "content": "How can I help you today?"
       },
       {
         "role": "user",
-        "content": "Well, no I'm not. My husband and I got a divorce."
+        "content": "I've been feeling dizzy whenever I stand up."
       },
       {
         "role": "assistant",
-        "content": "I'm sorry to hear that, do you have any children?"
+        "content": "Have you had any blurry vision or light sensitivity?"
       },
       {
         "role": "user",
-        "content": "It's okay, it was for the best. Yes, I have two."
+        "content": "No, neither."
       },
       {
         "role": "assistant",
-        "content": "Do you live with either of them?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, um, I live with my son right now."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you smoke or drink?"
+        "content": "Have you had any nausea or vomiting with it?"
       }
     ],
-    "target": "tobacco_use",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00508",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "And are you working?"
-      },
-      {
-        "role": "user",
-        "content": "Oh, I am a catholic priest!"
-      },
-      {
-        "role": "assistant",
-        "content": "And if you don't mind me asking, do you drink alcohol?"
-      },
-      {
-        "role": "user",
-        "content": "Maybe that is something for my confession box but jokes apart I don't drink."
-      },
-      {
-        "role": "assistant",
-        "content": "And can I put down here that you don't smoke or use any kinds of drugs?"
-      }
-    ],
-    "target": "tobacco_use",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00023",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Are you still working?"
-      },
-      {
-        "role": "user",
-        "content": "No, I am retired now. I used to work for the U S postal service as an electronic technician but took retirement one year earlier due to my disability."
-      },
-      {
-        "role": "assistant",
-        "content": "And who is in your family?"
-      },
-      {
-        "role": "user",
-        "content": "Well, I stay with my wife and daughter in our apartment."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you smoke?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "How about alcohol?"
-      },
-      {
-        "role": "user",
-        "content": "I use to drink occasionally, that too very rare, but after my symptoms stated I stopped completely."
-      },
-      {
-        "role": "assistant",
-        "content": "Any use of recreational or illegal drugs?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you travel anywhere recently?"
-      }
-    ],
-    "target": "travel_history",
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }
@@ -2165,7 +3451,15 @@
       },
       {
         "role": "assistant",
-        "content": "Have you ever had any treatment or history of depression, anxiety, or mood disorders?"
+        "content": "Have you ever had any treatment or history of depression?"
+      },
+      {
+        "role": "user",
+        "content": "No, neither."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you ever had any anxiety or mood disorders?"
       }
     ],
     "target": "prior_treatment_history",
@@ -2174,143 +3468,59 @@
     }
   },
   {
-    "id": "model1_00211",
+    "id": "model1_00070",
     "messages": [
       {
         "role": "assistant",
-        "content": "Are you a smoker?"
+        "content": "Did you get scheduled for the surgery with Doctor Yen yet?"
       },
       {
         "role": "user",
-        "content": "Yes."
+        "content": "Yes. I believe the surgery is scheduled for July twentieth."
       },
       {
         "role": "assistant",
-        "content": "Do you use alcohol or any recreational drugs?"
+        "content": "How is your shoulder feeling?"
       },
       {
         "role": "user",
-        "content": "I have been in treatment for heroin and alcohol in the past."
+        "content": "My shoulder is the same. I am still in a significant amount of pain."
       },
       {
         "role": "assistant",
-        "content": "Any current use of drugs or alcohol?"
-      }
-    ],
-    "target": "alcohol_use",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00168",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "How old are you, young man?"
+        "content": "How are you feeling?"
       },
       {
         "role": "user",
-        "content": "I'm thirteen, sir."
+        "content": "I have had some pain starting in that same spot, and it goes down the left arm into my wrist."
       },
       {
         "role": "assistant",
-        "content": "so, what happened?"
+        "content": "Have you had any weakness associated with your upper extremities on the left side?"
       },
       {
         "role": "user",
-        "content": "I sliced my right ring finger with a piece of glass while I was playing around with my friends."
+        "content": "It is mild and it is about the same as the last time."
       },
       {
         "role": "assistant",
-        "content": "What kind of symptoms do you feel in that finger?"
-      }
-    ],
-    "target": "symptom_character",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00481",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "How are you?"
+        "content": "Is it about the same as the last time you were here?"
       },
       {
         "role": "user",
-        "content": "I am doing well. Just here for a refill on my medication."
+        "content": "Yes. It has been the same."
       },
       {
         "role": "assistant",
-        "content": "How has the stress management been going to control the acne?"
+        "content": "Any weakness or symptoms on the right side?"
       },
       {
         "role": "user",
-        "content": "It is going well. My husband has been on board with my meditations and yoga. He is very supportive."
+        "content": "No, not really."
       },
       {
         "role": "assistant",
-        "content": "Are will still clean from drinking and smoking?"
-      }
-    ],
-    "target": "tobacco_use",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00173",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Do you take Diovan, estradiol, Norvasc, Wellbutrin?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, and the Wellbutrin is an inhaler."
-      },
-      {
-        "role": "assistant",
-        "content": "so inhaler SR?"
-      },
-      {
-        "role": "user",
-        "content": "Yes."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you take oxygen therapy at home?"
-      }
-    ],
-    "target": "living_situation",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00495",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Any tenderness or pain?"
-      },
-      {
-        "role": "user",
-        "content": "Ah, not really!"
-      },
-      {
-        "role": "assistant",
-        "content": "Can you move your hand up and down?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, I can do all of that, no problem at all."
-      },
-      {
-        "role": "assistant",
-        "content": "Can you bend your hand?"
+        "content": "Any difficulty with mobility or moving around on either side?"
       }
     ],
     "target": "functional_impact",
@@ -2319,27 +3529,104 @@
     }
   },
   {
-    "id": "model1_00102",
+    "id": "model1_00458",
     "messages": [
       {
         "role": "assistant",
-        "content": "Any health problems I should note?"
+        "content": "My chart says that you're forty nine years old, and White, is that correct?"
       },
       {
         "role": "user",
-        "content": "Diabetes."
+        "content": "Yes, that's all correct."
       },
       {
         "role": "assistant",
-        "content": "Type one or two?"
+        "content": "What do you do for a living?"
       },
       {
         "role": "user",
-        "content": "Type two."
+        "content": "I'm a secretary."
       },
       {
         "role": "assistant",
-        "content": "Are you on insulin?"
+        "content": "welcome back to the Dermatology office, do you remember when your last appointment was?"
+      },
+      {
+        "role": "user",
+        "content": "Um, I think it was on August tenth two thousand four."
+      },
+      {
+        "role": "assistant",
+        "content": "that's what I have here as well, so has your acne improved since your last visit?"
+      },
+      {
+        "role": "user",
+        "content": "Well, not really, and I think I have a rash too."
+      },
+      {
+        "role": "assistant",
+        "content": "How long have you been dealing with this?"
+      },
+      {
+        "role": "user",
+        "content": "Um, at this point it's been about two months."
+      },
+      {
+        "role": "assistant",
+        "content": "Where do you see this rash?"
+      },
+      {
+        "role": "user",
+        "content": "Um, it's right here, on my chest, stomach, neck, and back, it's all over my upper body."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you been taking your Amoxicillin and using your Tazorac?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I taken five hundred M G of amoxicillin twice a day, and I use the cream as well."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any other treatments besides what you have already tried?"
+      }
+    ],
+    "target": "prior_treatment_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00440",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "Can you tell me about the medications that you are currently using?"
+      },
+      {
+        "role": "user",
+        "content": "I am taking Alesse twenty eight."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you know its strength?"
+      },
+      {
+        "role": "user",
+        "content": "Oh yes, it is twenty M C G and I take point ten milligrams of it."
+      },
+      {
+        "role": "assistant",
+        "content": "When did you start it?"
+      },
+      {
+        "role": "user",
+        "content": "On seventh August in two thousand and one."
+      },
+      {
+        "role": "assistant",
+        "content": "Who prescribed it?"
       }
     ],
     "target": "medications",
@@ -2348,72 +3635,19 @@
     }
   },
   {
-    "id": "model1_00084",
+    "id": "model1_00623",
     "messages": [
       {
         "role": "assistant",
-        "content": "Is this your mother?"
+        "content": "What can I help you with today?"
       },
       {
         "role": "user",
-        "content": "Yes, this is my mommy."
+        "content": "I've had this stomach pain since yesterday."
       },
       {
         "role": "assistant",
-        "content": "Can you tell me more about your daughter, please?"
-      },
-      {
-        "role": "user",
-        "content": "Good morning, doctor. Well, she's thirteen now, but she's had feet problems all her life."
-      },
-      {
-        "role": "assistant",
-        "content": "What's been the problem with her feet?"
-      },
-      {
-        "role": "user",
-        "content": "Well, she had bilateral feet corrections when she was a year old."
-      },
-      {
-        "role": "assistant",
-        "content": "how has she been since that procedure?"
-      },
-      {
-        "role": "user",
-        "content": "Well, just look at her heel, doctor."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have pain?"
-      }
-    ],
-    "target": "associated_symptoms",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00232",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Did you ever have any reaction to any medication given?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Was there any swelling where your lymphnodes are?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "Was there ever any complaint of abnormal lymph nodes?"
+        "content": "Do you have any other ongoing medical conditions I should know about?"
       }
     ],
     "target": "past_medical_history",
@@ -2422,467 +3656,11 @@
     }
   },
   {
-    "id": "model1_00230",
+    "id": "model1_00212",
     "messages": [
       {
         "role": "assistant",
-        "content": "Are you married, sir?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, I am,"
-      },
-      {
-        "role": "assistant",
-        "content": "Is this your only marriage?"
-      },
-      {
-        "role": "user",
-        "content": "Well, no. I've been married three times now."
-      },
-      {
-        "role": "assistant",
-        "content": "If you don't mind my asking, how long was your longest marriage?"
-      },
-      {
-        "role": "user",
-        "content": "I don't mind at all, my longest was two years."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any children, sir?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, I have two."
-      },
-      {
-        "role": "assistant",
-        "content": "How old are they, sir?"
-      },
-      {
-        "role": "user",
-        "content": "They're both fifteen, they're twins, obviously. They're my wife's dependents, though."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you go to college, sir?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, I have my bachelor's. I got the military to pay for it."
-      },
-      {
-        "role": "assistant",
-        "content": "How long were you in the military?"
-      }
-    ],
-    "target": "symptom_duration",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00324",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "How old are you, young man?"
-      },
-      {
-        "role": "user",
-        "content": "I am twenty one."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you right handed or left handed?"
-      },
-      {
-        "role": "user",
-        "content": "I am right handed."
-      },
-      {
-        "role": "assistant",
-        "content": "So, tell me what brings you here today?"
-      },
-      {
-        "role": "user",
-        "content": "Everything started on the fifth of November. Then after I saw the gradual increase in my symptoms. So it was all like numbness. I could not feel my legs. They felt numb all the time and there was no coordination between them, and it also affected my walk. All these symptoms were at their limit in just like a half day or more. It is continuing the same way since then. I also feel like somebody is putting pins and needles on my legs approximately halfway up the calf on both sides."
-      },
-      {
-        "role": "assistant",
-        "content": "You said that you felt decreased coordination or less coordination between your legs, right?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, that's right. It totally feels like I'm walking in space and don't know where to put my next step. I have no up and down spatial awareness."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any issue with the bowel movements?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "What about this weakness or the numbness anywhere else except your legs?"
-      },
-      {
-        "role": "user",
-        "content": "No, it's only in the legs."
-      },
-      {
-        "role": "assistant",
-        "content": "Did anything help you with those symptoms?"
-      },
-      {
-        "role": "user",
-        "content": "Well, sometimes, you see, hot showers made me feel better, but it is like only sometimes."
-      },
-      {
-        "role": "assistant",
-        "content": "Any recent flu like symptoms?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "Did anyone in your family have anything like that or any other medical issues that was like going on in your family?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "Did you have any surgery before?"
-      },
-      {
-        "role": "user",
-        "content": "Nope."
-      },
-      {
-        "role": "assistant",
-        "content": "What about any other major health issues in the past?"
-      },
-      {
-        "role": "user",
-        "content": "No, no medical issues."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you taking any medications?"
-      }
-    ],
-    "target": "medications",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00397",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "So, do you smoke?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "How about alcohol?"
-      },
-      {
-        "role": "user",
-        "content": "I drink, but just normal. I don't have any alcohol problem."
-      },
-      {
-        "role": "assistant",
-        "content": "So, no history of any drug or alcohol abuse, right?"
-      }
-    ],
-    "target": "alcohol_use",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00403",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Do you smoke cigarettes?"
-      },
-      {
-        "role": "user",
-        "content": "I smoke about three packs in a month."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you drink alcohol or use recreational drugs?"
-      },
-      {
-        "role": "user",
-        "content": "No."
-      },
-      {
-        "role": "assistant",
-        "content": "What do you do for work?"
-      }
-    ],
-    "target": "occupation",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00517",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Do you remember the information about your operation?"
-      },
-      {
-        "role": "user",
-        "content": "No, not really. Can you remind me?"
-      },
-      {
-        "role": "assistant",
-        "content": "How are you feeling today?"
-      },
-      {
-        "role": "user",
-        "content": "Well, I've been under a lot of stress lately, and I had problems with my adjustments before."
-      },
-      {
-        "role": "assistant",
-        "content": "Has anything changed since the operation?"
-      },
-      {
-        "role": "user",
-        "content": "Actually, doctor, I was in a car accident a couple weeks ago, and I'm having problems."
-      },
-      {
-        "role": "assistant",
-        "content": "What symptoms are you experiencing?"
-      },
-      {
-        "role": "user",
-        "content": "I don't feel full."
-      },
-      {
-        "role": "assistant",
-        "content": "How is your appetite?"
-      },
-      {
-        "role": "user",
-        "content": "I'm not really hungry, but I also don't feel full. When I get hungry at night I can't wait until the morning to eat. I get so hungry."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you eat anything when you feel like this?"
-      }
-    ],
-    "target": "diet_and_nutrition",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00279",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Are you married, ma'am?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, to my wonderful husband."
-      },
-      {
-        "role": "assistant",
-        "content": "Does he help you out around the house?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, he is just wonderful."
-      },
-      {
-        "role": "assistant",
-        "content": "So, do you drink or smoke?"
-      },
-      {
-        "role": "user",
-        "content": "No, I don't do any of that."
-      },
-      {
-        "role": "assistant",
-        "content": "How about more illicit substances, do you use any of that?"
-      }
-    ],
-    "target": "substance_use",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00408",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "What seems to be the problem with your knee?"
-      },
-      {
-        "role": "user",
-        "content": "I've had pain in this knee since I tripped on some ice on March tenth two thousand three."
-      },
-      {
-        "role": "assistant",
-        "content": "How old are you now?"
-      },
-      {
-        "role": "user",
-        "content": "I'm forty seven."
-      },
-      {
-        "role": "assistant",
-        "content": "What kind of symptoms have you had since the fall?"
-      },
-      {
-        "role": "user",
-        "content": "It's hard for me to stand up without significant pain, and it feels like my knee is going to give way."
-      },
-      {
-        "role": "assistant",
-        "content": "Has this knee given out before?"
-      },
-      {
-        "role": "user",
-        "content": "It has."
-      },
-      {
-        "role": "assistant",
-        "content": "Is there any swelling in this knee?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, I also feel a popping, like when I go up the stairs."
-      },
-      {
-        "role": "assistant",
-        "content": "What kind of treatments have you had for this knee?"
-      },
-      {
-        "role": "user",
-        "content": "I've had antiinflammatories and P T, but I didn't respond well at all."
-      },
-      {
-        "role": "assistant",
-        "content": "Have you had surgery on this knee in the past?"
-      }
-    ],
-    "target": "surgical_history",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00071",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "So, what do you do for a living, sir?"
-      },
-      {
-        "role": "user",
-        "content": "Right now, I'm a truck driver, sir."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you working right now?"
-      },
-      {
-        "role": "user",
-        "content": "No, I can't right now, I'm on sick leave."
-      },
-      {
-        "role": "assistant",
-        "content": "Are you married?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, to my wonderful wife. She's helping to take care of me."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you two have any children?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, we have three. We all live together, and for that I'm very thankful."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you smoke, sir?"
-      },
-      {
-        "role": "user",
-        "content": "Yeah, I smoke about two packs a day."
-      },
-      {
-        "role": "assistant",
-        "content": "How about alcohol?"
-      },
-      {
-        "role": "user",
-        "content": "No, just smoking for me."
-      },
-      {
-        "role": "assistant",
-        "content": "How about more illicit substances, have you used illegal or prescription drugs inappropriately?"
-      },
-      {
-        "role": "user",
-        "content": "Oh, absolutely not."
-      },
-      {
-        "role": "assistant",
-        "content": "Do you have any other medical conditions that run in your family that I should know about?"
-      }
-    ],
-    "target": "family_history",
-    "safety": {
-      "red_flag": false
-    }
-  },
-  {
-    "id": "model1_00334",
-    "messages": [
-      {
-        "role": "assistant",
-        "content": "Are you having issues with your hand eczema again?"
-      },
-      {
-        "role": "user",
-        "content": "Yes, it has been flaring."
-      },
-      {
-        "role": "assistant",
-        "content": "Can you confirm your age for the records please?"
-      },
-      {
-        "role": "user",
-        "content": "I'm twenty nine."
-      },
-      {
-        "role": "assistant",
-        "content": "If I'm not wrong, you are from Vietnam, right?"
+        "content": "So, you are here to review your sleep study results, right?"
       },
       {
         "role": "user",
@@ -2890,26 +3668,164 @@
       },
       {
         "role": "assistant",
-        "content": "Are you married?"
+        "content": "But first tell me, how is your sleeping routine like?"
       },
       {
         "role": "user",
-        "content": "I'm single."
+        "content": "It is consistent. I go to bed anytime between nine to ten at night and wake up in the morning around five to six."
       },
       {
         "role": "assistant",
-        "content": "Are you working somewhere?"
+        "content": "Are you able to sleep as soon as you go to bed?"
       },
       {
         "role": "user",
-        "content": "No, currently I'm unemployed."
+        "content": "No, it's hard for me to start that sleeping process and then I'm awake in like every one or two hours throughout the night. I keep on tossing and turning throughout the night. I always find my sheets out of order when I wake up."
       },
       {
         "role": "assistant",
-        "content": "Have you been washing your hands with Cetaphil cleansing lotion?"
+        "content": "How would you compare your sleep here in the lab and at your home?"
+      },
+      {
+        "role": "user",
+        "content": "I would say I slept better in the laboratory than I do at home."
+      },
+      {
+        "role": "assistant",
+        "content": "How do you feel when you wake up in the morning?"
+      },
+      {
+        "role": "user",
+        "content": "Honestly, I feel tired. Sometimes I also have this dull headache."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you snore?"
+      },
+      {
+        "role": "user",
+        "content": "I don't know for myself, but yeah, my daughter was teasing me another day that I was snoring and was talking in my sleep."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you ever feel that you have difficulty breathing while you are asleep?"
+      },
+      {
+        "role": "user",
+        "content": "No. But I used to cough a lot in the middle of the night."
+      },
+      {
+        "role": "assistant",
+        "content": "You said you used to, so it is not anymore?"
+      },
+      {
+        "role": "user",
+        "content": "Yeah, I haven't been coughing for the last few weeks."
+      },
+      {
+        "role": "assistant",
+        "content": "How's your daily routine?"
+      },
+      {
+        "role": "user",
+        "content": "I spent a lot of time reading and watching T V. Sometimes I doze off while doing that. Not regular, but I do take nap sometimes in between two to three in afternoon and also in the evening hours."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you smoke?"
+      },
+      {
+        "role": "user",
+        "content": "Oh yes, I take around one to two packs of cigarettes each day mainly after dinner."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you noticed any change in your weight?"
+      },
+      {
+        "role": "user",
+        "content": "My weight always keeps fluctuating. I remember I was at my maximum weight of two hundred and sixty pounds around one year ago."
+      },
+      {
+        "role": "assistant",
+        "content": "If that was your maximum how is your weight now?"
+      },
+      {
+        "role": "user",
+        "content": "Now it is down by approximately thirty pounds."
+      },
+      {
+        "role": "assistant",
+        "content": "Are you currently receiving care from both outpatient psychiatry and your maintenance clinic?"
       }
     ],
-    "target": "prior_treatment_history",
+    "target": "prior_care_history",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00631",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What brings you in today?"
+      },
+      {
+        "role": "user",
+        "content": "I've noticed some blood in my urine the last couple days."
+      },
+      {
+        "role": "assistant",
+        "content": "Have you had any surgeries in the past?"
+      },
+      {
+        "role": "user",
+        "content": "I had my appendix out when I was a teenager."
+      },
+      {
+        "role": "assistant",
+        "content": "How would you describe it - sharp, dull, or burning?"
+      }
+    ],
+    "target": "symptom_character",
+    "safety": {
+      "red_flag": false
+    }
+  },
+  {
+    "id": "model1_00003",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "What is the reason for your visit today?"
+      },
+      {
+        "role": "user",
+        "content": "I think I have some warts on my back end where the poop comes out."
+      },
+      {
+        "role": "assistant",
+        "content": "When did you start noticing them?"
+      },
+      {
+        "role": "user",
+        "content": "I think like three to four weeks ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Do you feel any pain or discomfort?"
+      },
+      {
+        "role": "user",
+        "content": "It itches a little, but I haven't felt any pain yet. Is this normal for a twenty two year old?"
+      },
+      {
+        "role": "assistant",
+        "content": "Are there any other symptoms that you are aware of?"
+      }
+    ],
+    "target": "associated_symptoms",
     "safety": {
       "red_flag": false
     }

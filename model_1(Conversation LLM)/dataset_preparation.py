@@ -93,11 +93,15 @@ print("Test targets:", len(set(record["target"] for record in test_data)))
 # --------------------------------------------
 
 print("\n" + "=" * 70)
+total_records = len(data)
+expected_train = int(total_records * 0.80)
+expected_val = int(total_records * 0.10)
+expected_test = total_records - expected_train - expected_val
 
 if (
-    len(train_data) == 440
-    and len(val_data) == 55
-    and len(test_data) == 55
+    len(train_data) == expected_train
+    and len(val_data) == expected_val
+    and len(test_data) == expected_test
     and len(train_ids & val_ids) == 0
     and len(train_ids & test_ids) == 0
     and len(val_ids & test_ids) == 0
@@ -1221,7 +1225,7 @@ for message_index, message in enumerate(messages):
     # --------------------------------------------
 
     span_start = content_start
-    span_end = eot_position
+    span_end = eot_position +1
 
     assistant_spans.append(
         (span_start, span_end)
@@ -1639,7 +1643,7 @@ def process_record(record):
 
         for position in range(
             content_start,
-            eot_position
+            eot_position + 1
         ):
 
             assistant_mask[position] = 1
