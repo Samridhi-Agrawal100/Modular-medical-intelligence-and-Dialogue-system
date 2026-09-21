@@ -1,5 +1,5 @@
-
 import json
+import re
 from pathlib import Path
 
 import torch
@@ -10,20 +10,17 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 # PATHS
 # ============================================================
 
-MODEL_DIR = Path("model_6(clinical summary generator)\\flan_t5_summary_model")
-TEST_FILE = Path("model_6(clinical summary generator)\\flan_t5_data\\test.jsonl")
+BASE_DIR = Path(__file__).resolve().parent
 
-MAX_SOURCE_LENGTH = 512
-MAX_NEW_TOKENS = 256
-
-OUTPUT_FILE = Path("model6_evaluation_results.json")
+MODEL_DIR = BASE_DIR / "flan_t5_summary_model"
+TEST_FILE = BASE_DIR / "preprocessing6_output" / "test.jsonl"
 
 
 # ============================================================
-# EXPECTED FIELDS
+# CONFIG
 # ============================================================
 
-EXPECTED_FIELDS = [
+FIELDS = [
     "chief_complaint",
     "onset",
     "duration",
@@ -41,67 +38,349 @@ EXPECTED_FIELDS = [
     "relevant_context",
 ]
 
-
-# ============================================================
-# LOAD TEST DATA
-# ============================================================
-
-print("=" * 60)
-print("MODEL 6 - FULL TEST EVALUATION")
-print("=" * 60)
-
-test_examples = []
-
-with open(TEST_FILE, "r", encoding="utf-8") as f:
-    for line in f:
-        test_examples.append(json.loads(line))
-
-print(f"\nTest examples: {len(test_examples)}")
+LIST_FIELDS = {
+    "complaint_characteristics",
+    "associated_symptoms",
+    "negative_findings",
+    "medical_history",
+    "medications",
+    "allergies",
+    "triggers",
+    "relieving_factors",
+}
 
 
 # ============================================================
 # LOAD MODEL
 # ============================================================
 
-print("\nLoading model...")
+print("=" * 70)
+print("MODEL 6 - TEST SET EVALUATION")
+print("=" * 70)
 
+print("\nLoading tokenizer...")
 tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
+
+print("Loading model...")
 model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_DIR)
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
 model.eval()
 
+print(f"Device: {device}")
+
 if torch.cuda.is_available():
-    device = torch.device("cuda")
-    print("GPU:", torch.cuda.get_device_name(0))
-else:
-    device = torch.device("cpu")
-    print("Using CPU")
-
-model.to(device)
+    print(f"GPU: {torch.cuda.get_device_name(0)}")
 
 
 # ============================================================
-# GENERATION
+# PROMPT
 # ============================================================
 
-def generate_summary(conversation):
+PROMPT = """You are a clinical summary generator.
 
-    prompt = f"""Generate a structured clinical summary from the following patient-assistant conversation.
+Read the patient-assistant conversation and produce a structured
+clinical summary using EXACTLY these 15 fields:
 
-Return the clinical summary using exactly these 15 fields:
-chief_complaint, onset, duration, location, severity, complaint_characteristics, associated_symptoms, negative_findings, medical_history, medications, allergies, red_flags, triggers, relieving_factors, relevant_context.
+chief_complaint
+onset
+duration
+location
+severity
+complaint_characteristics
+associated_symptoms
+negative_findings
+medical_history
+medications
+allergies
+red_flags
+triggers
+relieving_factors
+relevant_context
 
-Do not add information that is not present in the conversation.
+Rules:
+- Output every field.
+- Use exactly one field label followed by ":".
+- List fields must use semicolon-separated values.
+- If a list field has no information, write "none".
+- red_flags must use:
+  status=<status>; items=<item1> | <item2>
+- Do not add explanations.
+- Do not add markdown.
+- Do not add JSON.
+- Preserve information from the conversation.
 
 Conversation:
-{conversation}
 """
+
+
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
+
+def conversation_to_text(conversation):
+    parts = []
+
+    for message in conversation:
+        role = message.get("role", "").strip()
+        text = message.get("text", "").strip()
+
+        if role and text:
+            parts.append(f"{role}: {text}")
+
+    return "\n".join(parts)
+
+
+def clean_text(value):
+    value = value.strip()
+
+    # Remove accidental trailing punctuation
+    value = value.strip(" \n\t")
+
+    if value.lower() == "none":
+        return ""
+
+    return value
+
+
+def parse_list(value):
+    value = value.strip()
+
+    if not value or value.lower() == "none":
+        return []
+
+    items = []
+
+    for item in value.split(";"):
+        item = item.strip()
+
+        if not item:
+            continue
+
+        if item.lower() == "none":
+            continue
+
+        items.append(item)
+
+    return items
+
+
+def parse_red_flags(value):
+    value = value.strip()
+
+    result = {
+        "status": "",
+        "items": []
+    }
+
+    if not value:
+        return result
+
+    status_match = re.search(
+        r"status\s*=\s*(.*?)(?:;\s*items\s*=|$)",
+        value,
+        flags=re.IGNORECASE
+    )
+
+    if status_match:
+        result["status"] = status_match.group(1).strip()
+
+    items_match = re.search(
+        r"items\s*=\s*(.*)$",
+        value,
+        flags=re.IGNORECASE
+    )
+
+    if items_match:
+        items_text = items_match.group(1).strip()
+
+        if items_text.lower() != "none":
+            result["items"] = [
+                item.strip()
+                for item in items_text.split("|")
+                if item.strip()
+            ]
+
+    return result
+
+
+# ============================================================
+# PARSER
+# ============================================================
+
+def parse_generated_output(generated_text):
+    """
+    Handles both:
+      field1: value
+      field2: value
+
+    and:
+
+      field1: value field2: value field3: value
+    """
+
+    text = generated_text.strip()
+
+    parsed = {}
+
+    if not text:
+        text = ""
+
+    positions = []
+
+    for field in FIELDS:
+        marker = field + ":"
+
+        start = 0
+
+        while True:
+            position = text.find(marker, start)
+
+            if position == -1:
+                break
+
+            positions.append(
+                (position, field, len(marker))
+            )
+
+            start = position + len(marker)
+
+    positions.sort(key=lambda x: x[0])
+
+    for i, (position, field, marker_length) in enumerate(positions):
+
+        value_start = position + marker_length
+
+        if i + 1 < len(positions):
+            next_position = positions[i + 1][0]
+            value = text[value_start:next_position]
+        else:
+            value = text[value_start:]
+
+        parsed[field] = value.strip()
+
+    summary = {}
+
+    for field in FIELDS:
+
+        value = parsed.get(field, "")
+
+        if field == "red_flags":
+            summary[field] = parse_red_flags(value)
+
+        elif field in LIST_FIELDS:
+            summary[field] = parse_list(value)
+
+        else:
+            summary[field] = clean_text(value)
+
+    return summary
+
+
+# ============================================================
+# NORMALIZATION
+# ============================================================
+
+def normalize(value):
+    """
+    Used only for evaluation comparison.
+    Makes comparison case-insensitive and removes
+    insignificant whitespace.
+    """
+
+    if isinstance(value, str):
+        value = value.lower().strip()
+
+        value = re.sub(r"\s+", " ", value)
+
+        return value
+
+    if isinstance(value, list):
+        return sorted(
+            normalize(x)
+            for x in value
+        )
+
+    if isinstance(value, dict):
+        return {
+            key: normalize(val)
+            for key, val in value.items()
+        }
+
+    return value
+
+
+# ============================================================
+# FIELD COMPARISON
+# ============================================================
+
+def field_equal(predicted, expected, field):
+
+    predicted = normalize(predicted)
+    expected = normalize(expected)
+
+    return predicted == expected
+
+
+# ============================================================
+# LOAD TEST DATA
+# ============================================================
+
+test_examples = []
+
+with open(TEST_FILE, "r", encoding="utf-8") as f:
+
+    for line in f:
+        if line.strip():
+            test_examples.append(
+                json.loads(line)
+            )
+
+print(f"\nTest examples: {len(test_examples)}")
+
+
+# ============================================================
+# EVALUATION
+# ============================================================
+
+field_correct = {
+    field: 0
+    for field in FIELDS
+}
+
+field_total = {
+    field: len(test_examples)
+    for field in FIELDS
+}
+
+exact_match_count = 0
+
+invalid_structure_count = 0
+
+results = []
+
+
+print("\nRunning evaluation...")
+print("-" * 70)
+
+
+for index, example in enumerate(test_examples, start=1):
+
+    conversation = example["conversation"]
+    expected = example["clinical_summary"]
+
+    conversation_text = conversation_to_text(
+        conversation
+    )
+
+    prompt = PROMPT + conversation_text
 
     inputs = tokenizer(
         prompt,
         return_tensors="pt",
         truncation=True,
-        max_length=MAX_SOURCE_LENGTH,
+        max_length=1024
     )
 
     inputs = {
@@ -113,334 +392,112 @@ Conversation:
 
         output_ids = model.generate(
             **inputs,
-            max_new_tokens=MAX_NEW_TOKENS,
+            max_new_tokens=256,
             num_beams=4,
             do_sample=False,
         )
 
-    return tokenizer.decode(
+    raw_output = tokenizer.decode(
         output_ids[0],
-        skip_special_tokens=True,
+        skip_special_tokens=True
     )
 
-
-# ============================================================
-# NORMALIZATION
-# ============================================================
-
-def normalize(value):
-
-    if isinstance(value, str):
-        return value.strip().lower()
-
-    if isinstance(value, list):
-        return sorted(
-            str(x).strip().lower()
-            for x in value
-        )
-
-    if isinstance(value, dict):
-        return {
-            str(k).strip().lower(): normalize(v)
-            for k, v in value.items()
-        }
-
-    return value
-
-
-def field_matches(predicted, expected):
-    return normalize(predicted) == normalize(expected)
-
-
-# ============================================================
-# SAFE JSON REPAIR FOR EVALUATION
-# ============================================================
-
-def try_json_parse(text):
-
-    text = text.strip()
-
-    # --------------------------------------------------------
-    # 1. Try exact model output
-    # --------------------------------------------------------
-
-    try:
-        return json.loads(text), "raw"
-
-    except json.JSONDecodeError:
-        pass
-
-
-    # --------------------------------------------------------
-    # 2. Add missing outer braces
-    #
-    # Model is generating:
-    #
-    # "chief_complaint":"..."
-    # ...
-    # "relevant_context":"..."
-    #
-    # instead of:
-    #
-    # {
-    #   "chief_complaint":"..."
-    #   ...
-    # }
-    # --------------------------------------------------------
-
-    repaired = "{" + text + "}"
-
-    try:
-        return json.loads(repaired), "outer_braces_added"
-
-    except json.JSONDecodeError:
-        pass
-
-
-    # --------------------------------------------------------
-    # 3. Try extracting from the first { to the last }
-    # --------------------------------------------------------
-
-    start = text.find("{")
-    end = text.rfind("}")
-
-    if start != -1 and end != -1 and end > start:
-
-        candidate = text[start:end + 1]
-
-        try:
-            return json.loads(candidate), "extracted_json"
-
-        except json.JSONDecodeError:
-            pass
-
-
-    # --------------------------------------------------------
-    # 4. Completely invalid
-    # --------------------------------------------------------
-
-    return None, "invalid"
-
-
-# ============================================================
-# COUNTERS
-# ============================================================
-
-total = len(test_examples)
-
-raw_valid_json = 0
-repaired_valid_json = 0
-
-all_fields_present = 0
-exact_match = 0
-red_flags_correct = 0
-
-field_correct = {
-    field: 0
-    for field in EXPECTED_FIELDS
-}
-
-failed_examples = []
-
-
-# ============================================================
-# EVALUATION
-# ============================================================
-
-print("\nStarting evaluation...\n")
-
-for index, example in enumerate(test_examples, start=1):
-
-    generated_text = generate_summary(
-        example["input"]
-    )
-
-    expected_json = json.loads(
-        example["target"]
+    predicted = parse_generated_output(
+        raw_output
     )
 
     # --------------------------------------------------------
-    # Print first 5 outputs
+    # Structure check
     # --------------------------------------------------------
 
-    if index <= 5:
-
-        print("\n" + "=" * 60)
-        print(f"RAW OUTPUT #{index}")
-        print("=" * 60)
-
-        print(generated_text)
-
-    # --------------------------------------------------------
-    # Try parsing
-    # --------------------------------------------------------
-
-    predicted_json, parse_type = try_json_parse(
-        generated_text
+    structure_valid = all(
+        field in predicted
+        for field in FIELDS
     )
 
-    if parse_type == "raw":
-        raw_valid_json += 1
+    if not structure_valid:
+        invalid_structure_count += 1
 
-    if predicted_json is not None:
-        repaired_valid_json += 1
+    # --------------------------------------------------------
+    # Field comparison
+    # --------------------------------------------------------
 
-        # ----------------------------------------------------
-        # Check all 15 fields
-        # ----------------------------------------------------
+    all_fields_correct = True
 
-        missing_fields = [
+    field_results = {}
+
+    for field in FIELDS:
+
+        expected_value = expected.get(field)
+
+        predicted_value = predicted.get(field)
+
+        correct = field_equal(
+            predicted_value,
+            expected_value,
             field
-            for field in EXPECTED_FIELDS
-            if field not in predicted_json
-        ]
-
-        if len(missing_fields) == 0:
-            all_fields_present += 1
-
-        # ----------------------------------------------------
-        # Field-level accuracy
-        # ----------------------------------------------------
-
-        for field in EXPECTED_FIELDS:
-
-            if field in predicted_json:
-
-                if field_matches(
-                    predicted_json[field],
-                    expected_json[field]
-                ):
-                    field_correct[field] += 1
-
-        # ----------------------------------------------------
-        # Red flags
-        # ----------------------------------------------------
-
-        predicted_red_flags = predicted_json.get(
-            "red_flags"
         )
 
-        expected_red_flags = expected_json.get(
-            "red_flags"
-        )
+        field_results[field] = correct
 
-        if (
-            isinstance(predicted_red_flags, dict)
-            and field_matches(
-                predicted_red_flags,
-                expected_red_flags
-            )
-        ):
-            red_flags_correct += 1
-
-        # ----------------------------------------------------
-        # Complete match
-        # ----------------------------------------------------
-
-        if field_matches(
-            predicted_json,
-            expected_json
-        ):
-            exact_match += 1
-
+        if correct:
+            field_correct[field] += 1
         else:
+            all_fields_correct = False
 
-            failed_examples.append({
-                "index": index,
-                "parse_type": parse_type,
-                "generated": predicted_json,
-                "expected": expected_json,
-            })
+    if all_fields_correct:
+        exact_match_count += 1
 
-    else:
+    results.append({
+        "index": index,
+        "id": example.get("id"),
+        "field_results": field_results,
+        "expected": expected,
+        "predicted": predicted,
+        "raw_output": raw_output
+    })
 
-        failed_examples.append({
-            "index": index,
-            "parse_type": "invalid",
-            "generated_raw": generated_text,
-            "expected": expected_json,
-        })
-
-    # --------------------------------------------------------
     # Progress
-    # --------------------------------------------------------
-
     if index % 10 == 0:
-        print(f"\nProcessed {index}/{total}")
-
-
-# ============================================================
-# PERCENTAGE
-# ============================================================
-
-def pct(value):
-    return round(
-        (value / total) * 100,
-        2
-    )
+        print(f"Processed {index}/{len(test_examples)}")
 
 
 # ============================================================
 # RESULTS
 # ============================================================
 
-print("\n" + "=" * 60)
-print("MODEL 6 EVALUATION RESULTS")
-print("=" * 60)
+print("\n")
+print("=" * 70)
+print("EVALUATION RESULTS")
+print("=" * 70)
+
+print(f"\nTotal test examples: {len(test_examples)}")
 
 print(
-    f"\nRAW VALID JSON:"
-    f" {raw_valid_json}/{total}"
-    f" ({pct(raw_valid_json)}%)"
+    f"Exact full-summary matches: "
+    f"{exact_match_count}/{len(test_examples)} "
+    f"({exact_match_count / len(test_examples) * 100:.2f}%)"
 )
 
 print(
-    f"PARSEABLE AFTER SAFE OUTER-BRACE REPAIR:"
-    f" {repaired_valid_json}/{total}"
-    f" ({pct(repaired_valid_json)}%)"
+    f"Invalid structures: "
+    f"{invalid_structure_count}/{len(test_examples)}"
 )
 
-print(
-    f"ALL 15 FIELDS PRESENT:"
-    f" {all_fields_present}/{total}"
-    f" ({pct(all_fields_present)}%)"
-)
+print("\nFIELD ACCURACY")
+print("-" * 70)
 
-print(
-    f"EXACT COMPLETE MATCH:"
-    f" {exact_match}/{total}"
-    f" ({pct(exact_match)}%)"
-)
+for field in FIELDS:
 
-print(
-    f"CORRECT RED_FLAGS STRUCTURE:"
-    f" {red_flags_correct}/{total}"
-    f" ({pct(red_flags_correct)}%)"
-)
+    correct = field_correct[field]
+    total = field_total[field]
 
-
-# ============================================================
-# FIELD ACCURACY
-# ============================================================
-
-print("\n" + "=" * 60)
-print("FIELD-LEVEL ACCURACY")
-print("=" * 60)
-
-field_percentages = {}
-
-for field in EXPECTED_FIELDS:
-
-    count = field_correct[field]
-
-    percentage = pct(count)
-
-    field_percentages[field] = percentage
+    accuracy = correct / total * 100
 
     print(
-        f"{field:30s}"
-        f"{count:3d}/{total}"
-        f"  ({percentage}%)"
+        f"{field:30s} "
+        f"{correct:3d}/{total:<3d} "
+        f"({accuracy:6.2f}%)"
     )
 
 
@@ -448,39 +505,28 @@ for field in EXPECTED_FIELDS:
 # SAVE RESULTS
 # ============================================================
 
-results = {
-    "total_examples": total,
+OUTPUT_FILE = BASE_DIR / "model6_evaluation_results.json"
 
-    "raw_valid_json": {
-        "count": raw_valid_json,
-        "percentage": pct(raw_valid_json),
+evaluation_summary = {
+    "total_examples": len(test_examples),
+    "exact_full_summary_matches": exact_match_count,
+    "exact_match_percentage": (
+        exact_match_count / len(test_examples) * 100
+    ),
+    "invalid_structure_count": invalid_structure_count,
+    "field_accuracy": {
+        field: {
+            "correct": field_correct[field],
+            "total": field_total[field],
+            "accuracy_percentage":
+                field_correct[field] /
+                field_total[field] *
+                100
+        }
+        for field in FIELDS
     },
-
-    "parseable_after_outer_brace_repair": {
-        "count": repaired_valid_json,
-        "percentage": pct(repaired_valid_json),
-    },
-
-    "all_15_fields_present": {
-        "count": all_fields_present,
-        "percentage": pct(all_fields_present),
-    },
-
-    "exact_complete_match": {
-        "count": exact_match,
-        "percentage": pct(exact_match),
-    },
-
-    "red_flags_structure": {
-        "count": red_flags_correct,
-        "percentage": pct(red_flags_correct),
-    },
-
-    "field_accuracy": field_percentages,
-
-    "failed_examples": failed_examples,
+    "examples": results
 }
-
 
 with open(
     OUTPUT_FILE,
@@ -489,22 +535,15 @@ with open(
 ) as f:
 
     json.dump(
-        results,
+        evaluation_summary,
         f,
         indent=2,
-        ensure_ascii=False,
+        ensure_ascii=False
     )
 
 
-# ============================================================
-# DONE
-# ============================================================
-
-print("\n" + "=" * 60)
-print("EVALUATION COMPLETE")
-print("=" * 60)
-
-print(
-    f"\nResults saved to: {OUTPUT_FILE}"
-)
-
+print("\n")
+print("=" * 70)
+print("Evaluation saved to:")
+print(OUTPUT_FILE)
+print("=" * 70)

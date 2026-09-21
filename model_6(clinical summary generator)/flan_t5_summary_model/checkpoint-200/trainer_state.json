@@ -1,7 +1,7 @@
 {
   "best_global_step": 200,
-  "best_metric": 0.1315872222185135,
-  "best_model_checkpoint": "flan_t5_summary_model\\checkpoint-200",
+  "best_metric": 0.1571466475725174,
+  "best_model_checkpoint": "C:\\Users\\astha\\Desktop\\sih2026\\Modular-medical-intelligence-and-Dialogue-system\\model_6(clinical summary generator)\\flan_t5_summary_model\\checkpoint-200",
   "epoch": 4.0,
   "eval_steps": 500,
   "global_step": 200,
@@ -11,90 +11,90 @@
   "log_history": [
     {
       "epoch": 0.5,
-      "grad_norm": 6.376678466796875,
+      "grad_norm": 8.640216827392578,
       "learning_rate": 4.52e-05,
-      "loss": 7.102840576171875,
+      "loss": 8.483275756835937,
       "step": 25
     },
     {
       "epoch": 1.0,
-      "grad_norm": 4.924993991851807,
+      "grad_norm": 7.843507766723633,
       "learning_rate": 4.02e-05,
-      "loss": 3.73085693359375,
+      "loss": 3.6739541625976564,
       "step": 50
     },
     {
       "epoch": 1.0,
-      "eval_loss": 0.3500615060329437,
-      "eval_runtime": 0.7092,
-      "eval_samples_per_second": 141.011,
-      "eval_steps_per_second": 35.253,
+      "eval_loss": 0.32804083824157715,
+      "eval_runtime": 0.6442,
+      "eval_samples_per_second": 155.222,
+      "eval_steps_per_second": 38.805,
       "step": 50
     },
     {
       "epoch": 1.5,
-      "grad_norm": 4.379061698913574,
+      "grad_norm": 6.364413261413574,
       "learning_rate": 3.52e-05,
-      "loss": 2.397127685546875,
+      "loss": 1.989588623046875,
       "step": 75
     },
     {
       "epoch": 2.0,
-      "grad_norm": 3.595212459564209,
+      "grad_norm": 5.528779983520508,
       "learning_rate": 3.02e-05,
-      "loss": 1.7658979797363281,
+      "loss": 1.448890380859375,
       "step": 100
     },
     {
       "epoch": 2.0,
-      "eval_loss": 0.19015510380268097,
-      "eval_runtime": 0.6821,
-      "eval_samples_per_second": 146.607,
-      "eval_steps_per_second": 36.652,
+      "eval_loss": 0.18772640824317932,
+      "eval_runtime": 0.692,
+      "eval_samples_per_second": 144.508,
+      "eval_steps_per_second": 36.127,
       "step": 100
     },
     {
       "epoch": 2.5,
-      "grad_norm": 3.448629856109619,
+      "grad_norm": 4.307013034820557,
       "learning_rate": 2.5200000000000003e-05,
-      "loss": 1.411694793701172,
+      "loss": 1.0897336578369141,
       "step": 125
     },
     {
       "epoch": 3.0,
-      "grad_norm": 5.012094020843506,
+      "grad_norm": 4.34546422958374,
       "learning_rate": 2.0200000000000003e-05,
-      "loss": 1.2587255859375,
+      "loss": 1.0749259185791016,
       "step": 150
     },
     {
       "epoch": 3.0,
-      "eval_loss": 0.14783234894275665,
-      "eval_runtime": 0.6976,
-      "eval_samples_per_second": 143.342,
-      "eval_steps_per_second": 35.835,
+      "eval_loss": 0.1644182652235031,
+      "eval_runtime": 0.7595,
+      "eval_samples_per_second": 131.668,
+      "eval_steps_per_second": 32.917,
       "step": 150
     },
     {
       "epoch": 3.5,
-      "grad_norm": 2.8857271671295166,
+      "grad_norm": 3.623459815979004,
       "learning_rate": 1.52e-05,
-      "loss": 1.1023444366455077,
+      "loss": 0.9388341522216797,
       "step": 175
     },
     {
       "epoch": 4.0,
-      "grad_norm": 2.8283307552337646,
+      "grad_norm": 3.6474342346191406,
       "learning_rate": 1.02e-05,
-      "loss": 1.0415789794921875,
+      "loss": 0.9151313018798828,
       "step": 200
     },
     {
       "epoch": 4.0,
-      "eval_loss": 0.1315872222185135,
-      "eval_runtime": 0.696,
-      "eval_samples_per_second": 143.671,
-      "eval_steps_per_second": 35.918,
+      "eval_loss": 0.1571466475725174,
+      "eval_runtime": 0.6609,
+      "eval_samples_per_second": 151.305,
+      "eval_steps_per_second": 37.826,
       "step": 200
     }
   ],
@@ -115,7 +115,7 @@
       "attributes": {}
     }
   },
-  "total_flos": 405206445785088.0,
+  "total_flos": 519064379916288.0,
   "train_batch_size": 4,
   "trial_name": null,
   "trial_params": null
