@@ -1,51 +1,53 @@
-# ================================================================
-# MODEL 6 — CLINICAL SUMMARY GENERATOR
-# DATASET PREPARATION
-# ================================================================
-
 import json
 from pathlib import Path
 
 
-# ================================================================
+# ============================================================
 # CONFIGURATION
-# ================================================================
+# ============================================================
 
-BASE_DIR = Path(__file__).resolve().parent
+INPUT_DIR = Path("model_6(clinical summary generator)\\preprocessing6_output")
+OUTPUT_DIR = Path("flan_t5_data")
 
-PROCESSED_DIR = BASE_DIR / "csg_processed"
-PREPARED_DIR = BASE_DIR / "csg_prepared"
+TRAIN_INPUT = INPUT_DIR / "train.jsonl"
+VALIDATION_INPUT = INPUT_DIR / "validation.jsonl"
+TEST_INPUT = INPUT_DIR / "test.jsonl"
 
-TRAIN_INPUT = PROCESSED_DIR / "train.jsonl"
-VAL_INPUT = PROCESSED_DIR / "validation.jsonl"
-
-TRAIN_OUTPUT = PREPARED_DIR / "train.jsonl"
-VAL_OUTPUT = PREPARED_DIR / "validation.jsonl"
-
-
-# ================================================================
-# DISPLAY
-# ================================================================
-
-def print_header(title):
-    print()
-    print("=" * 70)
-    print(title)
-    print("=" * 70)
+TRAIN_OUTPUT = OUTPUT_DIR / "train.jsonl"
+VALIDATION_OUTPUT = OUTPUT_DIR / "validation.jsonl"
+TEST_OUTPUT = OUTPUT_DIR / "test.jsonl"
 
 
-# ================================================================
+# ============================================================
+# CLINICAL SUMMARY SCHEMA
+# ============================================================
+
+SUMMARY_FIELDS = [
+    "chief_complaint",
+    "onset",
+    "duration",
+    "location",
+    "severity",
+    "complaint_characteristics",
+    "associated_symptoms",
+    "negative_findings",
+    "medical_history",
+    "medications",
+    "allergies",
+    "red_flags",
+    "triggers",
+    "relieving_factors",
+    "relevant_context"
+]
+
+
+# ============================================================
 # LOAD JSONL
-# ================================================================
+# ============================================================
 
 def load_jsonl(path):
 
-    if not path.exists():
-        raise FileNotFoundError(
-            f"Input file not found:\n{path}"
-        )
-
-    records = []
+    examples = []
 
     with open(path, "r", encoding="utf-8") as f:
 
@@ -57,527 +59,395 @@ def load_jsonl(path):
                 continue
 
             try:
-                record = json.loads(line)
+                example = json.loads(line)
+                examples.append(example)
 
             except json.JSONDecodeError as e:
+
                 raise ValueError(
-                    f"Invalid JSON at line {line_number} "
-                    f"in {path}\n{e}"
+                    f"Invalid JSON on line {line_number} "
+                    f"of {path}: {e}"
                 )
 
-            records.append(record)
-
-    return records
+    return examples
 
 
-# ================================================================
-# VALIDATE PROCESSED RECORD
-# ================================================================
+# ============================================================
+# FORMAT CONVERSATION
+# ============================================================
 
-def validate_record(record, index):
+def format_conversation(conversation):
 
-    if not isinstance(record, dict):
-        raise ValueError(
-            f"Record {index} is not a dictionary."
-        )
+    formatted_turns = []
 
-    required_fields = [
-        "id",
-        "input_text",
-        "target_text",
-        "clinical_summary"
-    ]
+    for turn in conversation:
 
-    for field in required_fields:
+        role = turn["role"].strip().upper()
+        text = turn["text"].strip()
 
-        if field not in record:
-            raise ValueError(
-                f"Record {index} ({record.get('id', 'UNKNOWN')}) "
-                f"is missing field: {field}"
+        if role == "PATIENT":
+
+            formatted_turns.append(
+                f"Patient: {text}"
             )
 
-    if not str(record["input_text"]).strip():
-        raise ValueError(
-            f"Record {record['id']} has empty input_text."
-        )
+        elif role == "ASSISTANT":
 
-    if not str(record["target_text"]).strip():
-        raise ValueError(
-            f"Record {record['id']} has empty target_text."
-        )
+            formatted_turns.append(
+                f"Assistant: {text}"
+            )
+
+        else:
+
+            raise ValueError(
+                f"Unknown conversation role: {role}"
+            )
+
+    return "\n".join(formatted_turns)
 
 
-# ================================================================
-# PREPARE ONE RECORD
-# ================================================================
+# ============================================================
+# CREATE TARGET SUMMARY
+# ============================================================
 
-def prepare_record(record, index):
+def create_target_summary(clinical_summary):
 
-    validate_record(
-        record,
-        index
+    # Keep exactly the required 15 fields.
+    target = {}
+
+    for field in SUMMARY_FIELDS:
+
+        if field not in clinical_summary:
+
+            raise ValueError(
+                f"Missing clinical summary field: {field}"
+            )
+
+        target[field] = clinical_summary[field]
+
+    # JSON string becomes the target sequence
+    return json.dumps(
+        target,
+        ensure_ascii=False,
+        separators=(",", ":")
     )
 
-    # ------------------------------------------------------------
-    # IMPORTANT:
-    #
-    # DO NOT create another prompt here.
-    #
-    # preproceesing6.py has already created the complete input:
-    #
-    # Summarize the following medical conversation into a
-    # structured doctor-readable clinical summary.
-    #
-    # Conversation:
-    # Patient: ...
-    # Assistant: ...
-    #
-    # We simply reuse it.
-    # ------------------------------------------------------------
 
-    input_text = record["input_text"]
+# ============================================================
+# CONVERT ONE EXAMPLE
+# ============================================================
 
-    target_text = record["target_text"]
+def convert_example(example):
 
-    prepared_record = {
-        "id": record["id"],
-        "input_text": input_text,
-        "target_text": target_text,
-        "clinical_summary": record["clinical_summary"]
+    if "conversation" not in example:
+        raise ValueError("Example missing conversation")
+
+    if "clinical_summary" not in example:
+        raise ValueError("Example missing clinical_summary")
+
+    conversation = format_conversation(
+        example["conversation"]
+    )
+
+    target = create_target_summary(
+        example["clinical_summary"]
+    )
+
+    # This is the actual instruction given to FLAN-T5.
+    source = (
+        "Generate a structured clinical summary from the "
+        "following patient-assistant conversation.\n\n"
+        "Return the clinical summary using exactly these 15 "
+        "fields:\n"
+        "chief_complaint, onset, duration, location, severity, "
+        "complaint_characteristics, associated_symptoms, "
+        "negative_findings, medical_history, medications, "
+        "allergies, red_flags, triggers, relieving_factors, "
+        "relevant_context.\n\n"
+        "Do not add information that is not present in the "
+        "conversation.\n\n"
+        "Conversation:\n"
+        + conversation
+    )
+
+    return {
+        "input": source,
+        "target": target
     }
 
-    return prepared_record
 
+# ============================================================
+# PROCESS ONE SPLIT
+# ============================================================
 
-# ================================================================
-# PREPARE DATASET
-# ================================================================
+def process_split(input_file, output_file):
 
-def prepare_dataset(records):
+    print(f"\nProcessing: {input_file}")
 
-    prepared_records = []
+    examples = load_jsonl(input_file)
 
-    for index, record in enumerate(records):
+    converted = []
 
-        prepared = prepare_record(
-            record,
-            index
-        )
+    for index, example in enumerate(examples):
 
-        prepared_records.append(
-            prepared
-        )
+        try:
 
-    return prepared_records
+            converted_example = convert_example(
+                example
+            )
 
+            converted.append(
+                converted_example
+            )
 
-# ================================================================
-# SAVE JSONL
-# ================================================================
+        except Exception as e:
 
-def save_jsonl(records, path):
-
-    path.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+            raise ValueError(
+                f"\nError processing example "
+                f"{index + 1} in {input_file}\n"
+                f"Example ID: {example.get('id')}\n"
+                f"Error: {e}"
+            )
 
     with open(
-        path,
+        output_file,
         "w",
         encoding="utf-8"
     ) as f:
 
-        for record in records:
+        for example in converted:
 
             f.write(
                 json.dumps(
-                    record,
+                    example,
                     ensure_ascii=False
                 )
                 + "\n"
             )
 
+    print(
+        f"Examples written: {len(converted)}"
+    )
 
-# ================================================================
-# CHECK FOR PROMPT DUPLICATION
-# ================================================================
+    print(
+        f"Output: {output_file}"
+    )
 
-def check_prompt_duplication(records):
-
-    problems = []
-
-    for record in records:
-
-        text = record["input_text"]
-
-        instruction_count = text.count(
-            "Summarize the following medical conversation"
-        )
-
-        conversation_count = text.count(
-            "Conversation:"
-        )
-
-        if instruction_count != 1:
-
-            problems.append(
-                (
-                    record["id"],
-                    "instruction_count",
-                    instruction_count
-                )
-            )
-
-        if conversation_count != 1:
-
-            problems.append(
-                (
-                    record["id"],
-                    "conversation_count",
-                    conversation_count
-                )
-            )
-
-    return problems
+    return converted
 
 
-# ================================================================
-# CHECK TARGET FORMAT
-# ================================================================
-
-def check_target_format(records):
-
-    required_sections = [
-        "CLINICAL SUMMARY",
-        "Chief Complaint:",
-        "Onset:",
-        "Duration:",
-        "Location:",
-        "Severity:",
-        "Symptoms:",
-        "Associated Symptoms:",
-        "Negative Findings:",
-        "Medical History:",
-        "Medications:",
-        "Allergies:",
-        "Red Flags:",
-        "Relevant Context:",
-        "Recommendation:"
-    ]
-
-    problems = []
-
-    for record in records:
-
-        target = record["target_text"]
-
-        missing = []
-
-        for section in required_sections:
-
-            if section not in target:
-                missing.append(section)
-
-        if missing:
-
-            problems.append(
-                {
-                    "id": record["id"],
-                    "missing_sections": missing
-                }
-            )
-
-    return problems
-
-
-# ================================================================
+# ============================================================
 # MAIN
-# ================================================================
+# ============================================================
 
-def main():
+print("=" * 70)
+print("FLAN-T5 TRAINING DATA PREPARATION")
+print("=" * 70)
 
-    print_header(
-        "CSG DATASET PREPARATION"
-    )
 
-    # ============================================================
-    # PATHS
-    # ============================================================
+# Check input files
 
-    print()
-    print("Processed training file :")
-    print(TRAIN_INPUT)
+for path in [
+    TRAIN_INPUT,
+    VALIDATION_INPUT,
+    TEST_INPUT
+]:
 
-    print()
-    print("Processed validation file :")
-    print(VAL_INPUT)
+    if not path.exists():
 
-    print()
-    print("Prepared training file :")
-    print(TRAIN_OUTPUT)
-
-    print()
-    print("Prepared validation file :")
-    print(VAL_OUTPUT)
-
-    # ============================================================
-    # LOAD
-    # ============================================================
-
-    print_header(
-        "LOADING DATASETS"
-    )
-
-    train_records = load_jsonl(
-        TRAIN_INPUT
-    )
-
-    val_records = load_jsonl(
-        VAL_INPUT
-    )
-
-    print(
-        f"Loaded training examples   : "
-        f"{len(train_records)}"
-    )
-
-    print(
-        f"Loaded validation examples : "
-        f"{len(val_records)}"
-    )
-
-    # ============================================================
-    # PREPARE
-    # ============================================================
-
-    print_header(
-        "PREPARING TRAINING DATASET"
-    )
-
-    prepared_train = prepare_dataset(
-        train_records
-    )
-
-    print(
-        f"Prepared training examples : "
-        f"{len(prepared_train)}"
-    )
-
-    print_header(
-        "PREPARING VALIDATION DATASET"
-    )
-
-    prepared_val = prepare_dataset(
-        val_records
-    )
-
-    print(
-        f"Prepared validation examples : "
-        f"{len(prepared_val)}"
-    )
-
-    # ============================================================
-    # PROMPT DUPLICATION CHECK
-    # ============================================================
-
-    print_header(
-        "CHECKING PROMPT DUPLICATION"
-    )
-
-    train_prompt_problems = check_prompt_duplication(
-        prepared_train
-    )
-
-    val_prompt_problems = check_prompt_duplication(
-        prepared_val
-    )
-
-    total_prompt_problems = (
-        len(train_prompt_problems)
-        + len(val_prompt_problems)
-    )
-
-    if total_prompt_problems > 0:
-
-        print(
-            f"ERROR: {total_prompt_problems} "
-            f"records have prompt duplication/format problems."
+        raise FileNotFoundError(
+            f"\nRequired file not found:\n"
+            f"{path.resolve()}\n\n"
+            f"Current working directory:\n"
+            f"{Path.cwd()}"
         )
 
-        for problem in (
-            train_prompt_problems[:5]
-            + val_prompt_problems[:5]
-        ):
 
-            print(problem)
+# Create output directory
 
-        raise ValueError(
-            "Prompt duplication detected. "
-            "Preparation stopped."
+OUTPUT_DIR.mkdir(
+    parents=True,
+    exist_ok=True
+)
+
+
+# ============================================================
+# PROCESS DATASETS
+# ============================================================
+
+train_data = process_split(
+    TRAIN_INPUT,
+    TRAIN_OUTPUT
+)
+
+validation_data = process_split(
+    VALIDATION_INPUT,
+    VALIDATION_OUTPUT
+)
+
+test_data = process_split(
+    TEST_INPUT,
+    TEST_OUTPUT
+)
+
+
+# ============================================================
+# VERIFY COUNTS
+# ============================================================
+
+print("\n" + "=" * 70)
+print("VERIFYING DATA")
+print("=" * 70)
+
+print(
+    f"Train examples:      {len(train_data)}"
+)
+
+print(
+    f"Validation examples: {len(validation_data)}"
+)
+
+print(
+    f"Test examples:       {len(test_data)}"
+)
+
+
+expected_train = 800
+expected_validation = 100
+expected_test = 100
+
+
+if len(train_data) != expected_train:
+
+    raise ValueError(
+        f"Expected {expected_train} training examples, "
+        f"got {len(train_data)}"
+    )
+
+
+if len(validation_data) != expected_validation:
+
+    raise ValueError(
+        f"Expected {expected_validation} validation examples, "
+        f"got {len(validation_data)}"
+    )
+
+
+if len(test_data) != expected_test:
+
+    raise ValueError(
+        f"Expected {expected_test} test examples, "
+        f"got {len(test_data)}"
+    )
+
+
+# ============================================================
+# VERIFY FIELDS
+# ============================================================
+
+print("\n" + "=" * 70)
+print("VERIFYING TARGET STRUCTURE")
+print("=" * 70)
+
+
+for split_name, data in [
+    ("train", train_data),
+    ("validation", validation_data),
+    ("test", test_data)
+]:
+
+    for index, example in enumerate(data):
+
+        if "input" not in example:
+            raise ValueError(
+                f"{split_name} example {index} "
+                f"missing input"
+            )
+
+        if "target" not in example:
+            raise ValueError(
+                f"{split_name} example {index} "
+                f"missing target"
+            )
+
+        target = json.loads(
+            example["target"]
         )
 
-    print(
-        "✓ All records contain exactly one instruction."
+        actual_fields = list(target.keys())
+
+        if actual_fields != SUMMARY_FIELDS:
+
+            raise ValueError(
+                f"{split_name} example {index} "
+                f"has incorrect target fields.\n"
+                f"Expected: {SUMMARY_FIELDS}\n"
+                f"Got: {actual_fields}"
+            )
+
+
+print("✓ All targets contain exactly 15 fields.")
+
+
+# ============================================================
+# SHOW ONE EXAMPLE
+# ============================================================
+
+print("\n" + "=" * 70)
+print("SAMPLE TRAINING EXAMPLE")
+print("=" * 70)
+
+sample = train_data[0]
+
+print("\nINPUT:")
+print("-" * 70)
+print(sample["input"])
+
+print("\nTARGET:")
+print("-" * 70)
+print(
+    json.dumps(
+        json.loads(sample["target"]),
+        indent=2,
+        ensure_ascii=False
     )
-
-    print(
-        "✓ All records contain exactly one 'Conversation:' heading."
-    )
-
-    # ============================================================
-    # TARGET FORMAT CHECK
-    # ============================================================
-
-    print_header(
-        "CHECKING STRUCTURED TARGETS"
-    )
-
-    train_target_problems = check_target_format(
-        prepared_train
-    )
-
-    val_target_problems = check_target_format(
-        prepared_val
-    )
-
-    total_target_problems = (
-        len(train_target_problems)
-        + len(val_target_problems)
-    )
-
-    if total_target_problems > 0:
-
-        print(
-            f"ERROR: {total_target_problems} "
-            f"records have missing target sections."
-        )
-
-        for problem in (
-            train_target_problems[:5]
-            + val_target_problems[:5]
-        ):
-
-            print(problem)
-
-        raise ValueError(
-            "Structured target validation failed."
-        )
-
-    print(
-        "✓ All training targets have the required sections."
-    )
-
-    print(
-        "✓ All validation targets have the required sections."
-    )
-
-    # ============================================================
-    # SAVE
-    # ============================================================
-
-    print_header(
-        "SAVING PREPARED DATASETS"
-    )
-
-    save_jsonl(
-        prepared_train,
-        TRAIN_OUTPUT
-    )
-
-    save_jsonl(
-        prepared_val,
-        VAL_OUTPUT
-    )
-
-    print(
-        f"Train      : {TRAIN_OUTPUT}"
-    )
-
-    print(
-        f"Validation : {VAL_OUTPUT}"
-    )
-
-    # ============================================================
-    # SAMPLE
-    # ============================================================
-
-    print_header(
-        "SAMPLE TRAINING RECORD"
-    )
-
-    sample = prepared_train[0]
-
-    print()
-    print("ID:")
-    print(sample["id"])
-
-    print()
-    print("INPUT:")
-    print(sample["input_text"])
-
-    print()
-    print("TARGET:")
-    print(sample["target_text"])
-
-    print()
-    print("STRUCTURED CLINICAL SUMMARY:")
-    print(
-        json.dumps(
-            sample["clinical_summary"],
-            indent=2,
-            ensure_ascii=False
-        )
-    )
-
-    # ============================================================
-    # FINAL COUNTS
-    # ============================================================
-
-    print_header(
-        "PREPARED DATASET"
-    )
-
-    print(
-        f"Training examples   : "
-        f"{len(prepared_train)}"
-    )
-
-    print(
-        f"Validation examples : "
-        f"{len(prepared_val)}"
-    )
-
-    print()
-    print(
-        "✓ Prompt duplication check passed."
-    )
-
-    print(
-        "✓ Structured target check passed."
-    )
-
-    print(
-        "✓ Dataset preparation complete."
-    )
-
-    print()
-    print(
-        "NEXT STEP:"
-    )
-
-    print(
-        "Run token_analysis6.py."
-    )
-
-    print(
-        "Do NOT train until token analysis is complete."
-    )
+)
 
 
-# ================================================================
-# ENTRY POINT
-# ================================================================
+# ============================================================
+# FINAL
+# ============================================================
 
-if __name__ == "__main__":
-    main()
+print("\n" + "=" * 70)
+print("PREPARATION COMPLETE")
+print("=" * 70)
+
+print(
+    f"""
+Output directory:
+
+    {OUTPUT_DIR}
+
+Files:
+
+    {TRAIN_OUTPUT}
+    {VALIDATION_OUTPUT}
+    {TEST_OUTPUT}
+
+Dataset:
+
+    Train       : {len(train_data)}
+    Validation  : {len(validation_data)}
+    Test        : {len(test_data)}
+
+Total         : {
+    len(train_data)
+    + len(validation_data)
+    + len(test_data)
+}
+"""
+)
+
+print("=" * 70)
+print("READY FOR FLAN-T5 TRAINING")
+print("=" * 70)

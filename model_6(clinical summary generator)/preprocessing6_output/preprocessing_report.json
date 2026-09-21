@@ -1,0 +1,106 @@
+{
+  "input_file": "model_6(clinical summary generator)\\dataset\\model6_summary_dataset_expanded_1000.json",
+  "original_examples": 1000,
+  "valid_examples": 1000,
+  "invalid_examples": 0,
+  "duplicate_ids": 0,
+  "unique_conversations": 1000,
+  "exact_duplicate_conversation_groups": 0,
+  "unique_clinical_summaries": 100,
+  "duplicate_clinical_summary_groups": 100,
+  "unique_clinical_scenarios": 100,
+  "chief_complaint_distribution": {
+    "Headache": 100,
+    "Low back pain": 100,
+    "Cough": 100,
+    "Abdominal pain": 100,
+    "Urinary discomfort": 100,
+    "Sore throat": 100,
+    "Knee pain": 100,
+    "Skin rash": 100,
+    "Dizziness": 100,
+    "Chest discomfort": 100
+  },
+  "field_missingness": {
+    "chief_complaint": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "onset": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "duration": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "location": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "severity": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "complaint_characteristics": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "associated_symptoms": {
+      "count": 230,
+      "percentage": 23.0
+    },
+    "negative_findings": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "medical_history": {
+      "count": 690,
+      "percentage": 69.0
+    },
+    "medications": {
+      "count": 800,
+      "percentage": 80.0
+    },
+    "allergies": {
+      "count": 940,
+      "percentage": 94.0
+    },
+    "red_flags": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "triggers": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "relieving_factors": {
+      "count": 20,
+      "percentage": 2.0
+    },
+    "relevant_context": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "split": {
+    "train": {
+      "examples": 800,
+      "scenarios": 80
+    },
+    "validation": {
+      "examples": 100,
+      "scenarios": 10
+    },
+    "test": {
+      "examples": 100,
+      "scenarios": 10
+    }
+  },
+  "leakage": {
+    "train_validation_overlap": 0,
+    "train_test_overlap": 0,
+    "validation_test_overlap": 0
+  },
+  "random_seed": 42
+}

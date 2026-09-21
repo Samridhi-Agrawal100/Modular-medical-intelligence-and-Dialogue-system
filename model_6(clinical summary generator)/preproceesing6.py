@@ -1,847 +1,1040 @@
-# ================================================================
-# MODEL 6 — CLINICAL SUMMARY GENERATOR
-# STRUCTURED TARGET PREPROCESSING
-# ================================================================
-
 import json
-import random
+import hashlib
 from pathlib import Path
+from collections import Counter, defaultdict
+import random
 
 
-# ================================================================
+# ============================================================
 # CONFIGURATION
-# ================================================================
+# ============================================================
 
-BASE_DIR = Path(__file__).resolve().parent
+INPUT_FILE = Path("model_6(clinical summary generator)\\dataset\\model6_summary_dataset_expanded_1000.json")
 
-RAW_FILE = BASE_DIR / "dataset" / "model6_dummy_dataset.json"
-OUTPUT_DIR = BASE_DIR / "csg_processed"
+OUTPUT_DIR = Path("preprocessing6_output")
 
 TRAIN_FILE = OUTPUT_DIR / "train.jsonl"
 VALIDATION_FILE = OUTPUT_DIR / "validation.jsonl"
+TEST_FILE = OUTPUT_DIR / "test.jsonl"
+
+CLEAN_DATASET_FILE = OUTPUT_DIR / "clean_dataset.json"
+INVALID_FILE = OUTPUT_DIR / "invalid_examples.json"
 REPORT_FILE = OUTPUT_DIR / "preprocessing_report.json"
 
-TRAIN_SIZE = 450
-VALIDATION_SIZE = 50
-RANDOM_SEED = 42
+
+# Expected clinical-summary fields
+EXPECTED_FIELDS = [
+    "chief_complaint",
+    "onset",
+    "duration",
+    "location",
+    "severity",
+    "complaint_characteristics",
+    "associated_symptoms",
+    "negative_findings",
+    "medical_history",
+    "medications",
+    "allergies",
+    "red_flags",
+    "triggers",
+    "relieving_factors",
+    "relevant_context"
+]
 
 
-# ================================================================
-# DISPLAY HELPERS
-# ================================================================
+# Fields that should contain lists
+LIST_FIELDS = [
+    "complaint_characteristics",
+    "associated_symptoms",
+    "negative_findings",
+    "medical_history",
+    "medications",
+    "allergies",
+    "triggers",
+    "relieving_factors"
+]
 
-def print_header(title):
-    print()
-    print("=" * 75)
-    print(title)
-    print("=" * 75)
+
+# Fields that should contain strings
+STRING_FIELDS = [
+    "chief_complaint",
+    "onset",
+    "duration",
+    "location",
+    "severity",
+    "relevant_context"
+]
 
 
-# ================================================================
-# LOAD RAW DATASET
-# ================================================================
+# ============================================================
+# HELPER FUNCTIONS
+# ============================================================
 
-def load_raw_dataset(path):
+def normalize_text(text):
     """
-    Supports:
-        1. JSON list
-        2. {"data": [...]}
-        3. {"examples": [...]}
+    Basic text normalization for duplicate detection.
+    Does NOT modify the actual dataset text.
     """
+    if not isinstance(text, str):
+        return ""
 
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    if isinstance(data, list):
-        records = data
-
-    elif isinstance(data, dict):
-        if "data" in data and isinstance(data["data"], list):
-            records = data["data"]
-
-        elif "examples" in data and isinstance(data["examples"], list):
-            records = data["examples"]
-
-        else:
-            raise ValueError(
-                "JSON object found, but neither 'data' nor 'examples' "
-                "contains a list."
-            )
-
-    else:
-        raise ValueError("Unsupported JSON dataset format.")
-
-    return records
+    return " ".join(text.lower().strip().split())
 
 
-# ================================================================
-# FORMAT HELPERS
-# ================================================================
-
-def format_scalar(value):
+def conversation_to_text(conversation):
     """
-    Formats a scalar field.
-
-    Empty / missing values become:
-        Not reported
-    """
-
-    if value is None:
-        return "Not reported"
-
-    if isinstance(value, str):
-        value = value.strip()
-
-        if value == "":
-            return "Not reported"
-
-        return value
-
-    return str(value)
-
-
-def format_list(value):
-    """
-    Formats list-valued clinical fields into bullet points.
+    Convert structured conversation into one normalized string.
 
     Example:
-
-        ["fever", "cough"]
-
-    becomes:
-
-        - fever
-        - cough
-
-    Empty list becomes:
-
-        Not reported
+    PATIENT: I have a headache.
+    ASSISTANT: Where does it hurt?
     """
-
-    if value is None:
-        return "Not reported"
-
-    if not isinstance(value, list):
-        value = [value]
-
-    cleaned = []
-
-    for item in value:
-        if item is None:
-            continue
-
-        item = str(item).strip()
-
-        if item:
-            cleaned.append(item)
-
-    if not cleaned:
-        return "Not reported"
-
-    return "\n".join(f"- {item}" for item in cleaned)
-
-
-# ================================================================
-# BUILD STRUCTURED CLINICAL SUMMARY TARGET
-# ================================================================
-
-def build_structured_target(clinical_summary):
-    """
-    Converts the structured clinical_summary object from the raw
-    dataset into the exact doctor-readable target format.
-
-    IMPORTANT:
-    This function does NOT invent medical information.
-    It only formats information already present in the dataset.
-    """
-
-    if not isinstance(clinical_summary, dict):
-        raise ValueError(
-            "clinical_summary must be a dictionary."
-        )
-
-    chief_complaint = format_scalar(
-        clinical_summary.get("chief_complaint")
-    )
-
-    onset = format_scalar(
-        clinical_summary.get("onset")
-    )
-
-    duration = format_scalar(
-        clinical_summary.get("duration")
-    )
-
-    location = format_scalar(
-        clinical_summary.get("location")
-    )
-
-    severity = format_scalar(
-        clinical_summary.get("severity")
-    )
-
-    symptoms = format_list(
-        clinical_summary.get("symptoms")
-    )
-
-    associated_symptoms = format_list(
-        clinical_summary.get("associated_symptoms")
-    )
-
-    negative_findings = format_list(
-        clinical_summary.get("negative_findings")
-    )
-
-    medical_history = format_list(
-        clinical_summary.get("medical_history")
-    )
-
-    medications = format_list(
-        clinical_summary.get("medications")
-    )
-
-    allergies = format_list(
-        clinical_summary.get("allergies")
-    )
-
-    red_flags = format_list(
-        clinical_summary.get("red_flags")
-    )
-
-    relevant_context = format_scalar(
-        clinical_summary.get("relevant_context")
-    )
-
-    target = f"""CLINICAL SUMMARY
-
-Chief Complaint:
-{chief_complaint}
-
-Onset:
-{onset}
-
-Duration:
-{duration}
-
-Location:
-{location}
-
-Severity:
-{severity}
-
-Symptoms:
-{symptoms}
-
-Associated Symptoms:
-{associated_symptoms}
-
-Negative Findings:
-{negative_findings}
-
-Medical History:
-{medical_history}
-
-Medications:
-{medications}
-
-Allergies:
-{allergies}
-
-Red Flags:
-{red_flags}
-
-Relevant Context:
-{relevant_context}
-
-Recommendation:
-Further clinical evaluation recommended.
-"""
-
-    return target.strip()
-
-
-# ================================================================
-# BUILD INPUT TEXT FROM RAW CONVERSATION
-# ================================================================
-
-def build_input_text(conversation):
-    """
-    Converts the raw conversation list into the model input.
-
-    IMPORTANT:
-    This function creates the prompt exactly ONCE.
-
-    Expected output:
-
-    Summarize the following medical conversation into a structured
-    doctor-readable clinical summary.
-
-    Conversation:
-    Patient: ...
-    Assistant: ...
-    """
-
-    if not isinstance(conversation, list):
-        raise ValueError(
-            "conversation must be a list."
-        )
-
-    lines = []
-
-    # ------------------------------------------------------------
-    # ONE instruction only
-    # ------------------------------------------------------------
-
-    lines.append(
-        "Summarize the following medical conversation into a "
-        "structured doctor-readable clinical summary."
-    )
-
-    lines.append("")
-    lines.append("Conversation:")
-
-    # ------------------------------------------------------------
-    # Add conversation turns
-    # ------------------------------------------------------------
+    parts = []
 
     for turn in conversation:
+        role = str(turn.get("role", "")).strip().lower()
+        text = normalize_text(turn.get("text", ""))
 
-        if not isinstance(turn, dict):
-            raise ValueError(
-                "Each conversation turn must be a dictionary."
-            )
+        parts.append(f"{role}: {text}")
 
-        role = str(
-            turn.get("role", "")
-        ).strip().lower()
+    return "\n".join(parts)
 
-        text = str(
-            turn.get("text", "")
-        ).strip()
 
-        if not text:
-            continue
+def summary_fingerprint(summary):
+    """
+    Create a stable fingerprint for a clinical summary.
+    Used only for duplicate analysis.
+    """
 
-        if role == "patient":
-            lines.append(f"Patient: {text}")
+    canonical = {}
 
-        elif role == "assistant":
-            lines.append(f"Assistant: {text}")
+    for field in EXPECTED_FIELDS:
+        value = summary.get(field)
+
+        if isinstance(value, list):
+            canonical[field] = [
+                normalize_text(str(x))
+                for x in value
+            ]
+
+        elif isinstance(value, dict):
+            canonical[field] = value
 
         else:
-            raise ValueError(
-                f"Unknown conversation role: {role}"
+            canonical[field] = normalize_text(str(value))
+
+    text = json.dumps(
+        canonical,
+        sort_keys=True,
+        ensure_ascii=False
+    )
+
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def write_jsonl(path, examples):
+    """
+    Save examples in JSONL format.
+    """
+
+    with open(path, "w", encoding="utf-8") as f:
+
+        for example in examples:
+            f.write(
+                json.dumps(
+                    example,
+                    ensure_ascii=False
+                ) + "\n"
             )
 
-    return "\n".join(lines)
 
-
-# ================================================================
-# VALIDATE RAW RECORD
-# ================================================================
-
-def validate_raw_record(record):
+def validate_example(example):
     """
-    Validates the raw dataset record BEFORE processing.
+    Validate one dataset example.
 
-    Required:
-        id
-        conversation
-        clinical_summary
+    Returns:
+        (True, None)
+    or
+        (False, reason)
     """
 
-    if not isinstance(record, dict):
-        return False, "Record is not a dictionary."
+    if not isinstance(example, dict):
+        return False, "Example is not a dictionary"
 
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
     # ID
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
 
-    record_id = record.get("id")
+    if not isinstance(example.get("id"), str):
+        return False, "Missing or invalid id"
 
-    if record_id is None:
-        return False, "Missing id."
-
-    if not str(record_id).strip():
-        return False, "Empty id."
-
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
     # Conversation
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
 
-    conversation = record.get("conversation")
+    conversation = example.get("conversation")
 
     if not isinstance(conversation, list):
-        return False, "conversation is not a list."
+        return False, "conversation is not a list"
 
     if len(conversation) == 0:
-        return False, "conversation is empty."
+        return False, "conversation is empty"
 
-    for index, turn in enumerate(conversation):
+    for i, turn in enumerate(conversation):
 
         if not isinstance(turn, dict):
-            return False, (
-                f"Conversation turn {index} is not a dictionary."
-            )
+            return False, f"conversation turn {i} is not a dictionary"
 
-        role = str(
-            turn.get("role", "")
-        ).strip().lower()
+        if turn.get("role") not in ["assistant", "patient"]:
+            return False, f"invalid role in conversation turn {i}"
 
-        text = str(
-            turn.get("text", "")
-        ).strip()
+        if not isinstance(turn.get("text"), str):
+            return False, f"invalid text in conversation turn {i}"
 
-        if role not in {"patient", "assistant"}:
-            return False, (
-                f"Invalid role '{role}' at turn {index}."
-            )
+        if not turn.get("text").strip():
+            return False, f"empty text in conversation turn {i}"
 
-        if not text:
-            return False, (
-                f"Empty text at conversation turn {index}."
-            )
-
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
     # Clinical summary
-    # ------------------------------------------------------------
+    # --------------------------------------------------------
 
-    clinical_summary = record.get("clinical_summary")
+    summary = example.get("clinical_summary")
 
-    if not isinstance(clinical_summary, dict):
-        return False, "clinical_summary is missing or invalid."
+    if not isinstance(summary, dict):
+        return False, "clinical_summary is not a dictionary"
 
-    if not str(
-        clinical_summary.get("chief_complaint", "")
-    ).strip():
-        return False, "Missing chief_complaint."
+    missing_fields = [
+        field
+        for field in EXPECTED_FIELDS
+        if field not in summary
+    ]
+
+    if missing_fields:
+        return False, f"missing fields: {missing_fields}"
+
+    # --------------------------------------------------------
+    # String fields
+    # --------------------------------------------------------
+
+    for field in STRING_FIELDS:
+
+        value = summary.get(field)
+
+        if not isinstance(value, str):
+            return False, (
+                f"{field} should be a string, "
+                f"got {type(value).__name__}"
+            )
+
+    # --------------------------------------------------------
+    # List fields
+    # --------------------------------------------------------
+
+    for field in LIST_FIELDS:
+
+        value = summary.get(field)
+
+        if not isinstance(value, list):
+            return False, (
+                f"{field} should be a list, "
+                f"got {type(value).__name__}"
+            )
+
+    # --------------------------------------------------------
+    # Red flags
+    # --------------------------------------------------------
+
+    red_flags = summary.get("red_flags")
+
+    if not isinstance(red_flags, dict):
+        return False, "red_flags should be a dictionary"
+
+    if "status" not in red_flags:
+        return False, "red_flags missing status"
+
+    if "items" not in red_flags:
+        return False, "red_flags missing items"
+
+    if not isinstance(red_flags["items"], list):
+        return False, "red_flags.items should be a list"
+
+    # --------------------------------------------------------
+    # Metadata
+    # --------------------------------------------------------
+
+    metadata = example.get("metadata")
+
+    if not isinstance(metadata, dict):
+        return False, "metadata is not a dictionary"
+
+    if not isinstance(metadata.get("scenario_id"), str):
+        return False, "missing or invalid scenario_id"
+
+    if not isinstance(metadata.get("paraphrase_id"), int):
+        return False, "missing or invalid paraphrase_id"
 
     return True, None
 
 
-# ================================================================
-# PROCESS ONE RECORD
-# ================================================================
+# ============================================================
+# LOAD DATASET
+# ============================================================
 
-def process_record(record):
-    """
-    Creates one processed record.
+print("=" * 70)
+print("LOADING DATASET")
+print("=" * 70)
 
-    Output:
+if not INPUT_FILE.exists():
 
-    {
-        "id": "...",
-        "input_text": "...",
-        "target_text": "...",
-        "clinical_summary": {...}
+    raise FileNotFoundError(
+        f"\nDataset not found:\n{INPUT_FILE.resolve()}\n\n"
+        f"Current working directory:\n{Path.cwd()}"
+    )
+
+
+with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    dataset = json.load(f)
+
+
+# ============================================================
+# READ EXAMPLES
+# ============================================================
+
+if not isinstance(dataset, dict):
+    raise ValueError("Top-level dataset must be a dictionary.")
+
+if "examples" not in dataset:
+    raise ValueError("Dataset does not contain an 'examples' key.")
+
+examples = dataset["examples"]
+
+if not isinstance(examples, list):
+    raise ValueError("'examples' must be a list.")
+
+
+print(f"Dataset name: {dataset.get('dataset_name')}")
+print(f"Total examples: {len(examples)}")
+
+print(
+    f"Declared unique scenarios: "
+    f"{dataset.get('num_unique_clinical_summary_scenarios')}"
+)
+
+print(
+    f"Declared paraphrases per scenario: "
+    f"{dataset.get('paraphrases_per_scenario')}"
+)
+
+
+# ============================================================
+# VALIDATION
+# ============================================================
+
+print("\n" + "=" * 70)
+print("VALIDATING DATASET")
+print("=" * 70)
+
+valid_examples = []
+invalid_examples = []
+
+for example in examples:
+
+    valid, reason = validate_example(example)
+
+    if valid:
+
+        valid_examples.append(example)
+
+    else:
+
+        invalid_examples.append({
+            "id": example.get("id") if isinstance(example, dict) else None,
+            "reason": reason,
+            "example": example
+        })
+
+
+print(f"Valid examples: {len(valid_examples)}")
+print(f"Invalid examples: {len(invalid_examples)}")
+
+
+# ============================================================
+# STOP IF INVALID DATA
+# ============================================================
+
+if invalid_examples:
+
+    print("\nFirst 5 invalid examples:")
+
+    for item in invalid_examples[:5]:
+        print(
+            f"\nID: {item['id']}"
+            f"\nReason: {item['reason']}"
+        )
+
+
+# ============================================================
+# DUPLICATE ID ANALYSIS
+# ============================================================
+
+print("\n" + "=" * 70)
+print("DUPLICATE ANALYSIS")
+print("=" * 70)
+
+id_counter = Counter(
+    example["id"]
+    for example in valid_examples
+)
+
+duplicate_ids = {
+    k: v
+    for k, v in id_counter.items()
+    if v > 1
+}
+
+
+print(f"Duplicate IDs: {len(duplicate_ids)}")
+
+
+# ============================================================
+# CONVERSATION DUPLICATES
+# ============================================================
+
+conversation_groups = defaultdict(list)
+
+for example in valid_examples:
+
+    conversation_text = conversation_to_text(
+        example["conversation"]
+    )
+
+    conversation_groups[conversation_text].append(
+        example["id"]
+    )
+
+
+duplicate_conversation_groups = {
+    text: ids
+    for text, ids in conversation_groups.items()
+    if len(ids) > 1
+}
+
+
+examples_in_duplicate_conversations = sum(
+    len(ids)
+    for ids in duplicate_conversation_groups.values()
+)
+
+
+print(
+    f"Unique conversation texts: "
+    f"{len(conversation_groups)}"
+)
+
+print(
+    f"Exact duplicate conversation groups: "
+    f"{len(duplicate_conversation_groups)}"
+)
+
+print(
+    f"Examples involved in exact duplicates: "
+    f"{examples_in_duplicate_conversations}"
+)
+
+
+# ============================================================
+# CLINICAL SUMMARY DUPLICATES
+# ============================================================
+
+summary_groups = defaultdict(list)
+
+for example in valid_examples:
+
+    fingerprint = summary_fingerprint(
+        example["clinical_summary"]
+    )
+
+    summary_groups[fingerprint].append(
+        example["id"]
+    )
+
+
+duplicate_summary_groups = {
+    fingerprint: ids
+    for fingerprint, ids in summary_groups.items()
+    if len(ids) > 1
+}
+
+
+print(
+    f"Unique clinical summaries: "
+    f"{len(summary_groups)}"
+)
+
+print(
+    f"Clinical summaries appearing more than once: "
+    f"{len(duplicate_summary_groups)}"
+)
+
+
+# ============================================================
+# SCENARIO GROUPING
+# ============================================================
+
+print("\n" + "=" * 70)
+print("CLINICAL SCENARIO GROUPING")
+print("=" * 70)
+
+scenario_groups = defaultdict(list)
+
+for example in valid_examples:
+
+    scenario_id = example["metadata"]["scenario_id"]
+
+    scenario_groups[scenario_id].append(
+        example
+    )
+
+
+print(
+    f"Unique clinical scenarios: "
+    f"{len(scenario_groups)}"
+)
+
+
+scenario_sizes = [
+    len(group)
+    for group in scenario_groups.values()
+]
+
+
+if scenario_sizes:
+
+    print(
+        f"Examples per scenario: "
+        f"min={min(scenario_sizes)}, "
+        f"max={max(scenario_sizes)}, "
+        f"average={sum(scenario_sizes) / len(scenario_sizes):.2f}"
+    )
+
+
+# ============================================================
+# CHIEF COMPLAINT DISTRIBUTION
+# ============================================================
+
+print("\n" + "=" * 70)
+print("CHIEF COMPLAINT DISTRIBUTION")
+print("=" * 70)
+
+complaint_counter = Counter(
+    example["clinical_summary"]["chief_complaint"]
+    for example in valid_examples
+)
+
+
+for complaint, count in sorted(
+    complaint_counter.items()
+):
+
+    percentage = (
+        count / len(valid_examples) * 100
+        if valid_examples
+        else 0
+    )
+
+    print(
+        f"{complaint}: "
+        f"{count} ({percentage:.2f}%)"
+    )
+
+
+# ============================================================
+# FIELD MISSINGNESS
+# ============================================================
+
+print("\n" + "=" * 70)
+print("FIELD MISSINGNESS")
+print("=" * 70)
+
+missingness = {}
+
+for field in EXPECTED_FIELDS:
+
+    missing_count = 0
+
+    for example in valid_examples:
+
+        value = example["clinical_summary"].get(field)
+
+        if value is None:
+            missing_count += 1
+
+        elif isinstance(value, str) and not value.strip():
+            missing_count += 1
+
+        elif isinstance(value, list) and len(value) == 0:
+            missing_count += 1
+
+    percentage = (
+        missing_count / len(valid_examples) * 100
+        if valid_examples
+        else 0
+    )
+
+    missingness[field] = {
+        "count": missing_count,
+        "percentage": round(percentage, 2)
     }
-    """
-
-    conversation = record["conversation"]
-    clinical_summary = record["clinical_summary"]
-
-    input_text = build_input_text(
-        conversation
-    )
-
-    target_text = build_structured_target(
-        clinical_summary
-    )
-
-    processed = {
-        "id": str(record["id"]),
-        "input_text": input_text,
-        "target_text": target_text,
-        "clinical_summary": clinical_summary,
-    }
-
-    return processed
-
-
-# ================================================================
-# SAVE JSONL
-# ================================================================
-
-def save_jsonl(records, path):
-
-    with open(path, "w", encoding="utf-8") as f:
-
-        for record in records:
-            f.write(
-                json.dumps(
-                    record,
-                    ensure_ascii=False
-                )
-                + "\n"
-            )
-
-
-# ================================================================
-# MAIN
-# ================================================================
-
-def main():
-
-    print_header(
-        "MODEL 6 — CLINICAL SUMMARY GENERATOR\n"
-        "STRUCTURED TARGET PREPROCESSING"
-    )
-
-    # ============================================================
-    # PATHS
-    # ============================================================
-
-    print_header("PATHS")
-
-    print(f"Raw dataset : {RAW_FILE}")
-    print(f"Output dir  : {OUTPUT_DIR}")
-
-    # ============================================================
-    # CHECK RAW DATASET
-    # ============================================================
-
-    print_header("CHECKING RAW DATASET")
-
-    if not RAW_FILE.exists():
-        raise FileNotFoundError(
-            f"Raw dataset not found:\n{RAW_FILE}"
-        )
-
-    print("Raw dataset found.")
-
-    # ============================================================
-    # LOAD DATASET
-    # ============================================================
-
-    print_header("LOADING RAW DATASET")
-
-    raw_records = load_raw_dataset(
-        RAW_FILE
-    )
 
     print(
-        f"Raw examples : {len(raw_records)}"
+        f"{field}: "
+        f"{missing_count} "
+        f"({percentage:.2f}%)"
     )
 
-    # ============================================================
-    # PROCESS RECORDS
-    # ============================================================
 
-    print_header("PROCESSING RECORDS")
+# ============================================================
+# GROUP-AWARE SPLIT
+# ============================================================
 
-    processed_records = []
+print("\n" + "=" * 70)
+print("GROUP-AWARE DATA SPLIT")
+print("=" * 70)
 
-    invalid_records = []
 
-    seen_ids = set()
-    seen_conversations = set()
+random.seed(42)
 
-    duplicate_ids = 0
-    duplicate_conversations = 0
+scenario_ids = list(scenario_groups.keys())
 
-    for index, record in enumerate(raw_records):
+random.shuffle(scenario_ids)
 
-        # --------------------------------------------------------
-        # Validate
-        # --------------------------------------------------------
+num_scenarios = len(scenario_ids)
 
-        valid, error = validate_raw_record(
-            record
-        )
+if num_scenarios < 3:
 
-        if not valid:
-
-            invalid_records.append(
-                {
-                    "index": index,
-                    "id": record.get("id")
-                    if isinstance(record, dict)
-                    else None,
-                    "error": error,
-                }
-            )
-
-            continue
-
-        # --------------------------------------------------------
-        # Duplicate ID check
-        # --------------------------------------------------------
-
-        record_id = str(
-            record["id"]
-        ).strip()
-
-        if record_id in seen_ids:
-            duplicate_ids += 1
-            continue
-
-        seen_ids.add(record_id)
-
-        # --------------------------------------------------------
-        # Duplicate conversation check
-        # --------------------------------------------------------
-
-        conversation_key = json.dumps(
-            record["conversation"],
-            sort_keys=True,
-            ensure_ascii=False
-        )
-
-        if conversation_key in seen_conversations:
-            duplicate_conversations += 1
-            continue
-
-        seen_conversations.add(
-            conversation_key
-        )
-
-        # --------------------------------------------------------
-        # Process
-        # --------------------------------------------------------
-
-        try:
-
-            processed = process_record(
-                record
-            )
-
-            processed_records.append(
-                processed
-            )
-
-        except Exception as e:
-
-            invalid_records.append(
-                {
-                    "index": index,
-                    "id": record_id,
-                    "error": str(e),
-                }
-            )
-
-    # ============================================================
-    # DATASET VALIDATION
-    # ============================================================
-
-    print_header("DATASET VALIDATION")
-
-    print(
-        f"Raw examples          : {len(raw_records)}"
+    raise ValueError(
+        "Not enough clinical scenarios for "
+        "train/validation/test splitting."
     )
 
-    print(
-        f"Valid examples        : {len(processed_records)}"
-    )
 
-    print(
-        f"Invalid examples      : {len(invalid_records)}"
-    )
+# ------------------------------------------------------------
+# 80 / 10 / 10 scenario split
+# ------------------------------------------------------------
 
-    print(
-        f"Duplicate IDs         : {duplicate_ids}"
-    )
+train_count = int(num_scenarios * 0.80)
+validation_count = int(num_scenarios * 0.10)
 
-    print(
-        f"Duplicate conversations: {duplicate_conversations}"
-    )
+# Ensure at least one validation and one test scenario
+train_count = max(train_count, 1)
+validation_count = max(validation_count, 1)
 
-    # ============================================================
-    # STOP IF DATASET IS INVALID
-    # ============================================================
+test_count = (
+    num_scenarios
+    - train_count
+    - validation_count
+)
 
-    if len(processed_records) == 0:
+if test_count < 1:
 
-        raise ValueError(
-            "No valid examples were produced. "
-            "Check the raw dataset schema and preprocessing code."
-        )
+    test_count = 1
+    train_count -= 1
 
-    # ============================================================
-    # SPLIT DATASET
-    # ============================================================
 
-    print_header("DATASET SPLIT")
+train_scenarios = set(
+    scenario_ids[:train_count]
+)
 
-    random.seed(
-        RANDOM_SEED
-    )
-
-    random.shuffle(
-        processed_records
-    )
-
-    total_examples = len(
-        processed_records
-    )
-
-    # ------------------------------------------------------------
-    # We expect 450 / 50 for the current 500-example dataset.
-    # For a future dataset, the code still works as long as there
-    # are enough records.
-    # ------------------------------------------------------------
-
-    if total_examples < (
-        TRAIN_SIZE + VALIDATION_SIZE
-    ):
-
-        raise ValueError(
-            f"Not enough valid examples.\n"
-            f"Required: {TRAIN_SIZE + VALIDATION_SIZE}\n"
-            f"Found: {total_examples}"
-        )
-
-    train_records = processed_records[
-        :TRAIN_SIZE
+validation_scenarios = set(
+    scenario_ids[
+        train_count:
+        train_count + validation_count
     ]
+)
 
-    validation_records = processed_records[
-        TRAIN_SIZE:
-        TRAIN_SIZE + VALIDATION_SIZE
+test_scenarios = set(
+    scenario_ids[
+        train_count + validation_count:
     ]
+)
 
-    print(
-        f"Training examples     : {len(train_records)}"
+
+# ------------------------------------------------------------
+# Create example splits
+# ------------------------------------------------------------
+
+train_examples = []
+validation_examples = []
+test_examples = []
+
+
+for scenario_id in train_scenarios:
+
+    train_examples.extend(
+        scenario_groups[scenario_id]
     )
 
-    print(
-        f"Validation examples   : {len(validation_records)}"
+
+for scenario_id in validation_scenarios:
+
+    validation_examples.extend(
+        scenario_groups[scenario_id]
     )
 
-    print(
-        f"Random seed           : {RANDOM_SEED}"
+
+for scenario_id in test_scenarios:
+
+    test_examples.extend(
+        scenario_groups[scenario_id]
     )
 
-    # ============================================================
-    # CREATE OUTPUT DIRECTORY
-    # ============================================================
 
-    OUTPUT_DIR.mkdir(
-        parents=True,
-        exist_ok=True
+# Shuffle examples inside each split
+random.shuffle(train_examples)
+random.shuffle(validation_examples)
+random.shuffle(test_examples)
+
+
+print(
+    f"Train scenarios: "
+    f"{len(train_scenarios)}"
+)
+
+print(
+    f"Validation scenarios: "
+    f"{len(validation_scenarios)}"
+)
+
+print(
+    f"Test scenarios: "
+    f"{len(test_scenarios)}"
+)
+
+print()
+
+print(
+    f"Train examples: "
+    f"{len(train_examples)}"
+)
+
+print(
+    f"Validation examples: "
+    f"{len(validation_examples)}"
+)
+
+print(
+    f"Test examples: "
+    f"{len(test_examples)}"
+)
+
+
+total_split_examples = (
+    len(train_examples)
+    + len(validation_examples)
+    + len(test_examples)
+)
+
+
+print(
+    f"Total split examples: "
+    f"{total_split_examples}"
+)
+
+
+# ============================================================
+# LEAKAGE CHECK
+# ============================================================
+
+print("\n" + "=" * 70)
+print("LEAKAGE CHECK")
+print("=" * 70)
+
+
+train_ids = {
+    example["metadata"]["scenario_id"]
+    for example in train_examples
+}
+
+validation_ids = {
+    example["metadata"]["scenario_id"]
+    for example in validation_examples
+}
+
+test_ids = {
+    example["metadata"]["scenario_id"]
+    for example in test_examples
+}
+
+
+train_validation_overlap = (
+    train_ids & validation_ids
+)
+
+train_test_overlap = (
+    train_ids & test_ids
+)
+
+validation_test_overlap = (
+    validation_ids & test_ids
+)
+
+
+print(
+    "Train ∩ Validation:",
+    len(train_validation_overlap)
+)
+
+print(
+    "Train ∩ Test:",
+    len(train_test_overlap)
+)
+
+print(
+    "Validation ∩ Test:",
+    len(validation_test_overlap)
+)
+
+
+if (
+    train_validation_overlap
+    or train_test_overlap
+    or validation_test_overlap
+):
+
+    raise ValueError(
+        "SCENARIO LEAKAGE DETECTED!"
     )
 
-    # ============================================================
-    # SAVE PROCESSED DATA
-    # ============================================================
 
-    print_header("SAVING PROCESSED DATA")
+print("\n✓ No clinical scenario leakage detected.")
 
-    save_jsonl(
-        train_records,
-        TRAIN_FILE
+
+# ============================================================
+# CREATE OUTPUT DIRECTORY
+# ============================================================
+
+OUTPUT_DIR.mkdir(
+    parents=True,
+    exist_ok=True
+)
+
+
+# ============================================================
+# SAVE JSONL FILES
+# ============================================================
+
+print("\n" + "=" * 70)
+print("SAVING DATASETS")
+print("=" * 70)
+
+
+write_jsonl(
+    TRAIN_FILE,
+    train_examples
+)
+
+write_jsonl(
+    VALIDATION_FILE,
+    validation_examples
+)
+
+write_jsonl(
+    TEST_FILE,
+    test_examples
+)
+
+
+# ============================================================
+# SAVE CLEAN DATASET
+# ============================================================
+
+clean_dataset = {
+    "dataset_name": dataset.get("dataset_name"),
+    "description": dataset.get("description"),
+    "num_examples": len(valid_examples),
+    "num_unique_clinical_summary_scenarios": len(
+        scenario_groups
+    ),
+    "schema": EXPECTED_FIELDS,
+    "examples": valid_examples
+}
+
+
+with open(
+    CLEAN_DATASET_FILE,
+    "w",
+    encoding="utf-8"
+) as f:
+
+    json.dump(
+        clean_dataset,
+        f,
+        indent=2,
+        ensure_ascii=False
     )
 
-    save_jsonl(
-        validation_records,
-        VALIDATION_FILE
+
+# ============================================================
+# SAVE INVALID EXAMPLES
+# ============================================================
+
+with open(
+    INVALID_FILE,
+    "w",
+    encoding="utf-8"
+) as f:
+
+    json.dump(
+        invalid_examples,
+        f,
+        indent=2,
+        ensure_ascii=False
     )
 
-    print(
-        f"Training file   : {TRAIN_FILE}"
-    )
 
-    print(
-        f"Validation file : {VALIDATION_FILE}"
-    )
+# ============================================================
+# PREPROCESSING REPORT
+# ============================================================
 
-    # ============================================================
-    # SAMPLE RECORD
-    # ============================================================
+report = {
 
-    print_header(
-        "SAMPLE STRUCTURED RECORD"
-    )
+    "input_file": str(INPUT_FILE),
 
-    sample = train_records[0]
+    "original_examples": len(examples),
 
-    print()
-    print("ID:")
-    print(sample["id"])
+    "valid_examples": len(valid_examples),
 
-    print()
-    print("INPUT:")
-    print(sample["input_text"])
+    "invalid_examples": len(invalid_examples),
 
-    print()
-    print("STRUCTURED TARGET:")
-    print(sample["target_text"])
+    "duplicate_ids": len(duplicate_ids),
 
-    print()
-    print("CLINICAL SUMMARY OBJECT:")
-    print(
-        json.dumps(
-            sample["clinical_summary"],
-            indent=2,
-            ensure_ascii=False
+    "unique_conversations": len(
+        conversation_groups
+    ),
+
+    "exact_duplicate_conversation_groups": len(
+        duplicate_conversation_groups
+    ),
+
+    "unique_clinical_summaries": len(
+        summary_groups
+    ),
+
+    "duplicate_clinical_summary_groups": len(
+        duplicate_summary_groups
+    ),
+
+    "unique_clinical_scenarios": len(
+        scenario_groups
+    ),
+
+    "chief_complaint_distribution": dict(
+        complaint_counter
+    ),
+
+    "field_missingness": missingness,
+
+    "split": {
+
+        "train": {
+            "examples": len(train_examples),
+            "scenarios": len(train_scenarios)
+        },
+
+        "validation": {
+            "examples": len(validation_examples),
+            "scenarios": len(validation_scenarios)
+        },
+
+        "test": {
+            "examples": len(test_examples),
+            "scenarios": len(test_scenarios)
+        }
+    },
+
+    "leakage": {
+
+        "train_validation_overlap": len(
+            train_validation_overlap
+        ),
+
+        "train_test_overlap": len(
+            train_test_overlap
+        ),
+
+        "validation_test_overlap": len(
+            validation_test_overlap
         )
-    )
+    },
 
-    # ============================================================
-    # PREPROCESSING REPORT
-    # ============================================================
+    "random_seed": 42
+}
 
-    report = {
-        "dataset_name": "clinical_summary_dummy_dataset",
-        "raw_examples": len(raw_records),
-        "valid_examples": len(processed_records),
-        "invalid_examples": len(invalid_records),
-        "duplicate_ids": duplicate_ids,
-        "duplicate_conversations": duplicate_conversations,
-        "training_examples": len(train_records),
-        "validation_examples": len(validation_records),
-        "random_seed": RANDOM_SEED,
-        "target_type": "structured_clinical_summary",
-        "uses_summary_text": False,
-        "invalid_records": invalid_records,
-    }
 
-    with open(
-        REPORT_FILE,
-        "w",
-        encoding="utf-8"
-    ) as f:
+with open(
+    REPORT_FILE,
+    "w",
+    encoding="utf-8"
+) as f:
 
-        json.dump(
-            report,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
-
-    # ============================================================
-    # FINAL
-    # ============================================================
-
-    print_header(
-        "PREPROCESSING COMPLETE"
-    )
-
-    print()
-    print("Generated:")
-    print("  ✓ train.jsonl")
-    print("  ✓ validation.jsonl")
-    print("  ✓ preprocessing_report.json")
-
-    print()
-    print("IMPORTANT:")
-    print(
-        "The target is now a structured clinical summary."
-    )
-
-    print(
-        "The old paragraph-style summary_text is NOT used."
-    )
-
-    print()
-    print("Next step:")
-    print(
-        "Run dataset_preparation6.py, then perform token analysis."
+    json.dump(
+        report,
+        f,
+        indent=2,
+        ensure_ascii=False
     )
 
 
-# ================================================================
-# ENTRY POINT
-# ================================================================
+# ============================================================
+# FINAL SUMMARY
+# ============================================================
 
-if __name__ == "__main__":
-    main()
+print("\n" + "=" * 70)
+print("PREPROCESSING COMPLETE")
+print("=" * 70)
+
+print(f"""
+Input:
+    {INPUT_FILE}
+
+Output directory:
+    {OUTPUT_DIR}
+
+Files created:
+
+    {TRAIN_FILE}
+    {VALIDATION_FILE}
+    {TEST_FILE}
+    {CLEAN_DATASET_FILE}
+    {INVALID_FILE}
+    {REPORT_FILE}
+
+Dataset:
+
+    Original examples : {len(examples)}
+    Valid examples    : {len(valid_examples)}
+    Invalid examples  : {len(invalid_examples)}
+
+Scenarios:
+
+    Total scenarios   : {len(scenario_groups)}
+    Train scenarios   : {len(train_scenarios)}
+    Validation        : {len(validation_scenarios)}
+    Test scenarios    : {len(test_scenarios)}
+
+Examples:
+
+    Train             : {len(train_examples)}
+    Validation        : {len(validation_examples)}
+    Test              : {len(test_examples)}
+
+Scenario leakage:
+
+    Train/Validation  : {len(train_validation_overlap)}
+    Train/Test        : {len(train_test_overlap)}
+    Validation/Test   : {len(validation_test_overlap)}
+""")
+
+print("=" * 70)
+print("DONE")
+print("=" * 70)

@@ -1,877 +1,404 @@
-# ================================================================
-# MODEL 6 — CLINICAL SUMMARY GENERATOR
-# FINAL STRUCTURED TRAINING SCRIPT
-# ================================================================
-
-import json
-import math
-import random
 from pathlib import Path
-
-import numpy as np
+import inspect
 import torch
 
-from datasets import Dataset
+from datasets import load_dataset
 from transformers import (
     AutoTokenizer,
     AutoModelForSeq2SeqLM,
     DataCollatorForSeq2Seq,
     Seq2SeqTrainer,
     Seq2SeqTrainingArguments,
-    EarlyStoppingCallback,
 )
 
 
-# ================================================================
-# 1. PATH CONFIGURATION
-# ================================================================
+# ============================================================
+# 1. PATHS
+# ============================================================
 
-BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = Path("model_6(clinical summary generator)\\flan_t5_data")
+OUTPUT_DIR = Path("flan_t5_summary_model")
 
-TRAIN_FILE = BASE_DIR / "csg_prepared" / "train.jsonl"
-VALIDATION_FILE = BASE_DIR / "csg_prepared" / "validation.jsonl"
+TRAIN_FILE = DATA_DIR / "train.jsonl"
+VALIDATION_FILE = DATA_DIR / "validation.jsonl"
+TEST_FILE = DATA_DIR / "test.jsonl"
 
-# IMPORTANT:
-# This is a NEW directory.
-# It will NOT overwrite the old paragraph-summary model.
-MODEL_DIR = BASE_DIR / "csg_model_structured"
+
+# ============================================================
+# 2. MODEL
+# ============================================================
 
 MODEL_NAME = "google/flan-t5-small"
 
-
-# ================================================================
-# 2. LOCKED TRAINING CONFIGURATION
-# ================================================================
-
-MAX_INPUT_LENGTH = 384
-MAX_TARGET_LENGTH = 192
-
-LEARNING_RATE = 1e-4
-NUM_EPOCHS = 5
-
-TRAIN_BATCH_SIZE = 8
-EVAL_BATCH_SIZE = 8
-
-WEIGHT_DECAY = 0.01
-
-EARLY_STOPPING_PATIENCE = 2
-
-SEED = 42
-
-
-# ================================================================
-# 3. REPRODUCIBILITY
-# ================================================================
-
-def set_seed(seed):
-
-    random.seed(seed)
-    np.random.seed(seed)
-
-    torch.manual_seed(seed)
-
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(seed)
-
-
-set_seed(SEED)
-
-
-# ================================================================
-# 4. STARTUP INFORMATION
-# ================================================================
-
-print("=" * 70)
-print("MODEL 6 — CLINICAL SUMMARY GENERATOR")
-print("STRUCTURED SUMMARY TRAINING")
-print("=" * 70)
-
-print()
-print("Model name        :", MODEL_NAME)
-print("Input max tokens  :", MAX_INPUT_LENGTH)
-print("Target max tokens :", MAX_TARGET_LENGTH)
-print("Epochs            :", NUM_EPOCHS)
-print("Train batch size  :", TRAIN_BATCH_SIZE)
-print("Eval batch size   :", EVAL_BATCH_SIZE)
-print("Learning rate     :", LEARNING_RATE)
-print("Weight decay      :", WEIGHT_DECAY)
-print("Seed              :", SEED)
-
-print()
-print("PyTorch version   :", torch.__version__)
-print("CUDA available    :", torch.cuda.is_available())
-
-if torch.cuda.is_available():
-
-    print(
-        "GPU               :",
-        torch.cuda.get_device_name(0)
-    )
-
-else:
-
-    print("GPU               : CPU")
-
-print()
-
-
-# ================================================================
-# 5. CHECK FILES
-# ================================================================
-
-if not TRAIN_FILE.exists():
-
-    raise FileNotFoundError(
-        f"\nTraining dataset not found:\n{TRAIN_FILE}"
-    )
-
-
-if not VALIDATION_FILE.exists():
-
-    raise FileNotFoundError(
-        f"\nValidation dataset not found:\n{VALIDATION_FILE}"
-    )
-
-
-# ================================================================
-# 6. LOAD JSONL
-# ================================================================
-
-def load_jsonl(file_path):
-
-    records = []
-
-    with open(
-        file_path,
-        "r",
-        encoding="utf-8"
-    ) as file:
-
-        for line_number, line in enumerate(
-            file,
-            start=1
-        ):
-
-            line = line.strip()
-
-            if not line:
-                continue
-
-            try:
-
-                record = json.loads(line)
-
-            except json.JSONDecodeError as error:
-
-                raise ValueError(
-                    f"Invalid JSON at "
-                    f"{file_path}, line {line_number}\n"
-                    f"{error}"
-                )
-
-            records.append(record)
-
-    return records
-
-
-print("=" * 70)
-print("LOADING DATASETS")
-print("=" * 70)
-
-train_records = load_jsonl(TRAIN_FILE)
-validation_records = load_jsonl(VALIDATION_FILE)
-
-print()
-print("Training examples   :", len(train_records))
-print("Validation examples :", len(validation_records))
-print()
-
-
-# ================================================================
-# 7. VALIDATE RECORDS
-# ================================================================
-
-def validate_records(
-    records,
-    dataset_name
-):
-
-    required_fields = [
-        "id",
-        "input_text",
-        "target_text",
-        "clinical_summary",
-    ]
-
-    print(
-        f"Validating {dataset_name} dataset..."
-    )
-
-    for index, record in enumerate(records):
-
-        # --------------------------------------------------------
-        # Required fields
-        # --------------------------------------------------------
-
-        for field in required_fields:
-
-            if field not in record:
-
-                raise ValueError(
-                    f"{dataset_name} record {index} "
-                    f"is missing field: {field}"
-                )
-
-        # --------------------------------------------------------
-        # Input
-        # --------------------------------------------------------
-
-        if not isinstance(
-            record["input_text"],
-            str
-        ):
-
-            raise ValueError(
-                f"{dataset_name} record {index}: "
-                f"input_text must be a string"
-            )
-
-        # --------------------------------------------------------
-        # Target
-        # --------------------------------------------------------
-
-        if not isinstance(
-            record["target_text"],
-            str
-        ):
-
-            raise ValueError(
-                f"{dataset_name} record {index}: "
-                f"target_text must be a string"
-            )
-
-        if not record["input_text"].strip():
-
-            raise ValueError(
-                f"{dataset_name} record {index}: "
-                f"input_text is empty"
-            )
-
-        if not record["target_text"].strip():
-
-            raise ValueError(
-                f"{dataset_name} record {index}: "
-                f"target_text is empty"
-            )
-
-        # --------------------------------------------------------
-        # Prompt duplication checks
-        # --------------------------------------------------------
-
-        instruction_count = record[
-            "input_text"
-        ].count(
-            "Summarize the following medical conversation"
+MAX_SOURCE_LENGTH = 512
+MAX_TARGET_LENGTH = 256
+
+
+# ============================================================
+# 3. CHECK FILES
+# ============================================================
+
+for file_path in [TRAIN_FILE, VALIDATION_FILE, TEST_FILE]:
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"File not found: {file_path}\n"
+            f"Make sure flan_t5_data is in the current directory."
         )
 
-        conversation_count = record[
-            "input_text"
-        ].count(
-            "Conversation:"
-        )
+print("=" * 60)
+print("MODEL 6 - CLINICAL SUMMARY GENERATOR")
+print("=" * 60)
 
-        if instruction_count != 1:
-
-            raise ValueError(
-                f"{dataset_name} record {index}: "
-                f"expected exactly 1 instruction, "
-                f"found {instruction_count}"
-            )
-
-        if conversation_count != 1:
-
-            raise ValueError(
-                f"{dataset_name} record {index}: "
-                f"expected exactly 1 Conversation heading, "
-                f"found {conversation_count}"
-            )
-
-    print(
-        f"✓ {dataset_name} dataset valid"
-    )
-
-    print()
+print(f"\nModel: {MODEL_NAME}")
+print(f"Train file: {TRAIN_FILE}")
+print(f"Validation file: {VALIDATION_FILE}")
+print(f"Test file: {TEST_FILE}")
 
 
-validate_records(
-    train_records,
-    "Training"
+# ============================================================
+# 4. LOAD DATASET
+# ============================================================
+
+print("\nLoading dataset...")
+
+dataset = load_dataset(
+    "json",
+    data_files={
+        "train": str(TRAIN_FILE),
+        "validation": str(VALIDATION_FILE),
+        "test": str(TEST_FILE),
+    }
 )
 
-validate_records(
-    validation_records,
-    "Validation"
-)
+print("\nDataset:")
+print(dataset)
+
+print(f"\nTrain examples: {len(dataset['train'])}")
+print(f"Validation examples: {len(dataset['validation'])}")
+print(f"Test examples: {len(dataset['test'])}")
 
 
-# ================================================================
-# 8. CREATE CLEAN HUGGINGFACE DATASETS
-# ================================================================
-#
-# IMPORTANT:
-#
-# clinical_summary is intentionally NOT included.
-#
-# It is nested metadata containing lists and strings.
-# The model only needs:
-#
-#       input_text
-#       target_text
-#
-# ================================================================
+# ============================================================
+# 5. LOAD TOKENIZER
+# ============================================================
 
-train_dataset = Dataset.from_dict({
+print("\nLoading tokenizer...")
 
-    "input_text": [
-        record["input_text"]
-        for record in train_records
-    ],
-
-    "target_text": [
-        record["target_text"]
-        for record in train_records
-    ],
-})
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 
 
-validation_dataset = Dataset.from_dict({
+# ============================================================
+# 6. LOAD MODEL
+# ============================================================
 
-    "input_text": [
-        record["input_text"]
-        for record in validation_records
-    ],
+print("Loading FLAN-T5 model...")
 
-    "target_text": [
-        record["target_text"]
-        for record in validation_records
-    ],
-})
+model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
 
 
-print("=" * 70)
-print("DATASETS READY")
-print("=" * 70)
-
-print()
-print(
-    "Training rows      :",
-    len(train_dataset)
-)
-
-print(
-    "Validation rows    :",
-    len(validation_dataset)
-)
-
-print()
-
-
-# ================================================================
-# 9. LOAD TOKENIZER
-# ================================================================
-
-print("=" * 70)
-print("LOADING TOKENIZER")
-print("=" * 70)
-
-tokenizer = AutoTokenizer.from_pretrained(
-    MODEL_NAME
-)
-
-print()
-print("Tokenizer loaded successfully.")
-print("Vocabulary size :", len(tokenizer))
-print()
-
-
-# ================================================================
-# 10. LOAD MODEL
-# ================================================================
-
-print("=" * 70)
-print("LOADING MODEL")
-print("=" * 70)
-
-model = AutoModelForSeq2SeqLM.from_pretrained(
-    MODEL_NAME
-)
-
-print()
-print("Model loaded successfully.")
-print()
-
-
-# ================================================================
-# 11. TOKENIZATION
-# ================================================================
+# ============================================================
+# 7. TOKENIZATION
+# ============================================================
 
 def preprocess_function(examples):
 
-    # ------------------------------------------------------------
-    # INPUT
-    # ------------------------------------------------------------
+    inputs = examples["input"]
+    targets = examples["target"]
 
     model_inputs = tokenizer(
-        examples["input_text"],
-        max_length=MAX_INPUT_LENGTH,
+        inputs,
+        max_length=MAX_SOURCE_LENGTH,
         truncation=True,
     )
 
-    # ------------------------------------------------------------
-    # TARGET
-    # ------------------------------------------------------------
-
     labels = tokenizer(
-        text_target=examples["target_text"],
+        text_target=targets,
         max_length=MAX_TARGET_LENGTH,
         truncation=True,
     )
 
-    model_inputs["labels"] = labels[
-        "input_ids"
-    ]
+    model_inputs["labels"] = labels["input_ids"]
 
     return model_inputs
 
 
-print("=" * 70)
-print("TOKENIZING TRAINING DATA")
-print("=" * 70)
+print("\nTokenizing dataset...")
 
-tokenized_train = train_dataset.map(
+tokenized_dataset = dataset.map(
     preprocess_function,
     batched=True,
-    remove_columns=[
-        "input_text",
-        "target_text",
-    ],
-    desc="Tokenizing training data",
+    remove_columns=dataset["train"].column_names,
 )
+# ============================================================
+# CHECK TOKENIZED LABELS
+# ============================================================
 
-print()
-print("Training tokenization complete.")
-print()
+print("\n" + "=" * 60)
+print("CHECKING TOKENIZED LABELS")
+print("=" * 60)
+
+sample_labels = tokenized_dataset["train"][0]["labels"]
+
+print("Number of label tokens:", len(sample_labels))
+print("First 30 label token IDs:", sample_labels[:30])
+
+valid_label_tokens = [
+    token for token in sample_labels
+    if token != -100
+]
+
+print("Number of valid label tokens:", len(valid_label_tokens))
+
+if len(valid_label_tokens) == 0:
+    raise ValueError(
+        "ERROR: All target labels became -100. "
+        "The model has nothing to learn from."
+    )
+
+print("Label check PASSED.")
+print("Tokenization complete.")
 
 
-print("=" * 70)
-print("TOKENIZING VALIDATION DATA")
-print("=" * 70)
-
-tokenized_validation = validation_dataset.map(
-    preprocess_function,
-    batched=True,
-    remove_columns=[
-        "input_text",
-        "target_text",
-    ],
-    desc="Tokenizing validation data",
-)
-
-print()
-print("Validation tokenization complete.")
-print()
-
-
-# ================================================================
-# 12. DATA COLLATOR
-# ================================================================
+# ============================================================
+# 8. DATA COLLATOR
+# ============================================================
 
 data_collator = DataCollatorForSeq2Seq(
-
     tokenizer=tokenizer,
-
     model=model,
-
     padding=True,
 )
 
 
-# ================================================================
-# 13. TRAINING ARGUMENTS
-# ================================================================
-#
-# IMPORTANT:
-#
-# predict_with_generate=False
-#
-# We do NOT generate summaries during every validation epoch.
-#
-# Why?
-#
-# Training should optimize validation loss.
-# Clinical factual evaluation will be done separately after training.
-#
-# This also avoids the tokenizer/generation error encountered earlier.
-#
-# ================================================================
+# ============================================================
+# 9. DEVICE INFORMATION
+# ============================================================
+
+if torch.cuda.is_available():
+    device = torch.cuda.get_device_name(0)
+    print(f"\nGPU detected: {device}")
+else:
+    print("\nNo GPU detected.")
+
+# Disable FP16 for now.
+# This avoids NaN/gradient instability while we verify training.
+use_fp16 = False
+
+
+# ============================================================
+# 10. TRAINING ARGUMENTS
+# ============================================================
+
+training_kwargs = {
+    "output_dir": str(OUTPUT_DIR),
+
+    # Training
+    "num_train_epochs": 5,
+    "learning_rate": 5e-5,
+    "weight_decay": 0.01,
+
+    # Batch size
+    "per_device_train_batch_size": 4,
+    "per_device_eval_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+
+    # Evaluation / saving
+    "save_strategy": "epoch",
+
+    # Logging
+    "logging_strategy": "steps",
+    "logging_steps": 25,
+
+    # Best model
+    "load_best_model_at_end": True,
+    "metric_for_best_model": "eval_loss",
+    "greater_is_better": False,
+
+    # Generation
+    "predict_with_generate": True,
+
+    # Reproducibility
+    "seed": 42,
+
+    # Performance
+    "fp16": use_fp16,
+
+    # Keep only a few checkpoints
+    "save_total_limit": 2,
+
+    # Don't report to external services
+    "report_to": "none",
+}
+
+
+# ============================================================
+# 11. TRANSFORMERS VERSION COMPATIBILITY
+# ============================================================
+
+# Newer Transformers versions use eval_strategy.
+# Older versions use evaluation_strategy.
+
+signature = inspect.signature(Seq2SeqTrainingArguments)
+
+if "eval_strategy" in signature.parameters:
+    training_kwargs["eval_strategy"] = "epoch"
+else:
+    training_kwargs["evaluation_strategy"] = "epoch"
+
 
 training_args = Seq2SeqTrainingArguments(
-
-    # ------------------------------------------------------------
-    # Output
-    # ------------------------------------------------------------
-
-    output_dir=str(MODEL_DIR),
-
-    # ------------------------------------------------------------
-    # Training
-    # ------------------------------------------------------------
-
-    num_train_epochs=NUM_EPOCHS,
-
-    learning_rate=LEARNING_RATE,
-
-    per_device_train_batch_size=TRAIN_BATCH_SIZE,
-
-    per_device_eval_batch_size=EVAL_BATCH_SIZE,
-
-    weight_decay=WEIGHT_DECAY,
-
-    # ------------------------------------------------------------
-    # Evaluation
-    # ------------------------------------------------------------
-
-    eval_strategy="epoch",
-
-    # ------------------------------------------------------------
-    # Saving
-    # ------------------------------------------------------------
-
-    save_strategy="epoch",
-
-    save_total_limit=2,
-
-    load_best_model_at_end=True,
-
-    metric_for_best_model="eval_loss",
-
-    greater_is_better=False,
-
-    # ------------------------------------------------------------
-    # Generation
-    # ------------------------------------------------------------
-
-    predict_with_generate=False,
-
-    # ------------------------------------------------------------
-    # Precision
-    # ------------------------------------------------------------
-
-    # IMPORTANT:
-    # Previous mixed-precision training caused NaN.
-    # Keep both disabled.
-
-    fp16=False,
-
-    bf16=False,
-
-    # ------------------------------------------------------------
-    # Logging
-    # ------------------------------------------------------------
-
-    logging_strategy="epoch",
-
-    logging_first_step=True,
-
-    report_to="none",
-
-    # ------------------------------------------------------------
-    # Reproducibility
-    # ------------------------------------------------------------
-
-    seed=SEED,
-
-    data_seed=SEED,
-
-    # ------------------------------------------------------------
-    # Data loading
-    # ------------------------------------------------------------
-
-    dataloader_num_workers=0,
-
-    # ------------------------------------------------------------
-    # Dataset handling
-    # ------------------------------------------------------------
-
-    remove_unused_columns=True,
+    **training_kwargs
 )
 
 
-# ================================================================
-# 14. TRAINER
-# ================================================================
+# ============================================================
+# 12. TRAINER
+# ============================================================
+
+trainer_kwargs = {
+    "model": model,
+    "args": training_args,
+    "train_dataset": tokenized_dataset["train"],
+    "eval_dataset": tokenized_dataset["validation"],
+    "data_collator": data_collator,
+}
+
+# Transformers compatibility:
+# newer versions use processing_class,
+# older versions use tokenizer.
+
+trainer_signature = inspect.signature(Seq2SeqTrainer)
+
+if "processing_class" in trainer_signature.parameters:
+    trainer_kwargs["processing_class"] = tokenizer
+else:
+    trainer_kwargs["tokenizer"] = tokenizer
+
 
 trainer = Seq2SeqTrainer(
-
-    model=model,
-
-    args=training_args,
-
-    train_dataset=tokenized_train,
-
-    eval_dataset=tokenized_validation,
-
-    data_collator=data_collator,
-
-    callbacks=[
-        EarlyStoppingCallback(
-            early_stopping_patience=
-            EARLY_STOPPING_PATIENCE
-        )
-    ],
+    **trainer_kwargs
 )
 
 
-# ================================================================
-# 15. START TRAINING
-# ================================================================
+# ============================================================
+# 13. START TRAINING
+# ============================================================
 
-print("=" * 70)
-print("STARTING TRAINING")
-print("=" * 70)
-
-print()
-print(
-    "Training examples :",
-    len(tokenized_train)
-)
-
-print(
-    "Validation        :",
-    len(tokenized_validation)
-)
-
-print(
-    "Max input length  :",
-    MAX_INPUT_LENGTH
-)
-
-print(
-    "Max target length :",
-    MAX_TARGET_LENGTH
-)
-
-print("FP16              : False")
-print("BF16              : False")
-print("Generation eval   : False")
-print()
-
+print("\n" + "=" * 60)
+print("STARTING FLAN-T5 TRAINING")
+print("=" * 60)
 
 train_result = trainer.train()
 
 
-# ================================================================
-# 16. SAVE BEST MODEL
-# ================================================================
+# ============================================================
+# 14. SAVE FINAL MODEL
+# ============================================================
 
-print()
-print("=" * 70)
-print("SAVING BEST MODEL")
-print("=" * 70)
+print("\nSaving final model...")
 
-MODEL_DIR.mkdir(
-    parents=True,
-    exist_ok=True
+trainer.save_model(str(OUTPUT_DIR))
+tokenizer.save_pretrained(str(OUTPUT_DIR))
+
+print(f"\nModel saved to:")
+print(OUTPUT_DIR)
+
+
+# ============================================================
+# 15. VALIDATION RESULTS
+# ============================================================
+
+print("\n" + "=" * 60)
+print("VALIDATION RESULTS")
+print("=" * 60)
+
+validation_results = trainer.evaluate(
+    eval_dataset=tokenized_dataset["validation"]
 )
 
-trainer.save_model(
-    str(MODEL_DIR)
-)
-
-tokenizer.save_pretrained(
-    str(MODEL_DIR)
-)
-
-print()
-print("✓ Model saved.")
-print()
-print("Model directory:")
-print(MODEL_DIR)
-print()
-
-
-# ================================================================
-# 17. FINAL VALIDATION LOSS
-# ================================================================
-
-print("=" * 70)
-print("FINAL VALIDATION")
-print("=" * 70)
-
-final_metrics = trainer.evaluate()
-
-print()
-
-for key, value in final_metrics.items():
-
+for key, value in validation_results.items():
     if isinstance(value, float):
-
-        print(
-            f"{key:25s}: {value:.6f}"
-        )
-
+        print(f"{key}: {value:.4f}")
     else:
-
-        print(
-            f"{key:25s}: {value}"
-        )
+        print(f"{key}: {value}")
 
 
-# ================================================================
-# 18. PERPLEXITY
-# ================================================================
+# ============================================================
+# 16. TEST SET LOSS
+# ============================================================
 
-validation_loss = final_metrics.get(
-    "eval_loss"
+print("\n" + "=" * 60)
+print("TEST SET EVALUATION")
+print("=" * 60)
+
+test_results = trainer.evaluate(
+    eval_dataset=tokenized_dataset["test"],
+    metric_key_prefix="test",
 )
 
-if validation_loss is not None:
-
-    try:
-
-        perplexity = math.exp(
-            validation_loss
-        )
-
-    except OverflowError:
-
-        perplexity = float("inf")
-
-    print()
-    print(
-        f"Validation perplexity : "
-        f"{perplexity:.6f}"
-    )
+for key, value in test_results.items():
+    if isinstance(value, float):
+        print(f"{key}: {value:.4f}")
+    else:
+        print(f"{key}: {value}")
 
 
-# ================================================================
-# 19. TRAINING METRICS
-# ================================================================
+# ============================================================
+# 17. GENERATE ONE EXAMPLE
+# ============================================================
 
-print()
-print("=" * 70)
-print("TRAINING RESULTS")
-print("=" * 70)
+print("\n" + "=" * 60)
+print("SAMPLE GENERATED CLINICAL SUMMARY")
+print("=" * 60)
 
-train_metrics = train_result.metrics
+sample = dataset["test"][0]
 
-if "train_loss" in train_metrics:
+input_text = sample["input"]
 
-    print(
-        f"Final train loss      : "
-        f"{train_metrics['train_loss']:.6f}"
-    )
+inputs = tokenizer(
+    input_text,
+    return_tensors="pt",
+    truncation=True,
+    max_length=MAX_SOURCE_LENGTH,
+)
 
-if validation_loss is not None:
-
-    print(
-        f"Final validation loss : "
-        f"{validation_loss:.6f}"
-    )
-
-
-# ================================================================
-# 20. SAVE METADATA
-# ================================================================
-
-metrics_output = {
-
-    "model_name": MODEL_NAME,
-
-    "training_examples": len(
-        train_records
-    ),
-
-    "validation_examples": len(
-        validation_records
-    ),
-
-    "max_input_length": MAX_INPUT_LENGTH,
-
-    "max_target_length": MAX_TARGET_LENGTH,
-
-    "learning_rate": LEARNING_RATE,
-
-    "epochs_requested": NUM_EPOCHS,
-
-    "train_batch_size": TRAIN_BATCH_SIZE,
-
-    "eval_batch_size": EVAL_BATCH_SIZE,
-
-    "weight_decay": WEIGHT_DECAY,
-
-    "early_stopping_patience":
-        EARLY_STOPPING_PATIENCE,
-
-    "fp16": False,
-
-    "bf16": False,
-
-    "predict_with_generate": False,
-
-    "seed": SEED,
-
-    "train_metrics": train_metrics,
-
-    "final_validation_metrics":
-        final_metrics,
+# Move inputs to same device as model
+model_device = next(model.parameters()).device
+inputs = {
+    key: value.to(model_device)
+    for key, value in inputs.items()
 }
 
+with torch.no_grad():
 
-METRICS_FILE = (
-    MODEL_DIR /
-    "training_metrics.json"
-)
-
-
-with open(
-    METRICS_FILE,
-    "w",
-    encoding="utf-8"
-) as file:
-
-    json.dump(
-        metrics_output,
-        file,
-        indent=4,
-        ensure_ascii=False
+    generated_ids = model.generate(
+        **inputs,
+        max_new_tokens=MAX_TARGET_LENGTH,
+        num_beams=4,
+        do_sample=False,
     )
 
+generated_text = tokenizer.decode(
+    generated_ids[0],
+    skip_special_tokens=True,
+)
 
-# ================================================================
-# 21. FINAL MESSAGE
-# ================================================================
+print("\nGENERATED:")
+print(generated_text)
 
-print()
-print("=" * 70)
-print("TRAINING COMPLETE")
-print("=" * 70)
+print("\nEXPECTED:")
+print(sample["target"])
 
-print()
-print("✓ Training completed")
-print("✓ Best model restored")
-print("✓ Validation loss calculated")
-print("✓ Model saved")
-print("✓ Tokenizer saved")
-print("✓ Training metrics saved")
 
-print()
-print("MODEL:")
-print(MODEL_DIR)
+# ============================================================
+# 18. FINISHED
+# ============================================================
 
-print()
-print("METRICS:")
-print(METRICS_FILE)
+print("\n" + "=" * 60)
+print("TRAINING COMPLETED SUCCESSFULLY")
+print("=" * 60)
 
-print()
-print("=" * 70)
+print(f"\nFinal model directory:")
+print(OUTPUT_DIR)
+
+print("\nYou can now use this trained model for Model 6.")

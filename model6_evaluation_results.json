@@ -1,0 +1,4192 @@
+{
+  "total_examples": 100,
+  "raw_valid_json": {
+    "count": 0,
+    "percentage": 0.0
+  },
+  "parseable_after_outer_brace_repair": {
+    "count": 0,
+    "percentage": 0.0
+  },
+  "all_15_fields_present": {
+    "count": 0,
+    "percentage": 0.0
+  },
+  "exact_complete_match": {
+    "count": 0,
+    "percentage": 0.0
+  },
+  "red_flags_structure": {
+    "count": 0,
+    "percentage": 0.0
+  },
+  "field_accuracy": {
+    "chief_complaint": 0.0,
+    "onset": 0.0,
+    "duration": 0.0,
+    "location": 0.0,
+    "severity": 0.0,
+    "complaint_characteristics": 0.0,
+    "associated_symptoms": 0.0,
+    "negative_findings": 0.0,
+    "medical_history": 0.0,
+    "medications": 0.0,
+    "allergies": 0.0,
+    "red_flags": 0.0,
+    "triggers": 0.0,
+    "relieving_factors": 0.0,
+    "relevant_context": 0.0
+  },
+  "failed_examples": [
+    {
+      "index": 1,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\" lying still\"],\"relevant_context\":\"Pain became more noticeable with movement.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 2,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"night\"],\"relevant_context\":\"Cough is a serious warning sign.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 3,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"lightheaded\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Sitting down gives some relief.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 4,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Symptoms are more noticeable when standing quickly.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 5,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\" lying still\"],\"relevant_context\":\"Pain became more noticeable with movement.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 6,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 7,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"lightheaded\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Dizziness is lightheaded.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 8,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\"lighter movement\"],\"relevant_context\":\"Symptoms started after an awkward twisting movement.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 9,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"stiffness\"],\"associated_symptoms\":[\"abdominal\"],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Pain discomfort began suddenly.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 10,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"cramping\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fainting\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food makes it more noticeable\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Nausea started around the same time as the pain.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 11,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 12,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 13,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"sleeping with head elevated\"],\"relevant_context\":\"Reports a sensation of mucus draining into the throat.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 14,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Pain sometimes extends toward the left buttock.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 15,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"sleeping with head elevated\"],\"relevant_context\":\"Cough has lasted 10 days.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 16,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fevering\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\"lying still\"],\"relevant_context\":\"Severe weakness\",\"fevering\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 17,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"The problem began gradual.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 18,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"stiffness\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Symptoms started during a stressful event.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 19,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Symptoms are most noticeable after sitting for long periods.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 20,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"scratching\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Relieving_factors\":[\"rest\"],\"relevant_context\":\"Relieving_factors\":[\"rest\"],\"relevant_context\":\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 21,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"loss of appetite\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"loss of appetite\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\" lying still\"],\"relevant_context\":\"Walking makes it more noticeable, while lying still helps.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 22,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"sweating\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Sitting helps.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 23,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Dizziness has lasted 1 hour.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 24,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"night\"],\"relevant_context\":\"Sleeping with head elevated gives some relief.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 25,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Symptoms are more noticeable when standing quickly.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 26,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\" gentle movement\"],\"relevant_context\":\"Symptoms started after an awkward twisting movement.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 27,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Pain sometimes extends toward the left buttock.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 28,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"loss of appetite\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\"laying still\"],\"relevant_context\":\"An abdominal pain began suddenly.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 29,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"cramping\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Nausea started around the same time as the pain.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 30,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"stiffness\"],\"associated_symptoms\":[\"anxiety\"],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressed situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Have you noticed any red-flag symptoms?\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 31,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Dizziness began gradual.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 32,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"resting\"],\"relevant_context\":\"Sitting is better than sitting.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 33,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Fever\",\"bowel changes\",\"blank changes\"]",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 34,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"geting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Symptoms are most noticeable after sitting for long periods.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 35,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"sharpness\"],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"geting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"The main trigger is getting up after sitting.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 36,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"cramping\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fainting\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food makes it more noticeable\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Food makes it more noticeable.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 37,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"cramping\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"The problem began suddenly.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 38,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"tightness\"],\"associated_symptoms\":[\"abdominal\"],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"The problem began suddenly.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 39,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"tightness\"],\"associated_symptoms\":[\"anxiety\"],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Slow breathing gives some relief.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 40,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Symptoms are most noticeable after sitting for long periods.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 41,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sudden\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Nausea started around the same time as the pain.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 42,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fevering\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\"lying still\"],\"relevant_context\":\"Pain became more noticeable with movement.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 43,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"Getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Symptoms have been worse after sitting.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 44,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Episode occurred after prolonged standing.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 45,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Sitting is worse with sitting.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 46,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\" sleeping with head elevated\"],\"relevant_context\":\"Reports a sensation of mucus draining into the throat.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 47,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Dizziness began gradual.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 48,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 49,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"stiffness\"],\"associated_symptoms\":[\"anxiety\"],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressed situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Symptoms started during a stressful event.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 50,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 51,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\"lighter movement\"],\"relevant_context\":\"Fever\",\"weakness\",\"urinary retention\"]",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 52,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 53,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"Getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Symptoms are most noticeable after sitting for long periods.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 54,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"scratching\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Reports of abdominal pain and nausea.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 55,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"night\"],\"relevant_context\":\"Reports a sensation of mucus draining into the throat.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 56,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"postnasal drip\"],\"relieving_factors\":[\"sleeping with head elevated\"],\"relevant_context\":\"Cough began gradual.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 57,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 58,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\"leaving_factors\"],\"relevant_context\":\"Fever\",\"weakness\",\"urinary retention\"]",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 59,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Episode occurred after prolonged standing.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 60,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"cramping\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Nausea started around the same time as the pain.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 61,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Sitting gives some relief.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 62,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\" lying still\"],\"relevant_context\":\"Fainting is worse with walking.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 63,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\"leaving_factors\"],\"relevant_context\":\"Fever\",\"weakness\",\"urinary retention\"]",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 64,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Episode occurred after prolonged standing.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 65,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Symptoms are most noticeable after sitting for long periods.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 66,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Sitting helps.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 67,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 68,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"tightness\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Symptoms started during a stressful event.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 69,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\" gentle movement\"],\"relevant_context\":\"Symptoms started after an awkward twisting movement.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 70,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\" bladder changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\" bladder changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Pain sometimes extends toward the left buttock.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 71,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sudden\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fevering\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Nausea started around the same time as the pain.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 72,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Episode occurred after prolonged standing.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 73,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Sitting makes it more noticeable.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 74,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 75,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Dizziness started gradual and is around 4/10.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 76,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\" gentle movement\"],\"relevant_context\":\"Symptoms started after an awkward twisting movement.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 77,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\"gentle movement\"],\"relevant_context\":\"Symptoms started after an awkward twisting movement.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 78,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"night\"],\"relevant_context\":\"Reports a sensation of mucus draining into the throat.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 79,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"stiffness\"],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"bowel changes\",\"blank changes\"],\"triggers\":[\"getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 80,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"stiffness\"],\"associated_symptoms\":[\" anxiety\"],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Stressful situation makes it more noticeable, while slow breathing helps.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 81,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"tightness\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Symptoms started during a stressful event.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 82,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\" bladder changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\" bladder changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Pain sometimes extends toward the left buttock.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 83,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Chest discomfort\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"center of chest\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"stiffness\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"severe shortness of breath\",\"cold sweat\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"severe shortness of breath\",\"cold sweat\"],\"triggers\":[\"stressful situation\"],\"relieving_factors\":[\"slow breathing\"],\"relevant_context\":\"Symptoms started during a stressful event.\"",
+      "expected": {
+        "chief_complaint": "Chest discomfort",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "center of chest",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "tightness"
+        ],
+        "associated_symptoms": [
+          "anxiety"
+        ],
+        "negative_findings": [
+          "fainting",
+          "severe shortness of breath",
+          "cold sweat"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "severe shortness of breath",
+            "cold sweat"
+          ]
+        },
+        "triggers": [
+          "stressful situation"
+        ],
+        "relieving_factors": [
+          "slow breathing"
+        ],
+        "relevant_context": "Symptoms started during a stressful event."
+      }
+    },
+    {
+      "index": 84,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\"laying still\"],\"relevant_context\":\"Pain became more noticeable with movement.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 85,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"1 week\",\"location\":\"lower back\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[],\"negative_findings\":[\"fever\",\"bowel changes\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"bowel changes\",\"blank changes\"],\"triggers\":[\"getting up after sitting\"],\"relieving_factors\":[\"walking\"],\"relevant_context\":\"Getting up after sitting makes it more noticeable.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "1 week",
+        "location": "lower back",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "stiffness"
+        ],
+        "negative_findings": [
+          "fever",
+          "bowel changes",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [
+          "ibuprofen"
+        ],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "bowel changes",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "getting up after sitting"
+        ],
+        "relieving_factors": [
+          "walking"
+        ],
+        "relevant_context": "Symptoms are most noticeable after sitting for long periods."
+      }
+    },
+    {
+      "index": 86,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Symptoms are more noticeable when standing quickly.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 87,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\" gentle movement\"],\"relevant_context\":\"Fever\",\"weakness\",\"urinary retention\"]",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 88,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\"blank changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Pain is aching.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 89,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fainting\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Episode occurred after prolonged standing.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    },
+    {
+      "index": 90,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\"sleeping with head elevated\"],\"relevant_context\":\"Sleeping with head elevated helps.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 91,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Headache\",\"onset\":\"gradual\",\"duration\":\"2 days\",\"location\":\"left side of head\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"throbbing\"],\"associated_symptoms\":[\"nausea\",\"light sensitivity\"],\"negative_findings\":[\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"fever\",\"f",
+      "expected": {
+        "chief_complaint": "Headache",
+        "onset": "gradual",
+        "duration": "2 days",
+        "location": "left side of head",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "throbbing"
+        ],
+        "associated_symptoms": [
+          "nausea",
+          "light sensitivity"
+        ],
+        "negative_findings": [
+          "fever",
+          "fainting",
+          "weakness"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "weakness"
+          ]
+        },
+        "triggers": [
+          "bright light"
+        ],
+        "relieving_factors": [
+          "lying in a dark room"
+        ],
+        "relevant_context": "Similar headaches have occurred occasionally in the past."
+      }
+    },
+    {
+      "index": 92,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"gradual\",\"duration\":\"5 days\",\"location\":\"left lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"aching\"],\"associated_symptoms\":[\"pain extending into left buttock\"],\"negative_findings\":[\"leg weakness\",\"saddle numbness\",\" bladder changes\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"leg weakness\",\"saddle numbness\",\" bladder changes\"],\"triggers\":[\"sitting\"],\"relieving_factors\":[\"standing\"],\"relevant_context\":\"Pain sometimes extends toward the left buttock.\"",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "gradual",
+        "duration": "5 days",
+        "location": "left lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "aching"
+        ],
+        "associated_symptoms": [
+          "pain extending into left buttock"
+        ],
+        "negative_findings": [
+          "leg weakness",
+          "saddle numbness",
+          "bladder changes"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "leg weakness",
+            "saddle numbness",
+            "bladder changes"
+          ]
+        },
+        "triggers": [
+          "sitting"
+        ],
+        "relieving_factors": [
+          "standing"
+        ],
+        "relevant_context": "Pain sometimes extends toward the left buttock."
+      }
+    },
+    {
+      "index": 93,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Low back pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"central lower back\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"sasmodic\"],\"associated_symptoms\":[\"muscle tightness\"],\"negative_findings\":[\"fever\",\"weakness\",\"urinary retention\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fever\",\"weakness\",\"urinary retention\"],\"triggers\":[\"turning\"],\"relieving_factors\":[\"leaving_factors\"],\"relevant_context\":\"Fever\",\"weakness\",\"urinary retention\"]",
+      "expected": {
+        "chief_complaint": "Low back pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "central lower back",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "spasmodic"
+        ],
+        "associated_symptoms": [
+          "muscle tightness"
+        ],
+        "negative_findings": [
+          "fever",
+          "weakness",
+          "urinary retention"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "weakness",
+            "urinary retention"
+          ]
+        },
+        "triggers": [
+          "twisting"
+        ],
+        "relieving_factors": [
+          "gentle movement"
+        ],
+        "relevant_context": "Symptoms started after an awkward twisting movement."
+      }
+    },
+    {
+      "index": 94,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"lightheaded\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"resting quickly\"],\"relevant_context\":\"Symptoms are more noticeable when standing quickly.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 95,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"gradual\",\"duration\":\"3 days\",\"location\":\"general\",\"severity\":\"4/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[],\"negative_findings\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"chest pain\",\"shortness of breath\"],\"triggers\":[\"standing quickly\"],\"relieving_factors\":[\"sitting down\"],\"relevant_context\":\"Symptoms are more noticeable when standing quickly.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "gradual",
+        "duration": "3 days",
+        "location": "general",
+        "severity": "4/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing quickly"
+        ],
+        "relieving_factors": [
+          "sitting down"
+        ],
+        "relevant_context": "Symptoms are more noticeable when standing quickly."
+      }
+    },
+    {
+      "index": 96,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Cough\",\"onset\":\"gradual\",\"duration\":\"10 days\",\"location\":\"throat\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"productive\"],\"associated_symptoms\":[\"postnasal drip\"],\"negative_findings\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"high fever\",\"breathing difficulty\",\"coughing blood\"],\"triggers\":[\"night\"],\"relieving_factors\":[\" sleeping with head elevated\"],\"relevant_context\":\"Reports a sensation of mucus draining into the throat.\"",
+      "expected": {
+        "chief_complaint": "Cough",
+        "onset": "gradual",
+        "duration": "10 days",
+        "location": "throat",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "productive"
+        ],
+        "associated_symptoms": [
+          "postnasal drip"
+        ],
+        "negative_findings": [
+          "high fever",
+          "breathing difficulty",
+          "coughing blood"
+        ],
+        "medical_history": [
+          "no previous lung problems"
+        ],
+        "medications": [
+          "no regular medications"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "breathing difficulty",
+            "coughing blood"
+          ]
+        },
+        "triggers": [
+          "night"
+        ],
+        "relieving_factors": [
+          "sleeping with head elevated"
+        ],
+        "relevant_context": "Reports a sensation of mucus draining into the throat."
+      }
+    },
+    {
+      "index": 97,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\" lying still\"],\"relevant_context\":\"Pain became more noticeable with movement.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 98,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"6 hours\",\"location\":\"right lower abdomen\",\"severity\":\"7/10\",\"complaint_characteristics\":[\"sharp\"],\"associated_symptoms\":[\"loss of appetite\"],\"negative_findings\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fainting\",\"persistent vomiting\",\"blood in stool\"],\"triggers\":[\"walking\"],\"relieving_factors\":[\" lying still\"],\"relevant_context\":\"The problem began suddenly.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "6 hours",
+        "location": "right lower abdomen",
+        "severity": "7/10",
+        "complaint_characteristics": [
+          "sharp"
+        ],
+        "associated_symptoms": [
+          "loss of appetite"
+        ],
+        "negative_findings": [
+          "fainting",
+          "persistent vomiting",
+          "blood in stool"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "persistent vomiting",
+            "blood in stool"
+          ]
+        },
+        "triggers": [
+          "walking"
+        ],
+        "relieving_factors": [
+          "lying still"
+        ],
+        "relevant_context": "Pain became more noticeable with movement."
+      }
+    },
+    {
+      "index": 99,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Abdominal pain\",\"onset\":\"sudden\",\"duration\":\"8 hours\",\"location\":\"around the navel\",\"severity\":\"6/10\",\"complaint_characteristics\":[\"cramping\"],\"associated_symptoms\":[\"nausea\"],\"negative_findings\":[\"fainting\",\"blood in stool\",\"severe vomiting\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"blood in stool\",\"severe vomiting\"],\"triggers\":[\"food\"],\"relieving_factors\":[\"rest\"],\"relevant_context\":\"Reports acid reflux.\"",
+      "expected": {
+        "chief_complaint": "Abdominal pain",
+        "onset": "sudden",
+        "duration": "8 hours",
+        "location": "around the navel",
+        "severity": "6/10",
+        "complaint_characteristics": [
+          "cramping"
+        ],
+        "associated_symptoms": [
+          "nausea"
+        ],
+        "negative_findings": [
+          "fainting",
+          "blood in stool",
+          "severe vomiting"
+        ],
+        "medical_history": [
+          "history of acid reflux"
+        ],
+        "medications": [
+          "an antacid as needed"
+        ],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "blood in stool",
+            "severe vomiting"
+          ]
+        },
+        "triggers": [
+          "food"
+        ],
+        "relieving_factors": [
+          "rest"
+        ],
+        "relevant_context": "Nausea started around the same time as the pain."
+      }
+    },
+    {
+      "index": 100,
+      "parse_type": "invalid",
+      "generated_raw": "\"chief_complaint\":\"Dizziness\",\"onset\":\"sudden\",\"duration\":\"1 hour\",\"location\":\"general\",\"severity\":\"5/10\",\"complaint_characteristics\":[\"lightheaded\"],\"associated_symptoms\":[\"sweating\"],\"negative_findings\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"medical_history\":[],\"medications\":[],\"allergies\":[],\"red_flags\":\"status\":\"assessed_negative\",\"items\":[\"fevering\",\"chest pain\",\"severe shortness of breath\"],\"triggers\":[\"standing for a long time\"],\"relieving_factors\":[\"sitting\"],\"relevant_context\":\"Sitting helps.\"",
+      "expected": {
+        "chief_complaint": "Dizziness",
+        "onset": "sudden",
+        "duration": "1 hour",
+        "location": "general",
+        "severity": "5/10",
+        "complaint_characteristics": [
+          "lightheaded"
+        ],
+        "associated_symptoms": [
+          "sweating"
+        ],
+        "negative_findings": [
+          "fainting",
+          "chest pain",
+          "severe shortness of breath"
+        ],
+        "medical_history": [],
+        "medications": [],
+        "allergies": [],
+        "red_flags": {
+          "status": "assessed_negative",
+          "items": [
+            "fainting",
+            "chest pain",
+            "severe shortness of breath"
+          ]
+        },
+        "triggers": [
+          "standing for a long time"
+        ],
+        "relieving_factors": [
+          "sitting"
+        ],
+        "relevant_context": "Episode occurred after prolonged standing."
+      }
+    }
+  ]
+}
